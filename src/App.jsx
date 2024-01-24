@@ -1,29 +1,25 @@
-// App.js
-
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Bar';
-import Home from  './views/Home'
-import Galeria from './views/Galeria'
-import Terminos from './views/Terminos'
-import Carrito from './views/Carrito'
-import ComprarNumero from './views/ComprarNumero';
-
-
+import React from "react";
+import Navbar from "./components/Bar";
+import Home from "./views/Home";
+import Galeria from "./views/Galeria";
+import Terminos from "./views/Terminos";
+import Carrito from "./views/Carrito";
+import ComprarNumero from "./views/ComprarNumero";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
+    <div>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/compra" component={Compra} />
-        <Route path="/carrito" component={Carrito} />
-        <Route path="/terminos" component={Terminos} />
-        <Route path="/galeria" component={Galeria} />
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/galeria" element={<Galeria />} />
+        <Route path="/compra" element={<ComprarNumero />} />
+        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/terminos" element={<Terminos />} />
+      </Routes>
+    </div>
   );
-}
+};
 
 export default App;

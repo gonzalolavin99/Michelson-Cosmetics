@@ -8,10 +8,10 @@ const Navbar = () => {
     <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item"><Link to="/">Home</Link></li>
-        <li className="nav-item"><Link to="/compra">Compra tu número</Link></li>
+         <li className="nav-item"><Link to="/compra">Compra tu número</Link></li> 
         <li className="nav-item"><Link to="/carrito">Carrito</Link></li>
         <li className="nav-item"><Link to="/terminos">Términos y condiciones</Link></li>
-        <li className="nav-item"><Link to="/galeria">Galería</Link></li>
+        <li className="nav-item"><Link to="/galeria">Galería</Link></li> 
       </ul>
     </nav>
   );
