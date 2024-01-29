@@ -1,38 +1,35 @@
 import Carousel from 'react-bootstrap/Carousel';
-import React from 'react'
-
+import React from 'react';
+import imagen1 from '../assets/imgs/swift1.webp';
+import imagen2 from '../assets/imgs/swift2.jpg';
+import imagen3 from '../assets/imgs/swift3.jpg';
 
 const Carrusel = () => {
   return (
-    <Carousel>
-      <Carousel.Item>
-        {/* <ExampleCarouselImage text="First slide" /> */}
-        <h1>Hola</h1>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-      {/* <ExampleCarouselImage text="Second slide" /> */}
-      <h1>Adios</h1>
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/* <ExampleCarouselImage text="Third slide" /> */}
-        <h1>wss</h1>
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <div className="carousel-container">
+    <div id="carouselExample" className="carousel slide">
+      <div className="carousel-inner">
+        <div className="carousel-item active">
+          <img src={imagen1} className="d-block" alt="..." style={{ width: '500px', height: '500px' }} /> 
+        </div>
+        <div className="carousel-item">
+          <img src={imagen2} className="d-block" alt="..." style={{ width: '500px', height: '500px' }} /> 
+        </div>
+        <div className="carousel-item">
+          <img src={imagen3} className="d-block" alt="..." style={{ width: '500px', height: '500px' }} /> 
+        </div>
+      </div>
+      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style={{ backgroundColor: 'grey' }}>
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"style={{ backgroundColor: 'grey' }}>
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
   )
 }
 
-export default Carrusel
+export default Carrusel;

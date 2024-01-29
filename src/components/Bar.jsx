@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
   return (
+    <div className="navbar-container">
     <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item"><NavLink className={setActiveClass} to="/">Home</NavLink></li>
@@ -15,6 +16,7 @@ const Navbar = () => {
         <li className="nav-item"><NavLink className={setActiveClass} to="/galeria">Galería</NavLink></li> 
       </ul>
     </nav>
+    </div>
   );
 }
 

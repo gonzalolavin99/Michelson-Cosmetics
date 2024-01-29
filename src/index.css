@@ -70,35 +70,56 @@ button:focus-visible {
   background-color: pink;
   color: black;
   }
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff; /* Color de fondo del Navbar */
-    z-index: 1000; /* Asegura que el Navbar esté por encima de otros elementos */
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-item {
-    display: inline-block;
-    margin-right: 20px; /* Espacio entre elementos de la lista */
-  }
-  
-  .nav-item:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento de la lista */
-  }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: #030303; /* Color de texto de los enlaces */
-    padding: 10px; /* Espacio interior de los enlaces */
-  }
+/* Estilos para el contenedor del Navbar */
+.navbar-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente los elementos */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Color de fondo del Navbar */
+  z-index: 1000; /* Asegura que el Navbar esté por encima de otros elementos */
+}
+
+/* Estilos para el Navbar */
+.navbar {
+  padding: 10px; /* Añade espaciado interior al Navbar */
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 20px; /* Espacio entre elementos de la lista */
+}
+
+.nav-item:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento de la lista */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333; /* Color de texto de los enlaces */
+  padding: 10px; /* Espacio interior de los enlaces */
+}
+
+.nav-item a.active {
+  color: #030303; /* Color del texto del enlace activo */
+}
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según sea necesario */
+}
+
+
+
   
   
   
