@@ -66,3 +66,40 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.active {
+  background-color: pink;
+  color: black;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Color de fondo del Navbar */
+    z-index: 1000; /* Asegura que el Navbar esté por encima de otros elementos */
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    display: inline-block;
+    margin-right: 20px; /* Espacio entre elementos de la lista */
+  }
+  
+  .nav-item:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento de la lista */
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: #030303; /* Color de texto de los enlaces */
+    padding: 10px; /* Espacio interior de los enlaces */
+  }
+  
+  
+  
+  

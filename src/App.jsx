@@ -6,6 +6,7 @@ import Terminos from "./views/Terminos";
 import Carrito from "./views/Carrito";
 import ComprarNumero from "./views/ComprarNumero";
 import { Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
