@@ -7,6 +7,7 @@ import Carrito from "./views/Carrito";
 import ComprarNumero from "./views/ComprarNumero";
 import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Premios from "./views/Premios";
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
         <Route path="/compra" element={<ComprarNumero />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/terminos" element={<Terminos />} />
+        <Route path="/premios" element={<Premios />} />
+
       </Routes>
     </div>
   );

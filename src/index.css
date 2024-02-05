@@ -69,6 +69,7 @@ button:focus-visible {
 .active {
   background-color: pink;
   color: black;
+  margin-bottom: 10px;
   }
 /* Estilos para el contenedor del Navbar */
 .navbar-container {
