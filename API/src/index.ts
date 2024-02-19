@@ -1,8 +1,13 @@
 import express from 'express'
+//Importacion de Routes
+import ticketRouter from './routes/ticket';
+
 const app = express()
 app.use(express.json())
 
 const PORT = 3000
+
+app.use('/api/ticket', ticketRouter);
 
 app.get('/test', (_, res) => {
     
