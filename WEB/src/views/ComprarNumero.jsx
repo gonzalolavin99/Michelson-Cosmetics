@@ -1,8 +1,10 @@
 import React from 'react'
-
+import BuyButton from '../components/BuyButton'
 const ComprarNumero = () => {
   return (
-    <div>ComprarNumero</div>
+    <div>
+      <BuyButton></BuyButton>
+    </div>
   )
 }
 

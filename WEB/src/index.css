@@ -54,23 +54,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
 .active {
   background-color: pink;
   color: black;
   margin-bottom: 10px;
-  }
+}
 /* Estilos para el contenedor del Navbar */
 .navbar-container {
   display: flex;
@@ -119,9 +107,29 @@ button:focus-visible {
   height: 100vh; /* Ajusta la altura según sea necesario */
 }
 
+.btn-pink {
+  background-color: pink !important;
+  color: black;
+  border-color: pink;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
 
+.btn-pink:hover {
+  background-color: #ff69b4  !important;
+  color: white;
+  border-color: #ff69b4;
+}
 
-  
-  
-  
-  
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+ 
+}
