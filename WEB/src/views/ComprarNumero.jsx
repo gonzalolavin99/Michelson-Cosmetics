@@ -3,7 +3,8 @@ import BuyButton from '../components/BuyButton'
 const ComprarNumero = () => {
   return (
     <div>
-      <BuyButton></BuyButton>
+       <BuyButton onClick={handleCompra} />
+      
     </div>
   )
 }

@@ -2,9 +2,9 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 
 
-const BuyButton = () => {
+const BuyButton = ({onClick}) => {
   return (
-    <div><div> <Button className='btn-pink'>Comprar tu número</Button>{' '}
+    <div><div> <Button className='btn-pink' onClick={onClick}>Comprar tu número</Button>
         </div></div>
   )
   
