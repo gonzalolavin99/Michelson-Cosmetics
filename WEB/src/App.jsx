@@ -8,6 +8,7 @@ import ComprarNumero from "./views/ComprarNumero";
 import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Premios from "./views/Premios";
+import './index.css'
 
 const App = () => {
   return (
