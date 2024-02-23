@@ -1,11 +1,19 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
+import { useTicket } from '../context/TicketContext';
 
 
-const BuyButton = ({onClick}) => {
+const BuyButton = () => {
+const {handleCompra} =useTicket(); // Obtener handleCompra del contexto
+
   return (
-    <div><div> <Button className='btn-pink' onClick={onClick}>Comprar tu número</Button>
-        </div></div>
+    <div>
+    <div>
+      <Button className='btn-pink' onClick={handleCompra}>
+        Comprar tu número
+      </Button>
+    </div>
+  </div>
   )
   
 }

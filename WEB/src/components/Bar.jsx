@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTicket } from "../context/TicketContext";
 
 const Navbar = () => {
+  const { cantidadTickets } = useTicket(); // Consumir el contexto
+
   const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
 
-const [cantidadTickets, setCantidadTickets] = useState(0); //Estado para almacenar la cantidad de compras
-
-  // Función para manejar la acción de compra
-const handleTickets = ()  =>  {
-  // Incrementar la cantidad de compras en 1 cada vez que se presiona el botón de compra
-  setCantidadTickets(cantidadTickets + 1);
-}
-  
-
+  console.log("Cantidad de tickets:", cantidadTickets);
 
   return (
     <div className="navbar-container">
@@ -36,7 +31,11 @@ const handleTickets = ()  =>  {
 
           <li className="nav-item">
             <NavLink className={setActiveClass} to="/carrito">
-              Carrito {cantidadTickets > 0 && <span>({cantidadTickets})</span>}
+              Carrito{" "}
+              {cantidadTickets !== undefined && (
+                <span>({cantidadTickets})</span>
+              )} 
+              {/* Aquí mostramos la cantidad de tickets seleccionados por el cliente solo si  es mayor a  0  */}
             </NavLink>
           </li>
           <li className="nav-item">
