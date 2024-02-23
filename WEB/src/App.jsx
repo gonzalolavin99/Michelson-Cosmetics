@@ -1,3 +1,4 @@
+// App.jsx
 import React from "react";
 import Navbar from "./components/Bar";
 import Home from "./views/Home";
@@ -6,24 +7,27 @@ import Terminos from "./views/Terminos";
 import Carrito from "./views/Carrito";
 import ComprarNumero from "./views/ComprarNumero";
 import { Route, Routes } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios";
-import './index.css'
+import "./index.css";
+import { TicketProvider } from "./context/TicketContext";
 
 const App = () => {
+  
   return (
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/galeria" element={<Galeria />} />
-        <Route path="/compra" element={<ComprarNumero />} />
-        <Route path="/carrito" element={<Carrito />} />
-        <Route path="/terminos" element={<Terminos />} />
-        <Route path="/premios" element={<Premios />} />
-
-      </Routes>
-    </div>
+    <TicketProvider>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/galeria" element={<Galeria />} />
+          <Route path="/compra" element={<ComprarNumero />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/terminos" element={<Terminos />} />
+          <Route path="/premios" element={<Premios />} />
+        </Routes>
+      </div>
+    </TicketProvider>
   );
 };
 
