@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Premios from "./views/Premios";
 import './index.css'
+import PruebaApi from "./components/PruebaApi";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/terminos" element={<Terminos />} />
         <Route path="/premios" element={<Premios />} />
+        <Route path="/pruebaApi" element={<PruebaApi />} />
 
       </Routes>
     </div>
