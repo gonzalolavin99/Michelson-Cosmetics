@@ -1,35 +1,28 @@
-import Carousel from 'react-bootstrap/Carousel';
-import React from 'react';
+import React, { useState } from 'react';
 import imagen1 from '../assets/imgs/swift1.webp';
 import imagen2 from '../assets/imgs/swift2.jpg';
 import imagen3 from '../assets/imgs/swift3.jpg';
 
+
 const Carrusel = () => {
+  const [indice, setIndice] = useState(0);
+  const imagenes = [imagen1, imagen2, imagen3];
+
+  const siguienteImagen = () => {
+    setIndice((indice + 1) % imagenes.length);
+  };
+
+  const imagenAnterior = () => {
+    setIndice((indice - 1 + imagenes.length) % imagenes.length);
+  };
+
   return (
-    <div className="carousel-container d-flex justify-content-center align-items-center">
-      <div id="carouselExample" className="carousel slide">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={imagen1} className="d-block" alt="..." style={{ width: '20em', height: '20em' }} /> 
-          </div>
-          <div className="carousel-item">
-            <img src={imagen2} className="d-block" alt="..." style={{ width: '20em', height: '20em' }} /> 
-          </div>
-          <div className="carousel-item">
-            <img src={imagen3} className="d-block" alt="..." style={{ width: '20em', height: '20em' }} /> 
-          </div>
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style={{ backgroundColor: 'grey' }}>
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"style={{ backgroundColor: 'grey' }}>
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
+    <div className="carousel-container">
+      <button className="btn-slide" onClick={imagenAnterior}>&lt;</button>
+      <img src={imagenes[indice]} alt={`Imagen ${indice + 1}`} style={{ width: '20rem', maxHeight: '20rem' }} />
+      <button className="btn-slide" onClick={siguienteImagen}>&gt;</button>
     </div>
-  )
-}
+  );
+};
 
 export default Carrusel;

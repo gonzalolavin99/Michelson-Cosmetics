@@ -13,6 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -52,6 +54,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-slide{
+  size: 0.5rem;
+  background-color: white;
 }
 
 .active {
@@ -118,10 +125,13 @@ button:focus-visible {
 }
 
 .btn-pink:hover {
-  background-color: #ff69b4  !important;
+  background-color: #000000 !important;
   color: white;
-  border-color: #ff69b4;
+  border-color: #000000;
 }
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -131,5 +141,4 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
- 
 }
