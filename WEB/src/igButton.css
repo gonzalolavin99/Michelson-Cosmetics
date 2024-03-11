@@ -1,7 +1,7 @@
 /* From uiverse.io by @alshahwan */
 button {
     background-color: #ffffff;
-    border: 1px solid #bc2a8d;
+    border: 1px solid #ffc0cb;
     padding: 5px;
     position: relative;
     width: 7.2em;
@@ -18,7 +18,7 @@ button {
     margin: 0;
     padding: 0;
     transition: .5s;
-    color: #bc2a8d;
+    color: #ffc0cb;
   }
   
   button svg {
@@ -30,12 +30,12 @@ button {
     opacity: 0;
     transition: 0.5s;
     height: 1em;
-    fill: #fff
+    fill: black
   }
   
   button:hover p {
     left: 0.6em;
-    color: #fff
+    color: black;
   }
   
   button:hover svg {
@@ -43,6 +43,7 @@ button {
   }
   
   button:hover {
-    background-color: #bc2a8d;
+    background-color: #ffc0cb;
+    color: black;
   }
   
