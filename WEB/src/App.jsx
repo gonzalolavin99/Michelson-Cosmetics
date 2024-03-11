@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios";
 import "./index.css";
 import { TicketProvider } from "./context/TicketContext";
+import PruebaApi from "./components/PruebaApi";
 
 const App = () => {
   
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/terminos" element={<Terminos />} />
           <Route path="/premios" element={<Premios />} />
+          <Route path="/pruebaApi" element={<PruebaApi />} />
         </Routes>
       </div>
     </TicketProvider>
