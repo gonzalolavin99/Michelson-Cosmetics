@@ -10,7 +10,9 @@ const {handleCompra} =useTicket(); // Obtener handleCompra del contexto
     <div>
     <div>
       <Button className='btn-pink' onClick={handleCompra}>
-        Comprar tu número
+        <div>
+          Comprar!
+        </div>
       </Button>
     </div>
   </div>
