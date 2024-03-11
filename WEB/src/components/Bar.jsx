@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useTicket } from "../context/TicketContext";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 const Navbar = () => {
   const { cantidadTickets } = useTicket(); // Consumir el contexto
@@ -31,7 +33,8 @@ const Navbar = () => {
 
           <li className="nav-item">
             <NavLink className={setActiveClass} to="/carrito">
-              Carrito{" "}
+            <FaShoppingCart />
+{" "}
               {cantidadTickets !== undefined && (
                 <span>({cantidadTickets})</span>
               )} 
