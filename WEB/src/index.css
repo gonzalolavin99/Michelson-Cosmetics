@@ -54,6 +54,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.btn-slide {
+  size: 0.5rem;
+  background-color: white;
+  margin-top: 0.5rem;
+}
+
 .active {
   background-color: pink;
   color: black;
@@ -66,6 +72,7 @@ button:focus-visible {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   background-color: #fff; /* Color de fondo del Navbar */
   z-index: 1000; /* Asegura que el Navbar esté por encima de otros elementos */
@@ -73,13 +80,15 @@ button:focus-visible {
 
 /* Estilos para el Navbar */
 .navbar {
-  padding: 10px; /* Añade espaciado interior al Navbar */
+  padding: 20px; /* Añade espaciado interior al Navbar */
+  width: auto;
 }
 
 .nav-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-size: 1.2em;
 }
 
 .nav-item {
@@ -103,24 +112,32 @@ button:focus-visible {
 .carousel-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ajusta la altura según sea necesario */
+  margin-top: 8em;
+  height: 55vh; /* Ajusta la altura según sea necesario */
+  width: 90vh;
+  left: 8em;
+  bottom: 1em;
 }
 
 .btn-pink {
-  background-color: pink !important;
+  background-color: #ffc0cb !important;
   color: black;
-  border-color: pink;
-  padding: 0.6em 1.2em;
-  border-radius: 8px;
+  border-color: #000000;
+ 
+  border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
+.btn-text {
+  text-align: center;
+}
+
+
 .btn-pink:hover {
-  background-color: #ff69b4  !important;
+  background-color: #000000 !important;
   color: white;
-  border-color: #ff69b4;
+  border-color: #000000;
 }
 
 @media (prefers-color-scheme: light) {
@@ -131,5 +148,4 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
- 
 }
