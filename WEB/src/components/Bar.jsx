@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTicket } from "../context/TicketContext";
 import { FaShoppingCart } from "react-icons/fa";
 
-
 const Navbar = () => {
-  const { cantidadTickets } = useTicket(); // Consumir el contexto
+  const { cantidadTickets, handleCompra } = useTicket(); // Consumir el contexto
+  const [carritoAbierto, setCarritoAbierto] = useState(false); // Estado para controlar si el menú del carrito está abierto
+ 
 
   const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
+
+  const toggleCarrito = () => {
+    setCarritoAbierto(!carritoAbierto);
+  };
+
+
+
+  const sumarTicket = () => {
+    handleCompra(1); // Llama a la función del contexto para agregar un ticket
+  };
+
+  const restarTicket = () => {
+    // Asegúrate de que la cantidad de tickets sea mayor que 0 antes de restar
+    if (cantidadTickets > 0) {
+      handleCompra(-1); // Aquí deberías pasar -1 para restar un ticket
+    }
+  };
 
   console.log("Cantidad de tickets:", cantidadTickets);
 
@@ -32,14 +50,26 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item">
-            <NavLink className={setActiveClass} to="/carrito">
-            <FaShoppingCart />
-{" "}
-              {cantidadTickets !== undefined && (
+            <a className="cart-icon" onClick={toggleCarrito}>
+              <FaShoppingCart />
+              {cantidadTickets !== undefined && cantidadTickets > 0 && (
                 <span>({cantidadTickets})</span>
-              )} 
-              {/* Aquí mostramos la cantidad de tickets seleccionados por el cliente solo si  es mayor a  0  */}
-            </NavLink>
+              )}
+            </a>
+            {carritoAbierto && (
+              <div className="cart-menu">
+                <p>Tickets comprados: {cantidadTickets}</p>
+                <button className="btn-pink" onClick={sumarTicket}>
+                  +
+                </button>
+                <button className="btn-pink" onClick={restarTicket}>
+                  -
+                </button>
+                <NavLink className="btn-pink" to="/compra">
+                  Ir a Comprar
+                </NavLink>
+              </div>
+            )}
           </li>
           <li className="nav-item">
             <NavLink className={setActiveClass} to="/galeria">
