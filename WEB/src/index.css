@@ -58,7 +58,7 @@ button:focus-visible {
   size: 0.5rem;
   background-color: white;
   margin-top: 0.5rem;
-};
+}
 
 .btn-cart {
   background-color: black;
@@ -69,10 +69,7 @@ button:focus-visible {
   background-color: #ffc0cb;
 
   color: white; /* Cambia el color del texto a blanco cuando el botón está en estado clicked */
-};
-
-
-
+}
 
 .active {
   background-color: #ffc0cb;
@@ -137,16 +134,21 @@ button:focus-visible {
   background-color: #ffc0cb !important;
   color: black;
   border-color: #000000;
- 
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
-}
+  margin: 5px;
+  width: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+};
+
 
 .btn-text {
   text-align: center;
 }
-
 
 .btn-pink:hover {
   background-color: #000000 !important;
@@ -166,17 +168,31 @@ button:focus-visible {
   animation: slideDown 0.2s ease; /* Agregar animación para desplazar hacia abajo */
 }
 
+.ticket-container {
+  display: flex;
+  align-items: center;
+}
+
+.ticket-container button {
+  margin-right: 5px; /* Ajusta el espaciado entre los botones */
+}
+
+.ticket-container p {
+  margin-right: 5px; /* Ajusta el espaciado entre el texto y los botones */
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-10px); /* Desplazar hacia arriba para ocultar el menú */
+    transform: translateY(
+      -10px
+    ); /* Desplazar hacia arriba para ocultar el menú */
   }
   to {
     opacity: 1;
     transform: translateY(0); /* Sin desplazamiento al mostrar el menú */
   }
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

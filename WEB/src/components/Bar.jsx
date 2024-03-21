@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { useTicket } from "../context/TicketContext";
+import { TicketContext } from "../context/TicketContext";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
-  const { cantidadTickets, handleCompra } = useTicket(); // Consumir el contexto
-  const [carritoAbierto, setCarritoAbierto] = useState(false); // Estado para controlar si el menú del carrito está abierto
- 
-
+  const { cantidadTickets, setCantidadTickets, handleCompra } = useContext(TicketContext); // Consumir el contexto utilizando useContext  const [carritoAbierto, setCarritoAbierto] = useState(false); // Estado para controlar si el menú del carrito está abierto
+  const [carritoAbierto, setCarritoAbierto] = useState(false);
   const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
 
   const toggleCarrito = () => {
     setCarritoAbierto(!carritoAbierto);
   };
-
-
 
   const sumarTicket = () => {
     handleCompra(1); // Llama a la función del contexto para agregar un ticket
@@ -58,13 +54,15 @@ const Navbar = () => {
             </a>
             {carritoAbierto && (
               <div className="cart-menu">
-                <p>Tickets comprados: {cantidadTickets}</p>
+                <div className="ticket-container">
                 <button className="btn-pink" onClick={sumarTicket}>
                   +
                 </button>
+                <p> {cantidadTickets}</p>
                 <button className="btn-pink" onClick={restarTicket}>
                   -
                 </button>
+                </div>
                 <NavLink className="btn-pink" to="/compra">
                   Ir a Comprar
                 </NavLink>

@@ -1,23 +1,24 @@
-// TicketContext.jsx
-import React, { createContext, useContext, useState } from "react";
+import React, { useState, createContext } from "react";
 
-const TicketContext = createContext(); // Se crea el contexto llamado TicketContext usando la función createContext. Esto contendrá la cantidad de tickets y la función para manejar la compra.
+const TicketContext = createContext({
+  cantidadTickets: 0,
+  setCantidadTickets: () => {},
+  handleCompra: () => {},
+});
 
-export const TicketProvider = ({ children }) => {
-  const [cantidadTickets, setCantidadTickets] = useState(0); // Se crea el estado cantidadTickets que partirá en 0 usando useState
+const TicketProvider = ({ children }) => {
+  const [cantidadTickets, setCantidadTickets] = useState(0);
 
   const handleCompra = (cantidad) => {
-    // Revisa si handleCompra se está ejecutando correctamente console.log("Compra realizada");
-    setCantidadTickets((prevCantidadTickets) => prevCantidadTickets + cantidad); // Este handle se encarga de aumentar o disminuir la cantidad de tickets según el argumento recibido
+    setCantidadTickets((prevCantidadTickets) => prevCantidadTickets + cantidad);
   };
 
   return (
-    <TicketContext.Provider value={{ cantidadTickets, handleCompra }}>
+    <TicketContext.Provider value={{ cantidadTickets, setCantidadTickets, handleCompra }}>
       {children}
     </TicketContext.Provider>
   );
 };
 
-export const useTicket = () => {
-  return useContext(TicketContext);
-};
+export default TicketProvider;
+export { TicketContext };
