@@ -11,6 +11,7 @@ import Premios from "./views/Premios";
 import "./index.css";
 import PruebaApi from "./components/PruebaApi";
 import CompraExitosa from "./views/CompraExitosa";
+import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/premios" element={<Premios />} />
           <Route path="/pruebaApi" element={<PruebaApi />} />
           <Route path="/compra-exitosa" element={<CompraExitosa />} />
+          <Route path="/compra-fallida" element={<CompraFallida/>}/>
         </Routes>
       </div>
     </TicketProvider>

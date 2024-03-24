@@ -181,6 +181,45 @@ button:focus-visible {
   margin-right: 5px; /* Ajusta el espaciado entre el texto y los botones */
 }
 
+.compra-fallida-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.compra-fallida-container h2 {
+  color: #ffc0cb;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.compra-fallida-container p {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.btn-volver {
+  background-color: #ffc0cb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  min-width: 150px; /* Ajusta este valor según sea necesario */
+}
+
+.btn-volver:hover {
+  background-color: #ffb3b3;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;

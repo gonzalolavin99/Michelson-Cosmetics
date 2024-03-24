@@ -19,13 +19,18 @@ const ComprarNumero = () => {
     setCompraExitosa(true);
   };
 
+  const handleCompraFallida = () =>{
+    navigate('/compra-fallida');
+  };
+  
+
   return (
     <div>
       {/* Botón "Paga aquí" que llama a la función handleCompra */}
       <button className="btn-pink" onClick={handleCompra}>Paga aquí</button>
 
       {/* Botón "No pagues aquí" (opcional) */}
-      <button className="btn-pink">No pagues aquí!</button>
+      <button className="btn-pink" onClick={handleCompraFallida}>No pagues aquí!</button>
     </div>
   );
 };
