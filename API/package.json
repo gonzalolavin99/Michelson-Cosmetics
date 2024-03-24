@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "cors": "2.8.4",
+    "etpay-sdk": "^0.1.6",
     "express": "4.18.2"
   }
 }
