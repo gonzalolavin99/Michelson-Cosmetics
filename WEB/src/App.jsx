@@ -1,4 +1,3 @@
-// App.jsx
 import React from "react";
 import Navbar from "./components/Bar";
 import Home from "./views/Home";
@@ -10,11 +9,11 @@ import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios";
 import "./index.css";
-import { TicketProvider } from "./context/TicketContext";
 import PruebaApi from "./components/PruebaApi";
+import CompraExitosa from "./views/CompraExitosa";
+import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
 
 const App = () => {
-  
   return (
     <TicketProvider>
       <div>
@@ -27,6 +26,7 @@ const App = () => {
           <Route path="/terminos" element={<Terminos />} />
           <Route path="/premios" element={<Premios />} />
           <Route path="/pruebaApi" element={<PruebaApi />} />
+          <Route path="/compra-exitosa" element={<CompraExitosa />} />
         </Routes>
       </div>
     </TicketProvider>

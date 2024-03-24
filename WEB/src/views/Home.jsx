@@ -1,23 +1,22 @@
 // Home.jsx
-import React from 'react';
+import React, { useContext } from 'react';
 import Carrusel from '../components/Carrusel';
 import BuyButton from '../components/BuyButton';
-import { useTicket } from "../context/TicketContext";
+import { TicketContext } from "../context/TicketContext";
 import IgButton from '../components/IgButton';
 import Info from '../components/Info';
 
-
 const Home = () => {
-  const { handleCompra } = useTicket();
+  const { handleCompra } = useContext(TicketContext);
 
   return (
     <div>
       <Carrusel />
-      <Info/>
-      <BuyButton onClick={handleCompra} />
+      <Info />
+      <BuyButton />
       <IgButton></IgButton>
     </div>
   );
-}
+};
 
 export default Home;

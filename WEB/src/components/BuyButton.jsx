@@ -1,23 +1,24 @@
-import React from 'react'
+// BuyButton.jsx
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import { useTicket } from '../context/TicketContext';
-
+import { TicketContext } from '../context/TicketContext';
 
 const BuyButton = () => {
-const {handleCompra} =useTicket(); // Obtener handleCompra del contexto
+  const { handleCompra } = useContext(TicketContext);
+
+  const comprarTicket = () => {
+    handleCompra(1);
+  };
 
   return (
     <div>
-    <div>
-      <Button className='btn-pink' onClick={handleCompra}>
-        <div>
-          Comprar!
-        </div>
-      </Button>
+      <div>
+        <Button className="btn-pink" onClick={comprarTicket}>
+          <div className="btn-text">Comprar!</div>
+        </Button>
+      </div>
     </div>
-  </div>
-  )
-  
-}
+  );
+};
 
-export default BuyButton
+export default BuyButton;
