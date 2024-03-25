@@ -11,23 +11,31 @@ import Premios from "./views/Premios";
 import "./index.css";
 import PruebaApi from "./components/PruebaApi";
 import CompraExitosa from "./views/CompraExitosa";
+import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
 
 const App = () => {
   return (
     <TicketProvider>
-      <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/galeria" element={<Galeria />} />
-          <Route path="/compra" element={<ComprarNumero />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/terminos" element={<Terminos />} />
-          <Route path="/premios" element={<Premios />} />
-          <Route path="/pruebaApi" element={<PruebaApi />} />
-          <Route path="/compra-exitosa" element={<CompraExitosa />} />
-        </Routes>
+      <div className="row">
+        <div className="col-12">
+          <Navbar />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/galeria" element={<Galeria />} />
+            <Route path="/compra" element={<ComprarNumero />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/terminos" element={<Terminos />} />
+            <Route path="/premios" element={<Premios />} />
+            <Route path="/pruebaApi" element={<PruebaApi />} />
+            <Route path="/compra-exitosa" element={<CompraExitosa />} />
+            <Route path="/compra-fallida" element={<CompraFallida />} />
+          </Routes>
+        </div>
       </div>
     </TicketProvider>
   );

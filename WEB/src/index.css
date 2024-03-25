@@ -13,18 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+.a-cosmectic {
   font-weight: 500;
   color: #ffc0cb;
   text-decoration: inherit;
 }
-a:hover {
+.a-cosmectic:hover {
   color: #ffc0cb;
 }
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -35,22 +34,22 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.button-cosmectic {
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  padding: 0.6em 1.2em !important;
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  font-family: inherit !important;
+  background-color: #1a1a1a !important;
+  cursor: pointer !important;
+  transition: border-color 0.25s !important;
 }
-button:hover {
+.button-cosmectic:hover {
   border-color: #ffc0cb;
 }
-button:focus,
-button:focus-visible {
+.button-cosmectic:focus,
+.button-cosmectic:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -71,7 +70,7 @@ button:focus-visible {
   color: white; /* Cambia el color del texto a blanco cuando el botón está en estado clicked */
 }
 
-.active {
+.active-cosmetic {
   background-color: #ffc0cb;
   color: black;
   margin-bottom: 10px;
@@ -124,25 +123,22 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   margin-top: 8em;
-  height: 55vh; /* Ajusta la altura según sea necesario */
-  width: 90vh;
+  margin-bottom: 8rem;
   left: 8em;
   bottom: 1em;
 }
 
 .btn-pink {
   background-color: #ffc0cb !important;
-  color: black;
-  border-color: #000000;
-  border-radius: 15px;
-  cursor: pointer;
+  color: black !important;
+  border-color: #000000 !important;
+  border-radius: 15px !important;
+  cursor: pointer !important;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
   margin: 5px;
   width: auto;
   white-space: nowrap;
   text-overflow: ellipsis;
-  display: flex;
-  align-items: center;
 };
 
 
@@ -152,8 +148,8 @@ button:focus-visible {
 
 .btn-pink:hover {
   background-color: #000000 !important;
-  color: white;
-  border-color: #000000;
+  color: white !important;;
+  border-color: #000000 !important;;
 }
 
 .cart-menu {
@@ -181,6 +177,120 @@ button:focus-visible {
   margin-right: 5px; /* Ajusta el espaciado entre el texto y los botones */
 }
 
+.col-info {
+  border: 2px solid ;
+  background-color: #ffc0cb;
+  color: black;
+  padding: 15px;
+  justify-content: center;
+}
+.compra-fallida-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.compra-fallida-container h2 {
+  color: #ffc0cb;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.compra-fallida-container p {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.btn-volver {
+  background-color: #ffc0cb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  min-width: 150px; /* Ajusta este valor según sea necesario */
+}
+
+.btn-volver:hover {
+  background-color: #ffb3b3;
+}
+
+.galeria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.galeria-imagen {
+  cursor: pointer;
+}
+
+.galeria-imagen img {
+  width: 100%;
+  height: auto;
+}
+
+.carrusel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.carrusel-contenido {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.carrusel-contenido img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cerrar-carrusel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.anterior,
+.siguiente {
+  font-size: 30px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -199,7 +309,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
+  .a-cosmectic  :hover {
     color: #ffc0cb;
   }
 }

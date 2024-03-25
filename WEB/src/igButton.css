@@ -1,49 +1,43 @@
 /* From uiverse.io by @alshahwan */
-button {
-    background-color: #ffffff;
-    border: 1px solid #ffc0cb;
-    padding: 5px;
-    position: relative;
-    width: 7.2em;
-    height: 2em;
-    transition: 0.5s;
-    font-size: 17px;
-    border-radius: 0.4em;
-  }
-  
-  button p {
-    position: absolute;
-    top: 0.4em;
-    left: 1.2em;
-    margin: 0;
-    padding: 0;
-    transition: .5s;
-    color: #ffc0cb;
-  }
-  
-  button svg {
-    position: absolute;
-    top: 0.45em;
-    right: 0.5em;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    transition: 0.5s;
-    height: 1em;
-    fill: black
-  }
-  
-  button:hover p {
-    left: 0.6em;
-    color: black;
-  }
-  
-  button:hover svg {
-    opacity: 1;
-  }
-  
-  button:hover {
-    background-color: #ffc0cb;
-    color: black;
-  }
-  
+.button-ig {
+  position: relative;
+  height: 2.5rem;
+  width: 7rem;
+  background-color: #ffc0cb;
+  border: 0.5px solid #ffc0cb;
+  transition: 0.5s;
+  font-size: 17px;
+  border-radius: 0.4em;
+}
+
+.button-ig a {
+  position: absolute;
+  top: 0.4em;
+  left: 1.2em;
+  transition: .5s;
+  color: #000000;
+  text-decoration: none;
+}
+
+.button-ig svg {
+  position: absolute;
+  top: 0.7em;
+  right: 0.5em;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: 0.5s;
+  height: 1em;
+  fill: black
+}
+
+.button-ig:hover a {
+  left: 0.6em;
+  color: black;
+}
+
+.button-ig:hover svg {
+  opacity: 1;
+}
+
+
