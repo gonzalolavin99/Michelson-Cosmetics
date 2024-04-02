@@ -1,37 +1,39 @@
 import React, { useState, useContext } from "react";
-import BuyButton from "../components/BuyButton";
 import { useNavigate } from "react-router-dom";
-import { TicketContext } from "../context/TicketContext"; // Importar el contexto
+import { TicketContext } from "../context/TicketContext";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const ComprarNumero = () => {
   const [compraExitosa, setCompraExitosa] = useState(false);
   const navigate = useNavigate();
-  const { setCantidadTickets } = useContext(TicketContext); // Obtener setCantidadTickets desde el contexto
+  const { setCantidadTickets } = useContext(TicketContext);
 
   const handleCompra = () => {
-    // Incrementa la cantidad de tickets
     setCantidadTickets((prevCantidad) => prevCantidad + 1);
-
-    // Navigate to the `CompraExitosa` view
     navigate('/compra-exitosa');
-
-    // Update purchase successful state
     setCompraExitosa(true);
   };
 
-  const handleCompraFallida = () =>{
+  const handleCompraFallida = () => {
     navigate('/compra-fallida');
   };
-  
 
   return (
-    <div>
-      {/* Botón "Paga aquí" que llama a la función handleCompra */}
-      <button className="btn-pink" onClick={handleCompra}>Paga aquí</button>
+<Row>
+  <Col>
+  <button className="btn-pink" onClick={handleCompra}>
+        Paga aquí
+      </button>
+      <button className="btn-pink" onClick={handleCompraFallida}>
+        No pagues aquí!
+      </button>
+  </Col>
 
-      {/* Botón "No pagues aquí" (opcional) */}
-      <button className="btn-pink" onClick={handleCompraFallida}>No pagues aquí!</button>
-    </div>
+
+</Row>
+
+  
   );
 };
 

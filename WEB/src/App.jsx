@@ -4,7 +4,7 @@ import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
 import Carrito from "./views/Carrito";
-import ComprarNumero from "./views/ComprarNumero";
+import ComprarNumero from "./views/ComprarNumero.jsx";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios";
@@ -22,7 +22,7 @@ const App = () => {
           <Navbar />
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-5">
         <div className="col-12">
           <Routes>
             <Route path="/" element={<Home />} />
