@@ -15,6 +15,7 @@ const Terminos = () => {
         <p>
           La información solicitada en Yo Sorteo corresponde a datos personales del usuario que se registre en el portal de Sorteos mediante un formulario de registro. Dicha información será utilizada para corroborar la identidad del adjudicador del Sorteo una vez este haya finalizado.
         </p>
+        <p>HOla</p>
       </div>
     </div>
   );
