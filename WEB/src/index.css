@@ -237,13 +237,18 @@ h1 {
 
 .galeria-imagen {
   cursor: pointer;
+  /* position: relative; */
+  padding-bottom: 10%; 
+  overflow: hidden;
 }
 
 .galeria-imagen img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
-
 .carrusel {
   position: fixed;
   top: 0;
@@ -287,15 +292,26 @@ h1 {
 
 .anterior,
 .siguiente {
-  font-size: 40px; /* Aumentamos el tamaño de fuente */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.5); /* Agregamos un fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
-  margin: 0 20px; /* Aumentamos el margen */
-  padding: 10px; /* Agregamos un relleno */
-  border-radius: 50%; /* Hacemos las flechas circulares */
-};
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.anterior {
+  left: 20px;
+}
+
+.siguiente {
+  right: 20px;
+}
 
 .terminos-container {
   max-width: 800px;

@@ -13,6 +13,7 @@ const Home = () => {
     <Row className="m-4">
       <Col>
         <Carrusel />
+        <h1>JR Michelson</h1>
         <Info />
       </Col>
     </Row>
