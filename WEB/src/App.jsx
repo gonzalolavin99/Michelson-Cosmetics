@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./components/Bar";
+import { Navbar } from "./components/listadoExportaciones.js";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";

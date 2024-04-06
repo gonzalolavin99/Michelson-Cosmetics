@@ -1,10 +1,9 @@
 // Home.jsx
-import React, { useContext } from 'react';
-import Carrusel from '../components/Carrusel';
+import React, { useContext } from "react";
 import { TicketContext } from "../context/TicketContext";
-import Info from "../components/Info";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Banner } from "../components/Banner";
 
 const Home = () => {
   const { handleCompra } = useContext(TicketContext);
@@ -12,8 +11,7 @@ const Home = () => {
   return (
     <Row className="m-4">
       <Col>
-        <Carrusel />
-        <Info />
+        <Banner />
       </Col>
     </Row>
   );
