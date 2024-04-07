@@ -13,6 +13,7 @@ import PruebaApi from "./components/PruebaApi";
 import CompraExitosa from "./views/CompraExitosa";
 import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
+import NotFound from "./views/NotFound.jsx";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/pruebaApi" element={<PruebaApi />} />
             <Route path="/compra-exitosa" element={<CompraExitosa />} />
             <Route path="/compra-fallida" element={<CompraFallida />} />
+            <Route path ="/*" element={<NotFound/>} />
           </Routes>
         </div>
       </div>
