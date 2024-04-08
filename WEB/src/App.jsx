@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./components/Bar";
+import { Navbar } from "./components/listadoExportaciones.js";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/pruebaApi" element={<PruebaApi />} />
             <Route path="/compra-exitosa" element={<CompraExitosa />} />
             <Route path="/compra-fallida" element={<CompraFallida />} />
-            <Route path ="/*" element={<NotFound/>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>

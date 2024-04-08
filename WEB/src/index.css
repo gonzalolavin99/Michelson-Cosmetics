@@ -34,6 +34,10 @@ h1 {
   line-height: 1.1;
 }
 
+/* Este es el apartado del Banner para cortar */
+
+/*----------------------------------------------*/
+
 .button-cosmectic {
   border-radius: 8px !important;
   border: 1px solid transparent !important;
@@ -139,8 +143,7 @@ h1 {
   width: auto;
   white-space: nowrap;
   text-overflow: ellipsis;
-};
-
+}
 
 .btn-text {
   text-align: center;
@@ -148,8 +151,8 @@ h1 {
 
 .btn-pink:hover {
   background-color: #000000 !important;
-  color: white !important;;
-  border-color: #000000 !important;;
+  color: white !important;
+  border-color: #000000 !important;
 }
 
 .cart-menu {
@@ -178,7 +181,7 @@ h1 {
 }
 
 .col-info {
-  border: 2px solid ;
+  border: 2px solid;
   background-color: #ffc0cb;
   color: black;
   padding: 15px;
@@ -297,20 +300,17 @@ h1 {
   transform: translateY(-50%);
   font-size: 40px;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Agregamos un fondo semi-transparente */
   border: none;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.anterior {
-  left: 20px;
-}
-
-.siguiente {
-  right: 20px;
+  margin: 0 20px; /* Aumentamos el margen */
+  padding: 10px; /* Agregamos un relleno */
+  border-radius: 50%; /* Hacemos las flechas circulares */
 }
 
 .terminos-container {
@@ -355,7 +355,7 @@ h1 {
     color: #213547;
     background-color: #ffffff;
   }
-  .a-cosmectic  :hover {
+  .a-cosmectic :hover {
     color: #ffc0cb;
   }
 }

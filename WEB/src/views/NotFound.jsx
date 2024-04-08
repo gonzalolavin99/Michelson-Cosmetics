@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const NotFound = () => {
+function NotFound() {
   return (
-    <div><h1>
-        La pagina que buscas no existe! 
-        Prueba nuevamente! </h1></div>
-  )
+    <div>
+      <h1>404 - Página no encontrada</h1>
+      <p>Lo sentimos, la página que estás buscando no existe.</p>
+      {/* Enlace de regreso a la página principal */}
+      <a href="/">Volver a la página principal</a>
+    </div>
+  );
 }
 
-export default NotFound
+export default NotFound;

@@ -1,9 +1,9 @@
 // BuyButton.jsx
 import React, { useContext } from "react";
-import Button from 'react-bootstrap/Button'
+import Button from "react-bootstrap/Button";
 import { TicketContext } from "../context/TicketContext";
 
-const BuyButton = () => {
+export const BuyButton = () => {
   const { handleCompra } = useContext(TicketContext);
 
   const comprarTicket = () => {
@@ -12,9 +12,7 @@ const BuyButton = () => {
 
   return (
     <Button className="btn-pink" onClick={comprarTicket}>
-     Comprar!
+      Comprar!
     </Button>
   );
 };
-
-export default BuyButton;

@@ -1,0 +1,30 @@
+.banner_container {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDEyMCI+PHBhdGggZD0iTTMyMS4zOSA1Ni40NGM1OC0xMC43OSAxMTQuMTYtMzAuMTMgMTcyLTIuODkgODIuMzktMTYuNzIgMTYuODEtMTcuNzMgMjUwLjQ1LS4zOUM4MjMuNzggMzEgOTA2LjY3IDcyIDk4NS42NiA5Mi44M2M3MC4wNSAxOC40OCAxNDYuNTMgMjYuMDkgMjE0LjM0IDNWMCBIMG12MjcuMzVhNjAwLjIxIDYwMC4yMSAwIDAzMjEuMzkgMjkuMDl6IiAvPjwvc3ZnPg==");
+  height: 70vh;
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  background: linear-gradient(to right, white, #ffc0cb, #f18ef1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.banner_title {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 4em;
+}
+.banner_carousel {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

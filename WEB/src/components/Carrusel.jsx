@@ -1,52 +1,58 @@
-import React, { useState } from 'react';
-import imagen1 from '../assets/imgs/swift1.webp';
-import imagen2 from '../assets/imgs/swift2.jpg';
-import imagen3 from '../assets/imgs/swift3.jpg';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Carousel from "react-bootstrap/Carousel";
+// import React, { useEffect, useState } from "react";
+// import { Box, Flex, Image } from "@chakra-ui/react";
+// import imagen1 from "../assets/imgs/1foto.png";
+// import imagen2 from "../assets/imgs/2foto.png";
+// import imagen3 from "../assets/imgs/3foto.png";
 
-const Carrusel = () => {
+// export const Carrusel = () => {
+//   const [indice, setIndice] = useState(0);
+//   const imagenes = [imagen1, imagen2, imagen3];
+
+//   useEffect(() => {
+//     const intervalId = setInterval(() => {
+//       setIndice((indice - 1 + imagenes.length) % imagenes.length);
+//     }, 1000);
+
+//     return () => clearInterval(intervalId);
+//   }, [indice, imagenes.length]);
+
+//   return (
+//     <Flex justify="center" align="center" h="100%" w="100%">
+//       <Box w="80%" maxW="600px">
+//         <Image
+//           src={imagenes[indice]}
+//           alt={`Imagen ${indice + 1}`}
+//           borderRadius="md"
+//           boxShadow="lg"
+//         />
+//       </Box>
+//     </Flex>
+//   );
+// };
+
+import React, { useEffect, useState } from "react";
+import { Box, Flex, Image } from "@chakra-ui/react";
+import imagen1 from "../assets/imgs/1foto.png";
+import imagen2 from "../assets/imgs/2foto.png";
+import imagen3 from "../assets/imgs/3foto.png";
+
+export const Carrusel = () => {
   const [indice, setIndice] = useState(0);
   const imagenes = [imagen1, imagen2, imagen3];
 
-  const siguienteImagen = () => {
-    setIndice((indice + 1) % imagenes.length);
-  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIndice((indice + 1) % imagenes.length);
+    }, 3000);
 
-  const imagenAnterior = () => {
-    setIndice((indice - 1 + imagenes.length) % imagenes.length);
-  };
+    return () => clearInterval(intervalId);
+  }, [indice, imagenes.length]);
 
   return (
-    <Row className="m-4">
-    <Col>
-      <Carousel>
-        <Carousel.Item>
-          <Row >
-            <Col className="text-center">
-              <img alt="" src={imagen1} />
-            </Col>
-          </Row>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Row >
-            <Col className="text-center">
-              <img alt="" src={imagen2} />
-            </Col>
-          </Row>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Row >
-            <Col className="text-center">
-              <img alt="" src={imagen3} />
-            </Col>
-          </Row>
-        </Carousel.Item>
-      </Carousel>
-    </Col>
-  </Row>
+    <Flex justify="center" align="center" h="100%" w="100%">
+      <Box w="80%" maxW="600px">
+        <Image src={imagenes[indice]} alt={`Imagen ${indice + 1}`} />
+      </Box>
+    </Flex>
   );
 };
-
-export default Carrusel;
