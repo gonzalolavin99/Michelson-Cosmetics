@@ -270,11 +270,13 @@ h1 {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 90vw;
+  max-width: 1200px;
 }
 
 .carrusel-contenido img {
-  max-width: 90vw;
+  max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
   transition: transform 0.3s ease-in-out;
@@ -284,15 +286,6 @@ h1 {
   transform: scale(1.4);
 }
 
-.cerrar-carrusel {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-}
-
 .anterior,
 .siguiente {
   position: absolute;
@@ -300,17 +293,20 @@ h1 {
   transform: translateY(-50%);
   font-size: 40px;
   color: #fff;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Agregamos un fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
-  margin: 0 20px; /* Aumentamos el margen */
-  padding: 10px; /* Agregamos un relleno */
-  border-radius: 50%; /* Hacemos las flechas circulares */
+  margin: 0 20px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.anterior {
+  left: 0;
+}
+
+.siguiente {
+  right: 0;
 }
 
 .terminos-container {
