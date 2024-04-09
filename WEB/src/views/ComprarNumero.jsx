@@ -35,7 +35,7 @@ const ComprarNumero = () => {
   // Función para realizar la compra
   const handleCompra = () => {
     setCantidadTickets((prevCantidad) => prevCantidad + 1);
-    navigate("/compra-exitosa");
+    navigate("/compra-exitosa", { state: { formData, regionOptions } }); // Pasa regionOptions como prop
     setCompraExitosa(true);
   };
 
