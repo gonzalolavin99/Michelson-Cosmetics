@@ -2,29 +2,33 @@ import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { TicketContext } from "../context/TicketContext";
 import { FaShoppingCart } from "react-icons/fa";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 export const Navbar = () => {
   const { cantidadTickets, setCantidadTickets, handleCompra } =
-    useContext(TicketContext); // Consumir el contexto utilizando useContext  const [carritoAbierto, setCarritoAbierto] = useState(false); // Estado para controlar si el menú del carrito está abierto
-  const [carritoAbierto, setCarritoAbierto] = useState(false);
+    useContext(TicketContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
 
-  const toggleCarrito = () => {
-    setCarritoAbierto(!carritoAbierto);
-  };
-
   const sumarTicket = () => {
-    handleCompra(1); // Llama a la función del contexto para agregar un ticket
+    handleCompra(1);
   };
 
   const restarTicket = () => {
-    // Asegúrate de que la cantidad de tickets sea mayor que 0 antes de restar
     if (cantidadTickets > 0) {
-      handleCompra(-1); // Aquí deberías pasar -1 para restar un ticket
+      handleCompra(-1);
     }
   };
-
-  console.log("Cantidad de tickets:", cantidadTickets);
 
   return (
     <div className="navbar-container">
@@ -45,30 +49,64 @@ export const Navbar = () => {
               Premios
             </NavLink>
           </li>
-
           <li className="nav-item">
-            <a className="cart-icon" onClick={toggleCarrito}>
+            <a className="cart-icon" onClick={onOpen}>
               <FaShoppingCart />
               {cantidadTickets !== undefined && cantidadTickets > 0 && (
                 <span>({cantidadTickets})</span>
               )}
             </a>
-            {carritoAbierto && (
-              <div className="cart-menu">
-                <div className="ticket-container">
-                  <button className="btn-pink" onClick={sumarTicket}>
-                    +
-                  </button>
-                  <p> {cantidadTickets}</p>
-                  <button className="btn-pink" onClick={restarTicket}>
-                    -
-                  </button>
-                </div>
-                <NavLink className="btn-pink" to="/compra">
-                  Ir a Comprar
-                </NavLink>
-              </div>
-            )}
+            <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Carrito de compras</DrawerHeader>
+                <DrawerBody>
+                  <div className="ticket-container">
+                    <Button
+                      colorScheme="pink"
+                      borderRadius="15px"
+                      transition="background-color 0.25s, border-color 0.25s, color 0.25s"
+                      _hover={{
+                        backgroundColor: "#ffc0cb",
+                        color: "black",
+                      }}
+                      onClick={sumarTicket}
+                    >
+                      +
+                    </Button>
+                    <p>{cantidadTickets}</p>
+                    <Button
+                      colorScheme="pink"
+                      borderRadius="15px"
+                      transition="background-color 0.25s, border-color 0.25s, color 0.25s"
+                      _hover={{
+                        backgroundColor: "#ffc0cb",
+                        color: "black",
+                      }}
+                      onClick={restarTicket}
+                    >
+                      -
+                    </Button>
+                  </div>
+                </DrawerBody>
+                <DrawerFooter>
+                  <Button
+                    as={NavLink}
+                    to="/compra"
+                    colorScheme="pink"
+                    borderRadius="15px"
+                    transition="background-color 0.25s, border-color 0.25s, color 0.25s"
+                    _hover={{
+                      backgroundColor: "#ffc0cb",
+                      color: "black",
+                    }}
+                  >
+                    Ir a Comprar
+                  </Button>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
           </li>
           <li className="nav-item">
             <NavLink className={setActiveClass} to="/galeria">

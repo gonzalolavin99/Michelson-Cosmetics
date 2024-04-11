@@ -143,6 +143,19 @@ h1 {
   width: auto;
   white-space: nowrap;
   text-overflow: ellipsis;
+};
+
+.modal-btn {
+  background-color: #ffc0cb !important;
+  color: black !important;
+  border-color: #000000 !important;
+  border-radius: 15px !important;
+  cursor: pointer !important;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  margin: 5px;
+  width: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .btn-text {
