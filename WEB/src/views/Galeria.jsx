@@ -135,7 +135,6 @@ const Galeria = () => {
             <button className="siguiente" onClick={handleSiguienteImagen}>
               &gt;
             </button>
-            <h1>Hola</h1>
           </div>
         </div>
       )}
