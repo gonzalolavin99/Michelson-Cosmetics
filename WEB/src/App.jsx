@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./components/listadoExportaciones.js";
+import Navbar from "./components/Bar";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
@@ -12,7 +12,7 @@ import "./index.css";
 import PruebaApi from "./components/PruebaApi";
 import CompraExitosa from "./views/CompraExitosa";
 import CompraFallida from "./views/CompraFallida";
-import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
+import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";
 
 const App = () => {
