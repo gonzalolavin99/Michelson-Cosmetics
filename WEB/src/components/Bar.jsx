@@ -12,20 +12,6 @@ const Navbar = () => {
   const drawerRef = useRef(null);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
-        setIsDrawerOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
-
-  useEffect(() => {
     // Generar el resumen y calcular el total de la compra
     if (cantidadTickets > 0) {
       const total = cantidadTickets * 5000; // Costo de cada ticket en pesos chilenos
@@ -80,12 +66,23 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <a className="cart-icon" onClick={toggleDrawer}>
-              <FaShoppingCart />
-              {cantidadTickets !== undefined && cantidadTickets > 0 && (
-                <span>({cantidadTickets})</span>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                border: "1px solid #ccc",
+                borderRadius: "36%",
+                padding: "0.5em",
+                backgroundColor:"#ffc0cb"
+              }}
+            >
+              <a className="cart-icon" onClick={toggleDrawer}>
+                <FaShoppingCart style={{ fontSize: "0.9em" }} />
+              </a>
+              {cantidadTickets > 0 && (
+                <span style={{ marginLeft: "0.5em" }}>{cantidadTickets}</span>
               )}
-            </a>
+            </div>
             {isDrawerOpen && (
               <div
                 className="cart-menu"

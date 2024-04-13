@@ -121,8 +121,17 @@ h1 {
 }
 
 .nav-item a.active {
-  color: #030303; /* Color del texto del enlace activo */
+  background-color: #ffc0cb;
+  color: black;
 }
+
+
+.nav-item a:hover {
+  background-color: #ffc0cb;
+  border-radius: 20%;
+  color: black;
+}
+
 .carousel-container {
   display: flex;
   justify-content: center;

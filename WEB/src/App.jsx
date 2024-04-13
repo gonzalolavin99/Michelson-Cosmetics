@@ -14,9 +14,14 @@ import CompraExitosa from "./views/CompraExitosa";
 import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";
+import { ChakraProvider } from '@chakra-ui/react'
+
+
 
 const App = () => {
   return (
+    <ChakraProvider>
+
     <TicketProvider>
       <div className="row">
         <div className="col-12">
@@ -40,6 +45,8 @@ const App = () => {
         </div>
       </div>
     </TicketProvider>
+    </ChakraProvider>
+
   );
 };
 
