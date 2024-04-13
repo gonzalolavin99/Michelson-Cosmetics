@@ -1,11 +1,17 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TicketContext } from "../context/TicketContext";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Input,
+  Select,
+  Button,
+  FormControl,
+  FormLabel,
+} from "@chakra-ui/react";
 
 const ComprarNumero = () => {
   // Estado para controlar si la compra fue exitosa
@@ -92,155 +98,139 @@ const ComprarNumero = () => {
   ];
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-      <div>
-        <Row>
-          <Col md={8} className="mx-auto">
-            <Form>
-              <Form.Group controlId="formName">
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formRut">
-                <Form.Label>RUT</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="rut"
-                  value={formData.rut}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formEmail">
-                <Form.Label>Correo electrónico</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formPhone">
-                <Form.Label>Número de teléfono</Form.Label>
-                <Form.Control
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formRegion">
-                <Form.Label>Región</Form.Label>
-                <Form.Control
-                  as="select"
-                  name="region"
-                  value={formData.region}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                >
-                  {regionOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </Form.Control>
-              </Form.Group>
-              <Form.Group controlId="formCommune">
-                <Form.Label>Comuna</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="commune"
-                  value={formData.commune}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formStreet">
-                <Form.Label>Calle</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="street"
-                  value={formData.street}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formHouseNumber">
-                <Form.Label>Número de casa</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="houseNumber"
-                  value={formData.houseNumber}
-                  onChange={handleChange}
-                  required
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <Form.Group controlId="formApartment">
-                <Form.Label>Departamento (Opcional)</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="apartment"
-                  value={formData.apartment}
-                  onChange={handleChange}
-                  style={{ width: '80%' }}
-                />
-              </Form.Group>
-              <div className="d-flex justify-content-between">
-                <Button className="btn-pink" onClick={handleShowDataReview}>
-                  Revisar datos
-                </Button>
-              </div>
-            </Form>
-          </Col>
-        </Row>
-      </div>
+    <Box h="100vh" display="flex" justifyContent="center" alignItems="center">
+      <Box maxW="md" w="full">
+        <Heading mb={6}>Comprar Número</Heading>
+        <FormControl mb={4}>
+          <FormLabel>Nombre</FormLabel>
+          <Input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>RUT</FormLabel>
+          <Input
+            type="text"
+            name="rut"
+            value={formData.rut}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Correo electrónico</FormLabel>
+          <Input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Número de teléfono</FormLabel>
+          <Input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Región</FormLabel>
+          <Select
+            name="region"
+            value={formData.region}
+            onChange={handleChange}
+            isRequired
+          >
+            {regionOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Comuna</FormLabel>
+          <Input
+            type="text"
+            name="commune"
+            value={formData.commune}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Calle</FormLabel>
+          <Input
+            type="text"
+            name="street"
+            value={formData.street}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Número de casa</FormLabel>
+          <Input
+            type="text"
+            name="houseNumber"
+            value={formData.houseNumber}
+            onChange={handleChange}
+            isRequired
+          />
+        </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Departamento (Opcional)</FormLabel>
+          <Input
+            type="text"
+            name="apartment"
+            value={formData.apartment}
+            onChange={handleChange}
+          />
+        </FormControl>
+        <Flex justify="space-between">
+          <Button colorScheme="pink" onClick={handleShowDataReview}>
+            Revisar datos
+          </Button>
+        </Flex>
+      </Box>
 
       {/* Sección para mostrar los datos ingresados */}
       {showDataReview && (
-        <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-          <div>
-            <Row>
-              <Col md={8} className="mx-auto">
-                <h3>Revisa tus datos</h3>
-                <p>Nombre: {formData.name}</p>
-                <p>RUT: {formData.rut}</p>
-                <p>Correo electrónico: {formData.email}</p>
-                <p>Teléfono: {formData.phone}</p>
-                <p>Región: {regionOptions.find((option) => option.value === formData.region)?.label}</p>
-                <p>Comuna: {formData.commune}</p>
-                <p>Calle: {formData.street}</p>
-                <p>Número de casa: {formData.houseNumber}</p>
-                <p>Departamento: {formData.apartment}</p>
-                <div className="d-flex justify-content-between">
-                  <Button className="btn-pink" onClick={handleConfirmPurchase}>
-                    Confirmar
-                  </Button>
-                  <Button className="btn-pink" onClick={handleCompraFallida}>
-                    No pagues aquí!
-                  </Button>
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </Container>
+        <Box h="100vh" display="flex" justifyContent="center" alignItems="center">
+          <Box maxW="md" w="full">
+            <Heading mb={6}>Revisa tus datos</Heading>
+            <Text mb={2}>Nombre: {formData.name}</Text>
+            <Text mb={2}>RUT: {formData.rut}</Text>
+            <Text mb={2}>Correo electrónico: {formData.email}</Text>
+            <Text mb={2}>Teléfono: {formData.phone}</Text>
+            <Text mb={2}>
+              Región:{" "}
+              {regionOptions.find((option) => option.value === formData.region)?.label}
+            </Text>
+            <Text mb={2}>Comuna: {formData.commune}</Text>
+            <Text mb={2}>Calle: {formData.street}</Text>
+            <Text mb={2}>Número de casa: {formData.houseNumber}</Text>
+            <Text mb={2}>Departamento: {formData.apartment}</Text>
+            <Flex justify="space-between">
+              <Button colorScheme="pink" onClick={handleConfirmPurchase}>
+                Confirmar
+              </Button>
+              <Button colorScheme="pink" onClick={handleCompraFallida}>
+                No pagues aquí!
+              </Button>
+            </Flex>
+          </Box>
+        </Box>
       )}
-    </Container>
+    </Box>
   );
 };
 
