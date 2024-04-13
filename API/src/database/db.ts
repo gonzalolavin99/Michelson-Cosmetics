@@ -1,4 +1,3 @@
-
 import { Person } from "@models/Person";
 import { Purchase } from "@models/Purchase";
 import { Ticket } from "@models/Ticket";
@@ -8,9 +7,9 @@ export const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
     port: 5432,
-    username: "test",
-    password: "test",
-    database: "test",
+    username: "postgres",
+    password: "1423",
+    database: "jrmichelson",
     synchronize: true,
     logging: true,
     entities: [Ticket,Person,Purchase],

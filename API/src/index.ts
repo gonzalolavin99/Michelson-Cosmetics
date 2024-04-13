@@ -1,6 +1,7 @@
 import "reflect-metadata"
 import app from './app'
-import {AppDataSource} from  '@database/db'
+import { AppDataSource } from "@database/db";
+
 
 const PORT = 3000;
 
