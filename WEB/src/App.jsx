@@ -5,7 +5,7 @@ import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
 import Carrito from "./views/Carrito";
-import ComprarNumero from "./views/ComprarNumero.jsx";
+import ComprarNumero from "./views/ComprarNumero/ComprarNumero.jsx";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios/Premios.jsx";

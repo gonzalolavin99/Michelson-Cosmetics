@@ -91,7 +91,7 @@ const Premios = () => {
         <div className="modal-content">
           {selectedPremio && (
             <>
-              <Carousel autoplay>
+              <Carousel autoplay  autoplaySpeed={1000}>
                 {selectedPremio.imagenes.map((imagen, index) => (
                   <div key={index}>
                     <img
