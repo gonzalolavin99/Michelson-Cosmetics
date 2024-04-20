@@ -13,12 +13,18 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
   
   /* Estilos para la imagen de la tarjeta */
   .card-image {
-    width: 100%;
-    height: auto; /* Asegurarse de que la altura se ajuste automáticamente */
+    width: 75%; /* Dejar que el ancho se ajuste automáticamente */
+    height: 30vw;
+
+  }
+
+  .card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
   }
   
   /* Estilos para el contenido de la tarjeta */
@@ -42,7 +48,7 @@
   .modal-image {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    max-height: 50vh; /* Establece la altura máxima de las imágenes */
   }
   
   /* Reglas de medios para hacer que las tarjetas sean responsivas */
