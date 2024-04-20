@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar } from "./components/listadoExportaciones.js";
+import Navbar from "./components/Bar";
+import { Footer } from "./components/listadoExportaciones.js";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
@@ -7,16 +8,21 @@ import Carrito from "./views/Carrito";
 import ComprarNumero from "./views/ComprarNumero.jsx";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Premios from "./views/Premios";
+import Premios from "./views/Premios/Premios.jsx";
 import "./index.css";
 import PruebaApi from "./components/PruebaApi";
 import CompraExitosa from "./views/CompraExitosa";
 import CompraFallida from "./views/CompraFallida";
-import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
+import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";
+import { ChakraProvider } from '@chakra-ui/react'
+
+
 
 const App = () => {
   return (
+    <ChakraProvider>
+
     <TicketProvider>
       <div className="row">
         <div className="col-12">
@@ -37,9 +43,12 @@ const App = () => {
             <Route path="/compra-fallida" element={<CompraFallida />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer/>
         </div>
       </div>
     </TicketProvider>
+    </ChakraProvider>
+
   );
 };
 
