@@ -1,0 +1,60 @@
+/* Estilos para el contenedor principal de las tarjetas */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Estilos para la tarjeta de premio */
+  .card {
+    width: calc(33.33% - 20px); /* Ajustar el tamaño de las tarjetas para que haya tres por fila con 20px de margen entre ellas */
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para la imagen de la tarjeta */
+  .card-image {
+    width: 100%;
+    height: auto; /* Asegurarse de que la altura se ajuste automáticamente */
+  }
+  
+  /* Estilos para el contenido de la tarjeta */
+  .card-content {
+    padding: 20px;
+  }
+  
+  /* Estilos para el título de la tarjeta */
+  .card-title {
+    font-size: 1.2rem; /* Reducir el tamaño del título */
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para la descripción de la tarjeta */
+  .card-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para las imágenes del modal */
+  .modal-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Reglas de medios para hacer que las tarjetas sean responsivas */
+  @media (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); /* Cambiar a dos tarjetas por fila en dispositivos más pequeños */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card {
+      width: calc(100% - 20px); /* Cambiar a una tarjeta por fila en dispositivos extra pequeños */
+    }
+  }
+  

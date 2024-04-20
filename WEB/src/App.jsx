@@ -8,7 +8,7 @@ import Carrito from "./views/Carrito";
 import ComprarNumero from "./views/ComprarNumero.jsx";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Premios from "./views/Premios";
+import Premios from "./views/Premios/Premios.jsx";
 import "./index.css";
 import PruebaApi from "./components/PruebaApi";
 import CompraExitosa from "./views/CompraExitosa";
