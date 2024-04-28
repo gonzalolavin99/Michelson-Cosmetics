@@ -18,6 +18,9 @@ export const Banner = () => {
       <div className="banner_carousel">
         <Carrusel />
       </div>
+      {/* <div>
+        <Nv />
+      </div> */}
     </div>
   );
 };
