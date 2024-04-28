@@ -1,5 +1,6 @@
 export interface Ticket {
     id: number;
-    nombre: string;
+    pass: string;
+    idPurchase: number;
 
 }

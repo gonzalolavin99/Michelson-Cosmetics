@@ -1,24 +1,17 @@
 import express from "express";
-import { Ticket } from "../models/ticket";
-
-
+import { Ticket } from "@models/Ticket";
+import TicketController from "@controllers/ticket";
 
 const router = express.Router();
 
-router.get("/", (_req, res) => {
-  const ticket: Ticket = {
-    id: 23,
-    pass: "Jordan",
-    idPurchase: 32
-
-  };
-
-  res.send(ticket);
+router.get("/", async (_req, res) => {
+ 
+  res.json(await TicketController.getTicket());
 });
 
-router.post("/", (req, res) => {
-  const ticket: Ticket = req.body as Ticket;
-  res.send(`Ticket recibido ${ticket.pass} - ${ticket.id}`);
+router.post("/", async (req, res) => {
+ console.log(req.body)
+  res.send( await TicketController.saveTicket(req.body as Ticket));
 });
 
 export default router;

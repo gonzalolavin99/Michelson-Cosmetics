@@ -121,8 +121,17 @@ h1 {
 }
 
 .nav-item a.active {
-  color: #030303; /* Color del texto del enlace activo */
+  background-color: #ffc0cb;
+  color: black;
 }
+
+
+.nav-item a:hover {
+  background-color: #ffc0cb;
+  border-radius: 20%;
+  color: black;
+}
+
 .carousel-container {
   display: flex;
   justify-content: center;
@@ -133,6 +142,19 @@ h1 {
 }
 
 .btn-pink {
+  background-color: #ffc0cb !important;
+  color: black !important;
+  border-color: #000000 !important;
+  border-radius: 15px !important;
+  cursor: pointer !important;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  margin: 5px;
+  width: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+};
+
+.modal-btn {
   background-color: #ffc0cb !important;
   color: black !important;
   border-color: #000000 !important;
@@ -173,12 +195,15 @@ h1 {
 }
 
 .ticket-container button {
-  margin-right: 5px; /* Ajusta el espaciado entre los botones */
+  margin-right: 10px; /* Aumenta el espacio entre los botones */
+  font-size: 1em; /* Aumenta el tamaño de la fuente */
+  padding: 12px 20px; /* Aumenta el padding para hacer los botones más grandes */
 }
 
 .ticket-container p {
-  margin-right: 5px; /* Ajusta el espaciado entre el texto y los botones */
+  margin-right: 10px; /* Ajusta el espaciado entre el texto y los botones */
 }
+
 
 .col-info {
   border: 2px solid;
@@ -240,13 +265,18 @@ h1 {
 
 .galeria-imagen {
   cursor: pointer;
+  /* position: relative; */
+  padding-bottom: 10%; 
+  overflow: hidden;
 }
 
 .galeria-imagen img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
-
 .carrusel {
   position: fixed;
   top: 0;
@@ -265,11 +295,13 @@ h1 {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 90vw;
+  max-width: 1200px;
 }
 
 .carrusel-contenido img {
-  max-width: 90vw;
+  max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
   transition: transform 0.3s ease-in-out;
@@ -279,30 +311,27 @@ h1 {
   transform: scale(1.4);
 }
 
-.cerrar-carrusel {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-}
-
 .anterior,
 .siguiente {
-  font-size: 40px; /* Aumentamos el tamaño de fuente */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
   color: #fff;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Agregamos un fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
-  margin: 0 20px; /* Aumentamos el margen */
-  padding: 10px; /* Agregamos un relleno */
-  border-radius: 50%; /* Hacemos las flechas circulares */
+  margin: 0 20px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.anterior {
+  left: 0;
+}
+
+.siguiente {
+  right: 0;
 }
 
 .terminos-container {

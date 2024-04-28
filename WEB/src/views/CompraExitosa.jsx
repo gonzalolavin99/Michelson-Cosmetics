@@ -1,42 +1,33 @@
-// Este componente se puede modificar para mostrar información específica de la compra
+import { useLocation } from 'react-router-dom';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 const CompraExitosa = () => {
+  const { state } = useLocation();
+  const { formData, regionOptions } = state;
+
   return (
-    <div>
-      <h1>Compra exitosa</h1>
-      <p>¡Felicidades por tu compra!</p>
-      {/* Aquí puedes mostrar información del ticket comprado, como número de ticket, fecha de compra, etc. */}
-    </div>
+    <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+      <div>
+        <Row>
+          <Col md={8} className="mx-auto">
+            <h2>¡Compra exitosa!</h2>
+            <p>Gracias por tu compra, aquí están los detalles de tu ticket:</p>
+            <p>Nombre: {formData.name}</p>
+            <p>RUT: {formData.rut}</p>
+            <p>Correo electrónico: {formData.email}</p>
+            <p>Teléfono: {formData.phone}</p>
+            <p>Región: {regionOptions.find((option) => option.value === formData.region)?.label}</p>
+            <p>Comuna: {formData.commune}</p>
+            <p>Calle: {formData.street}</p>
+            <p>Número de casa: {formData.houseNumber}</p>
+            <p>Departamento: {formData.apartment}</p>
+          </Col>
+        </Row>
+      </div>
+    </Container>
   );
 };
 
 export default CompraExitosa;
-
-
-// const CompraExitosa = () => {
-//   const [ticket, setTicket] = useState(null);
-
-//   useEffect(() => {
-//     const fetchTicket = async () => {
-//       const response = await fetch("/api/tickets/12345"); // Reemplaza 12345 con el ID del ticket
-//       const ticketData = await response.json();
-//       setTicket(ticketData);
-//     };
-//     fetchTicket();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>Compra exitosa</h1>
-//       {ticket && (
-//         <div>
-//           <h2>Información del ticket</h2>
-//           <p>Número de ticket: {ticket.id}</p>
-//           <p>Fecha de compra: {ticket.fechaCompra}</p>
-//           <p>Precio: {ticket.precio}</p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CompraExitosa;

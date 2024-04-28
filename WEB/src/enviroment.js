@@ -1,6 +1,7 @@
 const envURLs = {
     
     backendLocal: 'http://localhost:3000/',
+    backendProd: 'http://35.183.244.41/',
     invalidEnvironment: "revisar.url.environment",
 
 }
@@ -10,18 +11,12 @@ const env = () => {
     let url;
     console.log(process.env.NODE_ENV)
     if (process.env.NODE_ENV === "production") {
-  
-      if (process.env.REACT_APP_ENVIRONMENT === "production") {
-        url = envURLs.invalidEnvironment;
-      } else if (process.env.REACT_APP_ENVIRONMENT === "qa") {
-        url = envURLs.invalidEnvironment;
-      } else {
-        url = envURLs.invalidEnvironment;
-      }
-    } else if (process.env.NODE_ENV === "development") {
-      url = envURLs.backendLocal;
+      console.log('hola prod')
+      url = envURLs.backendProd;
+    
     } else {
-      url = envURLs.invalidEnvironment;
+      console.log('hola local')
+      url = envURLs.backendLocal;
     }
     return  url
   };

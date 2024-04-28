@@ -6,50 +6,34 @@ const GetTicket = async (): Promise<ResponseBase<Ticket> | undefined> => {
   try {
     const endpoint = `ticket`;
 
-    let res = await Api().get(endpoint);
-    let response: ResponseBase<Ticket> = {
-      Data: res.data,
-      State: res.status,
-      Message: res.statusText,
-    };
-    return response;
+    let res: ResponseBase<Ticket> = (await Api().get(endpoint)).data;
+
+    return res;
   } catch (error) {
     let response: ResponseBase<Ticket> = {
       Message: error,
-      State: 400,
+      Success: false,
       Data: null,
+      DataList: null
     };
     return response;
   }
 };
 
-const SaveTicket = async (ticket: Ticket): Promise<ResponseBase<boolean>> => {
+const SaveTicket = async (ticket: Ticket): Promise<ResponseBase<Ticket>> => {
   try {
     const endpoint = `ticket`;
-    let response: ResponseBase<boolean>;
 
-    let res = await Api().post(endpoint, ticket);
+    let res: ResponseBase<Ticket> = (await Api().post(endpoint, ticket)).data;
 
-    if (res.statusText == "OK") {
-      response = {
-        Data: true,
-        State: res.status,
-        Message: res.statusText,
-      };
-    } else {
-      response = {
-        Data: false,
-        State: res.status,
-        Message: res.statusText,
-      };
-    }
 
-    return response;
+    return res;
   } catch (error) {
-    let response: ResponseBase<boolean> = {
-      Data: false,
-      State: 400,
+    let response: ResponseBase<Ticket> = {
+      Data: null,
+      Success: false,
       Message: error,
+      DataList: null
     };
     return response;
   }
