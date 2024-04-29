@@ -91,12 +91,6 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { TicketContext } from "../context/TicketContext";
 import { FaShoppingCart } from "react-icons/fa";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const { cantidadTickets, setCantidadTickets, handleCompra } =
@@ -254,41 +248,10 @@ const Navbar = () => {
             >
               Términos y condiciones
             </NavLink>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-      <Offcanvas
-        show={showOffcanvas}
-        onHide={() => setShowOffcanvas(false)}
-        placement="end"
-      >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Título</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body
-          style={{ height: "100%", display: "flex", flexDirection: "column" }}
-        >
-          <Nav className="me-auto">
-            <NavLink className={setActiveClass} to="/">
-              Home
-            </NavLink>
-            <NavLink className={setActiveClass} to="/compra">
-              Compra tu número
-            </NavLink>
-            <NavLink className={setActiveClass} to="/premios">
-              Premios
-            </NavLink>
-            <NavLink className={setActiveClass} to="/galeria">
-              Galería
-            </NavLink>
-            <NavLink className={setActiveClass} to="/terminos">
-              Términos y condiciones
-            </NavLink>
-          </Nav>
-        </Offcanvas.Body>
-      </Offcanvas>
-    </>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 
