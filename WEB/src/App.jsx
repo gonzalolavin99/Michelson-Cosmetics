@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./components/listadoExportaciones.js";
+import { Footer, Navbar } from "./components/listadoExportaciones.js";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
@@ -14,32 +14,36 @@ import CompraExitosa from "./views/CompraExitosa";
 import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext"; // Importar TicketProvider
 import NotFound from "./views/NotFound.jsx";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const App = () => {
   return (
-    <TicketProvider>
-      <div className="row">
-        <div className="col-12">
-          <Navbar />
+    <ChakraProvider>
+      <TicketProvider>
+        <div className="row">
+          <div className="col-12">
+            <Navbar />
+          </div>
         </div>
-      </div>
-      <div className="row mt-5">
-        <div className="col-12">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/galeria" element={<Galeria />} />
-            <Route path="/compra" element={<ComprarNumero />} />
-            <Route path="/carrito" element={<Carrito />} />
-            <Route path="/terminos" element={<Terminos />} />
-            <Route path="/premios" element={<Premios />} />
-            <Route path="/pruebaApi" element={<PruebaApi />} />
-            <Route path="/compra-exitosa" element={<CompraExitosa />} />
-            <Route path="/compra-fallida" element={<CompraFallida />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+        <div className="row mt-5">
+          <div className="col-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/galeria" element={<Galeria />} />
+              <Route path="/compra" element={<ComprarNumero />} />
+              <Route path="/carrito" element={<Carrito />} />
+              <Route path="/terminos" element={<Terminos />} />
+              <Route path="/premios" element={<Premios />} />
+              <Route path="/pruebaApi" element={<PruebaApi />} />
+              <Route path="/compra-exitosa" element={<CompraExitosa />} />
+              <Route path="/compra-fallida" element={<CompraFallida />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+          </div>
         </div>
-      </div>
-    </TicketProvider>
+      </TicketProvider>
+    </ChakraProvider>
   );
 };
 
