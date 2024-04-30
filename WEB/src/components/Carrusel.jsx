@@ -50,7 +50,7 @@ export const Carrusel = () => {
 
   return (
     <Flex justify="center" align="center" h="100%" w="100%">
-      <Box w="80%" maxW="600px">
+      <Box w="100%" maxW="600px">
         <Image src={imagenes[indice]} alt={`Imagen ${indice + 1}`} />
       </Box>
     </Flex>

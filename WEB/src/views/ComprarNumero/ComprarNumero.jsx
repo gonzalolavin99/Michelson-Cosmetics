@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { TicketContext } from "../context/TicketContext";
+import { TicketContext } from "../../context/TicketContext";
 import {
   Box,
   Flex,
@@ -12,6 +12,7 @@ import {
   FormControl,
   FormLabel,
 } from "@chakra-ui/react";
+import "./comprarNumero.css";
 
 const ComprarNumero = () => {
   // Estado para controlar si la compra fue exitosa
@@ -98,9 +99,9 @@ const ComprarNumero = () => {
   ];
 
   return (
-    <Box h="100vh" display="flex" justifyContent="center" alignItems="center">
-      <Box maxW="md" w="full">
-        <Heading mb={6}>Comprar Número</Heading>
+    <Box className="comprar-container">
+      <Box className="comprar-form">
+        <Heading className="comprar-heading">Comprar Número</Heading>
         <FormControl mb={4}>
           <FormLabel>Nombre</FormLabel>
           <Input

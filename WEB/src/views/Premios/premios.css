@@ -1,9 +1,10 @@
 /* Estilos para el contenedor principal de las tarjetas */
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 80px; /* Agregar un margen superior para dar espacio al Navbar */
+}
   
   /* Estilos para la tarjeta de premio */
   .card {
@@ -18,9 +19,8 @@
   
   /* Estilos para la imagen de la tarjeta */
   .card-image {
-    width: 75%; /* Dejar que el ancho se ajuste automáticamente */
-    height: 30vw;
-
+    width: 100%; /* Cambiar el ancho para ocupar todo el espacio disponible */
+    height: auto; /* Ajustar la altura automáticamente */
   }
 
   .card:hover {
