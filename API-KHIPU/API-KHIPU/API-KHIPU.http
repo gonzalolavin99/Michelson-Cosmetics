@@ -1,0 +1,6 @@
+@API_KHIPU_HostAddress = http://localhost:5185
+
+GET {{API_KHIPU_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
