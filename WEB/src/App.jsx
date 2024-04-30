@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Navbar } from "./components/listadoExportaciones.js";
+import { Footer} from "./components/listadoExportaciones.js";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
@@ -15,6 +15,8 @@ import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";
 import { ChakraProvider } from "@chakra-ui/react";
+import Navbar from "./components/Navbar.jsx";
+
 
 const App = () => {
   return (
