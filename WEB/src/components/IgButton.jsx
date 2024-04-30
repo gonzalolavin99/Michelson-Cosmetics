@@ -21,7 +21,10 @@ export const IgButton = () => {
         </div>
       </div>
       <div className="text">
-        <a className="icon" href="https://www.instagram.com/lamichelson11/?hl=es">
+        <a
+          className="icon"
+          href="https://www.instagram.com/lamichelson11/?hl=es"
+        >
           <div className="layer">
             <span></span>
             <span></span>
