@@ -19,15 +19,13 @@ function Footer() {
         <div className="footer-body">
           <div className="footer-body__content">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-              esse illo culpa aperiam minima odit? Nihil quod illo pariatur
-              libero.
+            Ya compraste tu número? Entonces visita nuestras redes sociales!
             </p>
           </div>
           <nav className="footer-body__nav">
             <ul className="footer-body__nav-list">
               <li className="footer-body__nav-item ">
-                Services
+              Participa acá!
                 <ul className="footer-body__nav-sublist">
                   <li className="footer-body__nav-subitem">
                     <a href="" className="footer-body__nav-link liHead">
@@ -100,7 +98,7 @@ function Footer() {
           </nav>
         </div>
         <div className="footer-attribute">
-          <p>&copy; Company 2024. All right reserved.</p>
+        <p>&copy; JrMichelson SPA 2024. All right reserved.</p>
         </div>
       </div>
     </footer>
