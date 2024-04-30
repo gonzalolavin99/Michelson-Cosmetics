@@ -13,6 +13,7 @@ import {
   FormLabel,
 } from "@chakra-ui/react";
 import "./comprarNumero.css";
+import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero";
 
 const ComprarNumero = () => {
   // Estado para controlar si la compra fue exitosa
@@ -97,11 +98,20 @@ const ComprarNumero = () => {
     { value: "aysen", label: "Región de Aysén" },
     { value: "magallanes", label: "Región de Magallanes" },
   ];
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+  const handleRespuestaCorrecta = () => {
+    setMostrarFormulario(true);
+  };
 
   return (
-    <Box className="comprar-container">
-      <Box className="comprar-form">
-        <Heading className="comprar-heading">Comprar Número</Heading>
+    <Flex align="center" justify="center" minH="calc(100vh - 160px)">
+    {!mostrarFormulario ? (
+      <JuegoComprarNumero onRespuestaCorrecta={handleRespuestaCorrecta} />
+    ) : (
+      <Box className="comprar-container">
+    <Box className="comprar-form" maxW="1000px">
+        <Heading className="comprar-heading">Como respondiste correctamente, puede comprar tu número. Ingresa tus datos para hacer la compra!</Heading>
         <FormControl mb={4}>
           <FormLabel>Nombre</FormLabel>
           <Input
@@ -232,6 +242,8 @@ const ComprarNumero = () => {
         </Box>
       )}
     </Box>
+    )}
+    </Flex>
   );
 };
 

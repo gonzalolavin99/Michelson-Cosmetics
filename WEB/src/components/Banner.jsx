@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { Carrusel, IgButton } from "./listadoExportaciones.js";
+
 import "../banner.css";
 
 export const Banner = () => {
