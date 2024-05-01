@@ -1,5 +1,5 @@
 import React from "react";
-import "../igButton.css";
+import "./igButton.css";
 
 export const IgButton = () => {
   const ig =
@@ -24,6 +24,8 @@ export const IgButton = () => {
         <a
           className="icon"
           href="https://www.instagram.com/lamichelson11/?hl=es"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <div className="layer">
             <span></span>

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Button, Carousel } from "antd";
 import { NavLink } from "react-router-dom";
+import "./premios.css";
 
-import "./premios.css"; // Asegúrate de importar tus estilos CSS aquí
-
-const Premios = () => {
+const Premios = ({ showModal }) => {
   const [visible, setVisible] = useState(false);
   const [selectedPremio, setSelectedPremio] = useState(null);
 
@@ -35,7 +34,7 @@ const Premios = () => {
     {
       id: 3,
       nombre: "Tercer Premio",
-      descripcion: "Descripción corta del tercer premio.",
+      descripcion: "Brazalete Pandora",
       imagenes: [
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
@@ -45,7 +44,7 @@ const Premios = () => {
     },
   ];
 
-  const showModal = (premio) => {
+  const handleShowModal = (premio) => {
     setSelectedPremio(premio);
     setVisible(true);
   };
@@ -58,19 +57,11 @@ const Premios = () => {
     <div className="cards-container">
       {premios.map((premio) => (
         <div key={premio.id} className="card">
-          <img
-            src={premio.imagenes[0]}
-            alt={premio.nombre}
-            className="card-image"
-          />
+          <img src={premio.imagenes[0]} alt={premio.nombre} className="card-image" />
           <div className="card-content">
             <h3 className="card-title">{premio.nombre}</h3>
             <p className="card-description">{premio.descripcion}</p>
-            <Button
-              className="btn-pink"
-              onClick={() => showModal(premio)}
-              type="primary"
-            >
+            <Button className="btn-pink" onClick={() => handleShowModal(premio)} type="primary">
               Ver Detalles
             </Button>
           </div>
@@ -81,7 +72,7 @@ const Premios = () => {
         title={selectedPremio && selectedPremio.nombre}
         visible={visible}
         onCancel={handleCancel}
-        bodyStyle={{ backgroundColor: "#ffc0cb" }} // Cambiar color de fondo del modal
+        bodyStyle={{ backgroundColor: "#ffc0cb" }}
         footer={[
           <Button key="back" onClick={handleCancel}>
             Cerrar
@@ -99,11 +90,7 @@ const Premios = () => {
               <Carousel autoplay autoplaySpeed={800}>
                 {selectedPremio.imagenes.map((imagen, index) => (
                   <div key={index}>
-                    <img
-                      src={imagen}
-                      alt={`Imagen ${index + 1}`}
-                      className="modal-image"
-                    />
+                    <img src={imagen} alt={`Imagen ${index + 1}`} className="modal-image" />
                   </div>
                 ))}
               </Carousel>

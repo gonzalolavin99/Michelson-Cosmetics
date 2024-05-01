@@ -1,7 +1,14 @@
 import React from "react";
 import "./Footer.css";
+import { IgButton } from "../IgButtons/IgButton";
+import { IgButtonJR } from "../IgButtons/IgButtonJR";
+import Premios from "../../views/Premios/Premios.jsx";
+import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
+  const handlePremioClick = (premioId) => {
+    // Implementa la lógica para mostrar el modal o navegar a la vista de Premios
+  };
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -18,89 +25,87 @@ export const Footer = () => {
         </div>
         <div className="footer-body">
           <div className="footer-body__content">
-            <p>
-            Ya compraste tu número? Entonces visita nuestras redes sociales!
-            </p>
+            <p>Ya compraste tu número? Entonces visita nuestras redes sociales!</p>
+            <div className="social-buttons">
+              <IgButton />
+              <IgButtonJR />
+            </div>
           </div>
           <nav className="footer-body__nav">
-            <ul className="footer-body__nav-list">
-              <li className="footer-body__nav-item ">
-              Participa acá!
-                <ul className="footer-body__nav-sublist">
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link liHead">
-                      Marketing
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      Design
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      App Development
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      Web Development
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="footer-body__nav-item ">
-                About
-                <ul className="footer-body__nav-sublist">
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link ">
-                      About
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      Careers
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      History
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      Our Team
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="footer-body__nav-item liHead">
-                Support
-                <ul className="footer-body__nav-sublist">
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      FAQs
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      Contact
-                    </a>
-                  </li>
-                  <li className="footer-body__nav-subitem">
-                    <a href="" className="footer-body__nav-link">
-                      Live chat
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+          <ul className="footer-body__nav-list">
+  <li className="footer-body__nav-item">
+    Participa acá!
+    <ul className="footer-body__nav-sublist">
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link liHead">
+          Comprar un número
+        </a>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link">
+          Términos y condiciones
+        </a>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link">
+          App Development
+        </a>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link">
+          Web Development
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li className="footer-body__nav-item">
+    Premios
+    <ul className="footer-body__nav-sublist">
+      <li className="footer-body__nav-subitem">
+        <NavLink to="/premios" className="footer-body__nav-link">
+          Suzuki Swift
+        </NavLink>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <NavLink to="/premios" className="footer-body__nav-link">
+          Cartera Moschino
+        </NavLink>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <NavLink to="/premios" className="footer-body__nav-link">
+          Brazalete Pandora
+        </NavLink>
+      </li>
+    </ul>
+  </li> {/* Agrega el cierre de la etiqueta li aquí */}
+  <li className="footer-body__nav-item liHead">
+    Soporte
+    <ul className="footer-body__nav-sublist">
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link">
+          Contacto
+        </a>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link">
+        </a>
+      </li>
+      <li className="footer-body__nav-subitem">
+        <a href="" className="footer-body__nav-link">
+          Live chat
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
           </nav>
         </div>
         <div className="footer-attribute">
-        <p>&copy; JrMichelson SPA 2024. All right reserved.</p>
+          <p>&copy; JrMichelson SPA 2024. All right reserved.</p>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;
