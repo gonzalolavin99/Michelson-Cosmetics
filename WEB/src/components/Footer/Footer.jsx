@@ -37,7 +37,7 @@ export const Footer = () => {
     Participa acá!
     <ul className="footer-body__nav-sublist">
       <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link liHead">
+        <a href="/compra" className="footer-body__nav-link liHead">
           Comprar un número
         </a>
       </li>

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev-p":"set NODE_ENV=production&&vite",
+    "dev-p": "set NODE_ENV=production&&vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -15,7 +15,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
-    "antd": "^5.16.2",
+    "antd": "^5.16.5",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
     "clsx": "^2.1.0",

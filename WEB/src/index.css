@@ -192,16 +192,23 @@ h1 {
 .ticket-container {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .ticket-container button {
   margin-right: 10px; /* Aumenta el espacio entre los botones */
   font-size: 1em; /* Aumenta el tamaño de la fuente */
   padding: 12px 20px; /* Aumenta el padding para hacer los botones más grandes */
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .ticket-container p {
   margin-right: 10px; /* Ajusta el espaciado entre el texto y los botones */
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 
