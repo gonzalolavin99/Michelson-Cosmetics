@@ -175,3 +175,13 @@
     border-radius: 4px;
   }
 }
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10em;
+}
+
+.social-buttons > * {
+  max-width: 200px; /* Ajusta este valor según el ancho deseado para los botones */
+}

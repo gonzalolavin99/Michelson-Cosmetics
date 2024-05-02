@@ -16,7 +16,7 @@ export const Banner = () => {
               <p>CONCURSA POR UN</p>
             </div>
             <div className="text2">
-              <p>SUSUKI BALENO</p>
+              <p>SUZUKI SWIFT</p>
             </div>
             <IgButton />
           </div>
