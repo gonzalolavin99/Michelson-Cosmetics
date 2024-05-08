@@ -387,3 +387,88 @@ h1 {
     color: #ffc0cb;
   }
 }
+
+.nav-list {
+  display: flex; /* Mostrar la lista de navegación por defecto */
+}
+
+.hamburger-menu-container {
+  display: none; /* Ocultar el botón de hamburger menu por defecto */
+}
+
+@media (max-width: 767px) {
+
+  .hamburger-menu-container {
+    display: block; /* Mostrar el botón de hamburger menu en pantallas pequeñas */
+  }
+  .nav-list {
+    display: none; /* Ocultar la lista de navegación en pantallas pequeñas */
+  }
+  .nav-list.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  .close-menu-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-toggle{
+    display: none; 
+  }
+  .nav-list {
+    display: flex; /* Mostrar la lista de navegación en pantallas grandes */
+    
+  }
+  .hamburger-menu-container {
+    display: none; /* Ocultar el botón de hamburger menu en pantallas grandes */
+  }
+}
+
+.nav-list.open {
+  display: flex;
+  flex-direction: column;
+  
+  /* Estilos adicionales para el menú abierto */
+}
+
+/* Estilos del botón de hamburger menu */
+.hamburger-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+}
+
+.hamburger-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+}
+
+.close-menu-btn {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  right: 0;
+}

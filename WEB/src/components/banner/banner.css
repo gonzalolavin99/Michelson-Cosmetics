@@ -102,4 +102,16 @@
     align-items: center;
     justify-content: center;
   }
+  .ig-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:1rem;
+  }
+  
+  .ig-container img {
+    max-width: 5em; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
 }
