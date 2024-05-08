@@ -3,14 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Carousel } from 'antd';
 import './CartDrawer.css';
 
-const contentStyle = {
-  height: '200px',
-  color: '#fff',
-  lineHeight: '200px',
-  textAlign: 'center',
-  background: '#364d79',
-};
-
 const CartDrawer = ({ isOpen, onClose, cantidadTickets, sumarTicket, restarTicket, ticketResumen, totalCompra }) => {
   return (
     isOpen && (
@@ -23,13 +15,13 @@ const CartDrawer = ({ isOpen, onClose, cantidadTickets, sumarTicket, restarTicke
         </div>
         <Carousel autoplay>
           <div>
-            <img src="https://i.pinimg.com/736x/45/a2/bd/45a2bd8ff5413360222defb7c69a7a93.jpg" alt="Imagen 1" style={contentStyle} />
+            <img src="https://i.pinimg.com/736x/45/a2/bd/45a2bd8ff5413360222defb7c69a7a93.jpg" alt="Imagen 1" />
           </div>
           <div>
-            <img src="https://i.pinimg.com/736x/23/33/71/2333712fabe6078f28d05f6e1c181bfb.jpg" alt="Imagen 2" style={contentStyle} />
+            <img src="https://i.pinimg.com/736x/23/33/71/2333712fabe6078f28d05f6e1c181bfb.jpg" alt="Imagen 2" />
           </div>
           <div>
-            <img src="https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg" alt="Imagen 3" style={contentStyle} />
+            <img src="https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg" alt="Imagen 3" />
           </div>
         </Carousel>
         <div className="ticket-container">

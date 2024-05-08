@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 import { TicketContext } from "../context/TicketContext";
 import { FaShoppingCart } from "react-icons/fa";
 import CartDrawer from "./CartDrawer/CartDrawer.jsx";
+import { FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
-  const { cantidadTickets, setCantidadTickets, handleCompra } =
-    useContext(TicketContext);
+  const { cantidadTickets, setCantidadTickets, handleCompra } = useContext(TicketContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [ticketResumen, setTicketResumen] = useState("");
   const [totalCompra, setTotalCompra] = useState(0);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Generar el resumen y calcular el total de la compra
@@ -38,31 +38,30 @@ const Navbar = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <ul className="nav-list">
+        <div className="hamburger-menu-container">
+          {isMenuOpen ? (
+            <div className="menu-open">
+              <FaTimes className="close-menu-btn" onClick={toggleMenu} />
+              <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
           <li className="nav-item">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-              to="/"
-            >
+            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/">
               Home
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-              to="/compra"
-            >
+            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/compra">
               Compra tu número
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-              to="/premios"
-            >
+            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/premios">
               Premios
             </NavLink>
           </li>
@@ -80,9 +79,7 @@ const Navbar = () => {
               <a className="cart-icon" onClick={toggleDrawer}>
                 <FaShoppingCart style={{ fontSize: "0.9em" }} />
               </a>
-              {cantidadTickets > 0 && (
-                <span style={{ marginLeft: "0.5em" }}>{cantidadTickets}</span>
-              )}
+              {cantidadTickets > 0 && <span style={{ marginLeft: "0.5em" }}>{cantidadTickets}</span>}
             </div>
             {/* Renderizar el componente CartDrawer */}
             <CartDrawer
@@ -96,10 +93,7 @@ const Navbar = () => {
             />
           </li>
           <li className="nav-item">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-              to="/galeria"
-            >
+            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/galeria">
               Galería
             </NavLink>
           </li>
@@ -110,8 +104,17 @@ const Navbar = () => {
             >
               Términos y condiciones
             </NavLink>
-          </li>
-        </ul>
+            </li>
+            </ul>
+            </div>
+          ) : (
+            <button className="hamburger-btn" onClick={toggleMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          )}
+        </div>
       </nav>
     </div>
   );
