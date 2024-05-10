@@ -79,58 +79,6 @@ h1 {
   color: black;
   margin-bottom: 10px;
 }
-/* Estilos para el contenedor del Navbar */
-.navbar-container {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente los elementos */
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  background-color: #fff; /* Color de fondo del Navbar */
-  z-index: 1000; /* Asegura que el Navbar esté por encima de otros elementos */
-}
-
-/* Estilos para el Navbar */
-.navbar {
-  padding: 20px; /* Añade espaciado interior al Navbar */
-  width: auto;
-}
-
-.nav-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  font-size: 1.2em;
-}
-
-.nav-item {
-  display: inline-block;
-  margin-right: 20px; /* Espacio entre elementos de la lista */
-}
-
-.nav-item:last-child {
-  margin-right: 0; /* Elimina el margen derecho del último elemento de la lista */
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: #333; /* Color de texto de los enlaces */
-  padding: 10px; /* Espacio interior de los enlaces */
-}
-
-.nav-item a.active {
-  background-color: #ffc0cb;
-  color: black;
-}
-
-
-.nav-item a:hover {
-  background-color: #ffc0cb;
-  border-radius: 20%;
-  color: black;
-}
 
 .carousel-container {
   display: flex;
@@ -152,7 +100,7 @@ h1 {
   width: auto;
   white-space: nowrap;
   text-overflow: ellipsis;
-};
+}
 
 .modal-btn {
   background-color: #ffc0cb !important;
@@ -177,18 +125,6 @@ h1 {
   border-color: #000000 !important;
 }
 
-.cart-menu {
-  position: absolute; /* Cambiar a posición absoluta para no afectar el layout */
-  top: 100%; /* Colocar el menú justo debajo del ícono del carrito */
-  left: 0;
-  background-color: #fff; /* Color de fondo del menú */
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agregar sombra para resaltar el menú */
-  z-index: 1001; /* Asegura que el menú esté por encima del Navbar */
-  animation: slideDown 0.2s ease; /* Agregar animación para desplazar hacia abajo */
-}
-
 .ticket-container {
   display: flex;
   align-items: center;
@@ -210,7 +146,6 @@ h1 {
   justify-content: center;
   margin-top: 1rem;
 }
-
 
 .col-info {
   border: 2px solid;
@@ -272,13 +207,11 @@ h1 {
 
 .galeria-imagen {
   cursor: pointer;
-  /* position: relative; */
   padding-bottom: 10%; 
   overflow: hidden;
 }
 
 .galeria-imagen img {
-  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
@@ -386,89 +319,4 @@ h1 {
   .a-cosmectic :hover {
     color: #ffc0cb;
   }
-}
-
-.nav-list {
-  display: flex; /* Mostrar la lista de navegación por defecto */
-}
-
-.hamburger-menu-container {
-  display: none; /* Ocultar el botón de hamburger menu por defecto */
-}
-
-@media (max-width: 767px) {
-
-  .hamburger-menu-container {
-    display: block; /* Mostrar el botón de hamburger menu en pantallas pequeñas */
-  }
-  .nav-list {
-    display: none; /* Ocultar la lista de navegación en pantallas pequeñas */
-  }
-  .nav-list.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    z-index: 999;
-  }
-
-  .close-menu-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-  }
-}
-
-@media (min-width: 768px) {
-  .navbar-toggle{
-    display: none; 
-  }
-  .nav-list {
-    display: flex; /* Mostrar la lista de navegación en pantallas grandes */
-    
-  }
-  .hamburger-menu-container {
-    display: none; /* Ocultar el botón de hamburger menu en pantallas grandes */
-  }
-}
-
-.nav-list.open {
-  display: flex;
-  flex-direction: column;
-  
-  /* Estilos adicionales para el menú abierto */
-}
-
-/* Estilos del botón de hamburger menu */
-.hamburger-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 24px;
-  width: 30px;
-}
-
-.hamburger-btn span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: #333;
-}
-
-.close-menu-btn {
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-  right: 0;
 }

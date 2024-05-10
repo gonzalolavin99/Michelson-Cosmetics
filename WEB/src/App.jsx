@@ -15,7 +15,7 @@ import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";
 import { ChakraProvider } from "@chakra-ui/react";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/Navbar/Navbar.jsx";
 
 
 const App = () => {

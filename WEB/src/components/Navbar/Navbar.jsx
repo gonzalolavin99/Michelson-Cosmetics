@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { TicketContext } from "../context/TicketContext";
+import { TicketContext } from "../../context/TicketContext.jsx";
 import { FaShoppingCart } from "react-icons/fa";
-import CartDrawer from "./CartDrawer/CartDrawer.jsx";
+import CartDrawer from "../CartDrawer/CartDrawer.jsx";
 import { FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
