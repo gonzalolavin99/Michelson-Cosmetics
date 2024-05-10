@@ -1,0 +1,104 @@
+.banner {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDEyMCI+PHBhdGggZD0iTTMyMS4zOSA1Ni40NGM1OC0xMC43OSAxMTQuMTYtMzAuMTMgMTcyLTIuODkgODIuMzktMTYuNzIgMTYuODEtMTcuNzMgMjUwLjQ1LS4zOUM4MjMuNzggMzEgOTA2LjY3IDcyIDk4NS42NiA5Mi44M2M3MC4wNSAxOC40OCAxNDYuNTMgMjYuMDkgMjE0LjM0IDNWMCBIMG12MjcuMzVhNjAwLjIxIDYwMC4yMSAwIDAzMjEuMzkgMjkuMDl6IiAvPjwvc3ZnPg==");
+  height: 70vh;
+  max-width: 100%;
+  margin: auto;
+  border-radius: 15px;
+  background: linear-gradient(to right, white, #ffc0cb, #f18ef1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner_title {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2em;
+}
+.banner_carousel {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text1 {
+  animation: slideInLeft 7s ease forwards infinite;
+}
+
+.text2 {
+  animation: slideInRight 7s ease forwards infinite;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 769px) {
+  .banner .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .banner .banner_title {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+  }
+  .banner .banner_carousel {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ig-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:1rem;
+  }
+  
+  .ig-container img {
+    max-width: 5em; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+}

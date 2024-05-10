@@ -1,0 +1,115 @@
+/* Navbar.css */
+
+/* Estilos para el contenedor del Navbar */
+.navbar-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Color de fondo del Navbar */
+    z-index: 1000; /* Asegura que el Navbar esté por encima de otros elementos */
+  }
+  
+  /* Estilos para el Navbar */
+  .navbar {
+    padding: 20px; /* Añade espaciado interior al Navbar */
+    width: auto;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+  }
+  
+  .nav-item {
+    display: inline-block;
+    margin-right: 20px; /* Espacio entre elementos de la lista */
+  }
+  
+  .nav-item:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento de la lista */
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: #333; /* Color de texto de los enlaces */
+    padding: 10px; /* Espacio interior de los enlaces */
+  }
+  
+  .nav-item a.active {
+    background-color: #ffc0cb;
+    color: black;
+  }
+  
+  .nav-item a:hover {
+    background-color: #ffc0cb;
+    border-radius: 20%;
+    color: black;
+  }
+  
+  /* Estilos para el menú de hamburguesa */
+  .hamburger-menu-container {
+    display: none; /* Ocultar el botón de hamburger menu por defecto */
+  }
+  
+  @media (max-width: 767px) {
+    .hamburger-menu-container {
+      display: block; /* Mostrar el botón de hamburger menu en pantallas pequeñas */
+    }
+    .nav-list {
+      display: none; /* Ocultar la lista de navegación en pantallas pequeñas */
+    }
+    .nav-list.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: #fff;
+      padding: 20px;
+      z-index: 999;
+    }
+  
+    .close-menu-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .nav-list {
+      display: flex; /* Mostrar la lista de navegación en pantallas grandes */
+    }
+    .hamburger-menu-container {
+      display: none; /* Ocultar el botón de hamburger menu en pantallas grandes */
+    }
+  }
+  
+  /* Estilos del botón de hamburger menu */
+  .hamburger-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px;
+  }
+  
+  .hamburger-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+  }

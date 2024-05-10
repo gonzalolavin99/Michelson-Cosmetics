@@ -13,6 +13,10 @@ import {
   FormLabel,
 } from "@chakra-ui/react";
 import "./comprarNumero.css";
+import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css"; // Importa los estilos de Toastify
+
 
 const ComprarNumero = () => {
   // Estado para controlar si la compra fue exitosa
@@ -97,11 +101,34 @@ const ComprarNumero = () => {
     { value: "aysen", label: "Región de Aysén" },
     { value: "magallanes", label: "Región de Magallanes" },
   ];
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+  const handleRespuestaCorrecta = () => {
+    Toastify({
+      text: "¡Respuesta correcta! Ahora puedes comprar tu número.",
+      duration: 8000, // Duración de la notificación en milisegundos
+      newWindow: true,
+      close: true,
+      gravity: "top", // Posición de la notificación
+      position: "right", // Posición de la notificación
+      stopOnFocus: true, // La notificación se mantendrá si la ventana está enfocada
+      style: {
+        background: "#ffc0cb", // Color de fondo de la notificación
+        color: "#000000", // Color del texto de la notificación
+      },
+    }).showToast();
+  
+    setMostrarFormulario(true);
+  };
 
   return (
-    <Box className="comprar-container">
-      <Box className="comprar-form">
-        <Heading className="comprar-heading">Comprar Número</Heading>
+    <Flex align="center" justify="center" minH="calc(100vh - 160px)">
+    {!mostrarFormulario ? (
+      <JuegoComprarNumero onRespuestaCorrecta={handleRespuestaCorrecta} />
+    ) : (
+      <Box className="comprar-container">
+    <Box className="comprar-form" maxW="1000px">
+        <Heading className="comprar-heading">Como respondiste correctamente, puede comprar tu número. Ingresa tus datos para hacer la compra!</Heading>
         <FormControl mb={4}>
           <FormLabel>Nombre</FormLabel>
           <Input
@@ -232,6 +259,8 @@ const ComprarNumero = () => {
         </Box>
       )}
     </Box>
+    )}
+    </Flex>
   );
 };
 
