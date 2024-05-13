@@ -47,7 +47,7 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav className="navbar">
         <div className="hamburger-menu-container">
-          {isMenuOpen ? (
+          {!isMenuOpen ? (
             <div className="menu-open">
               <FaTimes className="close-menu-btn" onClick={toggleMenu} />
               <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
