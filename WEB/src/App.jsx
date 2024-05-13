@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios/Premios.jsx";
 import "./index.css";
 import PruebaApi from "./components/PruebaApi";
-import CompraExitosa from "./views/CompraExitosa";
+import CompraExitosa from "./views/CompraExitosa/CompraExitosa.jsx";
 import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";

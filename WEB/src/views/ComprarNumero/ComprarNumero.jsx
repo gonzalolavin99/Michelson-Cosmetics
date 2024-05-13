@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import "./comprarNumero.css";
 import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const ComprarNumero = () => {
   // Estado para controlar si la compra fue exitosa
@@ -32,6 +34,7 @@ const ComprarNumero = () => {
   });
   // Estado para controlar la visualización de los datos
   const [showDataReview, setShowDataReview] = useState(false);
+  
   const navigate = useNavigate();
   const { setCantidadTickets } = useContext(TicketContext);
 
@@ -101,6 +104,20 @@ const ComprarNumero = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   const handleRespuestaCorrecta = () => {
+    Toastify({
+      text: "¡Respuesta correcta! Ahora puedes comprar tu número.",
+      duration: 8000, // Duración de la notificación en milisegundos
+      newWindow: true,
+      close: true,
+      gravity: "top", // Posición de la notificación
+      position: "right", // Posición de la notificación
+      stopOnFocus: true, // La notificación se mantendrá si la ventana está enfocada
+      style: {
+        background: "#ffc0cb", // Color de fondo de la notificación
+        color: "#000000", // Color del texto de la notificación
+      },
+    }).showToast();
+  
     setMostrarFormulario(true);
   };
 

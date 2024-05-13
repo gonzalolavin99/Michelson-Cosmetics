@@ -4,6 +4,7 @@ import { TicketContext } from "../context/TicketContext";
 import { FaShoppingCart } from "react-icons/fa";
 import CartDrawer from "./CartDrawer/CartDrawer.jsx";
 
+
 const Navbar = () => {
   const { cantidadTickets, setCantidadTickets, handleCompra } =
     useContext(TicketContext);

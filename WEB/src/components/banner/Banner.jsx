@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { Carrusel, IgButton, Minicard } from "../listadoExportaciones.js";
 import "./banner.css";
+import { IgButtonJR } from "../IgButtons/IgButtonJR.jsx";
 
 export const Banner = () => {
   const img1 = "Hola";
@@ -18,7 +19,10 @@ export const Banner = () => {
             <div className="text2">
               <p>SUZUKI SWIFT</p>
             </div>
-            <IgButton />
+            <div className="ig-container">
+              <div style={{marginRight:"1rem"}}><IgButton/></div><div> <IgButtonJR/></div>
+          
+        </div>
           </div>
           <div className="banner_carousel">
             <Carrusel />
