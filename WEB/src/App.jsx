@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer} from "./components/listadoExportaciones.js";
+import { Footer} from "./components/Footer/Footer.jsx";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";

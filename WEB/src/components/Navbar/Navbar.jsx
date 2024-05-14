@@ -1,17 +1,15 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { TicketContext } from "../../context/TicketContext.jsx";
 import { FaShoppingCart } from "react-icons/fa";
 import CartDrawer from "../CartDrawer/CartDrawer.jsx";
-import { FaTimes } from 'react-icons/fa';
-
+import "./Navbar.css"
 
 const Navbar = () => {
   const { cantidadTickets, setCantidadTickets, handleCompra } = useContext(TicketContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [ticketResumen, setTicketResumen] = useState("");
   const [totalCompra, setTotalCompra] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Generar el resumen y calcular el total de la compra
@@ -39,18 +37,10 @@ const Navbar = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <div className="hamburger-menu-container">
-          {!isMenuOpen ? (
-            <div className="menu-open">
-              <FaTimes className="close-menu-btn" onClick={toggleMenu} />
-              <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
+        <ul className="nav-list">
           <li className="nav-item">
             <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/">
               Home
@@ -75,10 +65,11 @@ const Navbar = () => {
                 borderRadius: "36%",
                 padding: "0.5em",
                 backgroundColor: "#ffc0cb",
+                marginTop:"0px"
               }}
             >
               <a className="cart-icon" onClick={toggleDrawer}>
-                <FaShoppingCart style={{ fontSize: "0.9em" }} />
+                <FaShoppingCart style={{ fontSize: "1em", paddingTop:"1px" }} />
               </a>
               {cantidadTickets > 0 && <span style={{ marginLeft: "0.5em" }}>{cantidadTickets}</span>}
             </div>
@@ -105,17 +96,8 @@ const Navbar = () => {
             >
               Términos y condiciones
             </NavLink>
-            </li>
-            </ul>
-            </div>
-          ) : (
-            <button className="hamburger-btn" onClick={toggleMenu}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          )}
-        </div>
+          </li>
+        </ul>
       </nav>
     </div>
   );
