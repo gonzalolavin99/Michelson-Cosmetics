@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TicketContext } from "../../context/TicketContext";
+import { useAppDispatch } from "../../redux/hooks"
+
 import {
   Box,
   Flex,
@@ -16,10 +18,15 @@ import "./comprarNumero.css";
 import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
+import ApiPurchase from "../../api/purchase/Purchase";
+import { loadPersona } from "../../redux/reducer/PurchaseReducer";
+
 
 const ComprarNumero = () => {
   // Estado para controlar si la compra fue exitosa
   const [compraExitosa, setCompraExitosa] = useState(false);
+
+  const dispatch = useAppDispatch()
   // Estado para almacenar los datos del formulario
   const [formData, setFormData] = useState({
     name: "",
@@ -44,9 +51,39 @@ const ComprarNumero = () => {
   };
 
   // Función para realizar la compra
-  const handleCompra = () => {
-    setCantidadTickets((prevCantidad) => prevCantidad + 1);
-    navigate("/compra-exitosa", { state: { formData, regionOptions } }); // Pasa regionOptions como prop
+  const handleCompra = async () => {
+    setCantidadTickets((p)=>{p+1});
+    const persona = {persona:{
+      name: formData.name,
+      email: formData.email,
+      comune: formData.commune,
+      apartment: formData.apartment,
+      phone: formData.phone,
+      houseNumber: formData.houseNumber,
+      region: formData.region,
+      street: formData.street,
+      rut: formData.rut
+    }}
+
+    dispatch(loadPersona(persona))
+
+    const newPurchasr  = {
+      date: new Date(),
+      rut: formData.name,
+      idtransaction: '',
+      id:0
+
+    }
+    let response  =  await ApiPurchase.CreatePurchase(newPurchasr)
+    if(response.Data.success)
+    {
+      const form = document.createElement("form");
+      form.method = "post";
+      form.action = response.Data.urlPaymentKhipu;
+      document.body.appendChild(form);
+      form.submit();
+    }
+     // Pasa regionOptions como prop
     setCompraExitosa(true);
   };
 
