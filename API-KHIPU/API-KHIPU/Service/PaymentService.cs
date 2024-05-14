@@ -16,7 +16,7 @@ namespace API_KHIPU.Service
             _configuration = configuration;
         }
 
-        public async Task<PaymentsCreateResponse> CreateNewPurchase(NewPurchaseRequest purchase)
+        public async Task<NewPurchaseResponse> CreateNewPurchase(NewPurchaseRequest purchase)
         {
             try
             {
@@ -39,13 +39,18 @@ namespace API_KHIPU.Service
                     notifyApiVersion: "1.3"
                  );
 
-                return response;
+                return new NewPurchaseResponse
+                {
+                    paymentId = response.PaymentId,
+                    urlPaymentKhipu = response.PaymentUrl,
+                    success = true
+                };
 
             }
             catch (Exception ex)
             {
                 
-               return (PaymentsCreateResponse)Results.BadRequest(ex.Message);
+               return (NewPurchaseResponse)Results.BadRequest(ex.Message);
             }
 
         }

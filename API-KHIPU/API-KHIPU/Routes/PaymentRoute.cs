@@ -35,5 +35,12 @@ namespace API_KHIPU.Routes
         public string CancelUrl { get; set; }
         public string NotifyUrl { get; set; }   
     }
-  
+
+    public class NewPurchaseResponse
+    {
+        public string urlPaymentKhipu { get; set; }
+        public string paymentId { get; set; }
+        public bool success { get; set; } = false;
+    }
+
 }
