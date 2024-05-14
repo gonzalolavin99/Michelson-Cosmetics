@@ -7,7 +7,7 @@ export class Purchase extends BaseEntity {
   @Column()
   rut: string;
   @Column()
-  idtransaction: number;
+  idtransaction: string;
   @Column()
   date: Date;
 }
