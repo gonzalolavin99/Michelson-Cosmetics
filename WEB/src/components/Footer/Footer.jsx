@@ -16,12 +16,7 @@ export const Footer = () => {
           <h1 className="footer-newsletter__header">
             Quieres contactarte con el equipo de soporte?
           </h1>
-          <div className="footer-newsletter__form">
-            <input type="email" name="email" placeholder="example@xyz.com" />
-            <button type="submit" className="submit-btn">
-              Subscribe
-            </button>
-          </div>
+          <h3>Escríbenos a soportejrmichelson@gmail.com</h3>
         </div>
         <div className="footer-body">
           <div className="footer-body__content">

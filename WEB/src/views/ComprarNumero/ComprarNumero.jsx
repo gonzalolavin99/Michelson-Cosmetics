@@ -232,7 +232,7 @@ const ComprarNumero = () => {
 
       {/* Sección para mostrar los datos ingresados */}
       {showDataReview && (
-        <Box h="100vh" display="flex" justifyContent="center" alignItems="center">
+        <Box h="100vh" display="flex" justifyContent="center" alignItems="center" marginLeft="1em" padding= "1em">
           <Box maxW="md" w="full">
             <Heading mb={6}>Revisa tus datos</Heading>
             <Text mb={2}>Nombre: {formData.name}</Text>
@@ -247,8 +247,8 @@ const ComprarNumero = () => {
             <Text mb={2}>Calle: {formData.street}</Text>
             <Text mb={2}>Número de casa: {formData.houseNumber}</Text>
             <Text mb={2}>Departamento: {formData.apartment}</Text>
-            <Flex justify="space-between">
-              <Button colorScheme="pink" onClick={handleConfirmPurchase}>
+            <Flex justify="space-between" >
+              <Button colorScheme="pink" marginRight= "0.5em" onClick={handleConfirmPurchase}>
                 Confirmar
               </Button>
               <Button colorScheme="pink" onClick={handleCompraFallida}>

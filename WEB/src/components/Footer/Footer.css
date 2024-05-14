@@ -183,5 +183,5 @@
 }
 
 .social-buttons > * {
-  max-width: 200px; /* Ajusta este valor según el ancho deseado para los botones */
+  max-width: 5em; /* Ajusta este valor según el ancho deseado para los botones */
 }

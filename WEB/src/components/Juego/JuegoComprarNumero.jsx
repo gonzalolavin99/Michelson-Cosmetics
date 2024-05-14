@@ -7,6 +7,9 @@ import {
   Button,
   keyframes,
 } from "@chakra-ui/react";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+
 
 const JuegoComprarNumero = ({ onRespuestaCorrecta }) => {
   const [mostrarRespuestas, setMostrarRespuestas] = useState(false);
@@ -22,11 +25,22 @@ const JuegoComprarNumero = ({ onRespuestaCorrecta }) => {
   const handleRespuesta = (opcion) => {
     setRespuestaSeleccionada(opcion);
     setMostrarRespuestas(true);
-
+  
     if (opcion.texto === "Mimi") {
       setTimeout(() => {
         onRespuestaCorrecta();
       }, 2000);
+    } else {
+      Toastify({
+        text: "Respuesta incorrecta. ¡Inténtalo de nuevo!",
+        duration: 3000, // Duración de la notificación en milisegundos
+        newWindow: true,
+        close: true,
+        gravity: "top", // Posición de la notificación
+        position: "right", // Posición de la notificación
+        backgroundColor: "#FF6347", // Color de fondo de la notificación
+        stopOnFocus: true, // La notificación se mantendrá si la ventana está enfocada
+      }).showToast();
     }
   };
 

@@ -43,17 +43,14 @@
   animation: slideInRight 7s ease forwards infinite;
 }
 
-.ig-container {
+.social-buttons {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin:1rem;
+  gap: 10em;
 }
 
-.ig-container img {
-  max-width: 5em; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
-  height: auto; /* Mantiene la proporción de la imagen */
+.social-buttons > * {
+  max-width: 200px; /* Ajusta este valor según el ancho deseado para los botones */
 }
 
 @keyframes slideInLeft {
