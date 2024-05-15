@@ -20,7 +20,7 @@ export const Footer = () => {
         </div>
         <div className="footer-body">
           <div className="footer-body__content">
-            <p>Ya compraste tu número? Entonces visita nuestras redes sociales!</p>
+            <h4>Ya compraste tu número? Entonces visita nuestras redes sociales!</h4>
             <div className="social-buttons">
               <IgButton />
               <IgButtonJR />

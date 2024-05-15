@@ -65,7 +65,8 @@ const Navbar = () => {
                 borderRadius: "36%",
                 padding: "0.5em",
                 backgroundColor: "#ffc0cb",
-                marginTop:"0px"
+                marginTop:"0px",
+                marginBottom:"5em"
               }}
             >
               <a className="cart-icon" onClick={toggleDrawer}>
