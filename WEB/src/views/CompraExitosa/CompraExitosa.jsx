@@ -9,7 +9,7 @@ import './CompraExitosa.css';
 
 const CompraExitosa = () => {
   const { state } = useLocation();
-  const { formData } = state;
+  const { formData, totalTickets, totalPagar } = state;
   const [componentMounted, setComponentMounted] = useState(false);
 
   useEffect(() => {
@@ -39,19 +39,20 @@ const CompraExitosa = () => {
             <div className="compra-exitosa-content">
               <h2 className="compra-exitosa-titulo">¡Compra exitosa!</h2>
               <h3 className="compra-exitosa-subtitulo">Gracias por tu compra {formData.name}</h3>
-              <h4 className="compra-exitosa-texto">En unos minutos te llegará un correo electrónico con los datos de tu ticket, aquí están los detalles de tu ticket:</h4>
+              <h4 className="compra-exitosa-texto">Estamos verificando tu compra, si está todo bien, te enviaremos en unos minutos una notificación junto con el ticket a tu correo!</h4>
               <div className="compra-exitosa-detalles">
-                <p>Número de ticket</p>
+                <p>Número de ticket: {Math.floor(Math.random() * 1000000)}</p> {/* Número de ticket generado */}
                 <p>Nombre: {formData.name}</p>
                 <p>RUT: {formData.rut}</p>
                 <p>Correo electrónico: {formData.email}</p>
                 <p>Teléfono: {formData.phone}</p>
-                
+                <p>Región: {formData.region}</p>
                 <p>Comuna: {formData.commune}</p>
                 <p>Calle: {formData.street}</p>
                 <p>Número de casa: {formData.houseNumber}</p>
-                <p></p>
-
+                {formData.apartment && <p>Departamento: {formData.apartment}</p>}
+                <p>Total de tickets: {totalTickets}</p>
+                <p>Total a pagar: ${totalPagar}</p>
               </div>
             </div>
           </Col>
