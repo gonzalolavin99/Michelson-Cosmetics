@@ -47,9 +47,17 @@
   /* Estilos para las imágenes del modal */
   .modal-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: 50vh; /* Establece la altura máxima de las imágenes */
+    margin-top: 0.1em;
   }
+  .modal-description {
+    flex: 1; /* Permitir que la descripción ocupe todo el espacio disponible */
+    max-height: 50vh; /* Establecer una altura máxima */
+    overflow-y: auto; /* Agregar scroll vertical si el contenido es demasiado largo */
+    padding-left: 20px; /* Agregar un espacio entre el carrusel y la descripción */
+  }
+  
   
   /* Reglas de medios para hacer que las tarjetas sean responsivas */
   @media (max-width: 768px) {

@@ -8,8 +8,6 @@ const Premios = ({ showModal }) => {
   const [visible, setVisible] = useState(false);
   const [selectedPremio, setSelectedPremio] = useState(null);
 
- 
-
   const handleShowModal = (premio) => {
     setSelectedPremio(premio);
     setVisible(true);
@@ -23,22 +21,29 @@ const Premios = ({ showModal }) => {
     <div className="cards-container">
       {premios.map((premio) => (
         <div key={premio.id} className="card">
-          <img src={premio.imagenes[0]} alt={premio.nombre} className="card-image" />
+          <img
+            src={premio.imagenes[0]}
+            alt={premio.nombre}
+            className="card-image"
+          />
           <div className="card-content">
             <h3 className="card-title">{premio.nombre}</h3>
-            <p className="card-description">{premio.descripcion}</p>
-            <Button className="btn-pink" onClick={() => handleShowModal(premio)} type="primary">
+            <p className="card-description">{premio.descripcionLarga}</p>
+            <Button
+              className="btn-pink"
+              onClick={() => handleShowModal(premio)}
+              type="primary"
+            >
               Ver Detalles
             </Button>
           </div>
         </div>
       ))}
-
       <Modal
         title={selectedPremio && selectedPremio.nombre}
         visible={visible}
         onCancel={handleCancel}
-        bodyStyle={{ backgroundColor: "#ffc0cb" }}
+        bodyStyle={{ backgroundColor: "white" }}
         footer={[
           <Button key="back" onClick={handleCancel}>
             Cerrar
@@ -53,15 +58,18 @@ const Premios = ({ showModal }) => {
         <div className="modal-content">
           {selectedPremio && (
             <>
-              <Carousel autoplay autoplaySpeed={800}>
-                {selectedPremio.imagenes.map((imagen, index) => (
-                  <div key={index}>
-                    <img src={imagen} alt={`Imagen ${index + 1}`} className="modal-image" />
-                  </div>
-                ))}
-              </Carousel>
-              <div className="modal-description">
-                <p>{selectedPremio.descripcionLarga}</p>
+              <div className="modal-content-container">
+                <Carousel autoplay autoplaySpeed={800} className="modal-carousel" style={{height:"100%"}}>
+                  {selectedPremio.imagenes.map((imagen, index) => (
+                    <div key={index}>
+                      <img
+                        src={imagen}
+                        alt={`Imagen ${index + 1}`}
+                        className="modal-image"
+                      />
+                    </div>
+                  ))}
+                </Carousel>
               </div>
             </>
           )}

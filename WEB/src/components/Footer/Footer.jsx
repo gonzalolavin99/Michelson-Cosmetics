@@ -37,20 +37,12 @@ export const Footer = () => {
         </a>
       </li>
       <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
+        <a href="/terminos" className="footer-body__nav-link">
           Términos y condiciones
         </a>
       </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          App Development
-        </a>
-      </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          Web Development
-        </a>
-      </li>
+    
+      
     </ul>
   </li>
   <li className="footer-body__nav-item">
@@ -73,25 +65,7 @@ export const Footer = () => {
       </li>
     </ul>
   </li> {/* Agrega el cierre de la etiqueta li aquí */}
-  <li className="footer-body__nav-item liHead">
-    Soporte
-    <ul className="footer-body__nav-sublist">
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          Contacto
-        </a>
-      </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-        </a>
-      </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          Live chat
-        </a>
-      </li>
-    </ul>
-  </li>
+ 
 </ul>
           </nav>
         </div>

@@ -41,7 +41,7 @@ export const Minicard = () => {
           <CardFooter display="flex" alignItems="center" justifyContent="center">
             <Link to="/premios">
               <Button variant="ghost" colorScheme="black">
-                More Info
+               Ir a ver los premios
               </Button>
             </Link>
           </CardFooter>

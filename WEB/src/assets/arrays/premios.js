@@ -8,7 +8,7 @@ export const premios = [
         "https://i.pinimg.com/736x/9f/0d/99/9f0d99956cfe2dc486b9434f3587f8c9.jpg",
         "https://i.pinimg.com/736x/33/cb/82/33cb820dae66900f1def6f8223033ba9.jpg",
       ],
-      descripcionLarga: "Descripción más detallada del primer premio.",
+      descripcionLarga: "El Suzuki Swift 2022 1.2 GL destaca como un automóvil compacto que equilibra de manera excepcional el rendimiento, la eficiencia y el estilo. Su diseño moderno y dinámico lo convierte en la opción perfecta para la conducción en entornos urbanos, donde su motor de gasolina de 1.2 litros garantiza una experiencia ágil y suave al volante.",
     },
     {
       id: 2,
@@ -31,6 +31,6 @@ export const premios = [
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
         "imagen9.jpg",
       ],
-      descripcionLarga: "Descripción más detallada del tercer premio.",
+      descripcionLarga: "Versión romántica del brazalete de Pandora. El brazalete está hecho a mano con una cadena de serpiente de plata esterlina y tiene un cierre en forma de corazón. Se destaca por sí solo, pero se ve aún mejor cuando se le agregan charms y clips de Pandora. Puede usarse solo o combinado con otras pulseras de cadena Pandora para crear un look elegante.",
     },
   ];
