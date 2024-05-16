@@ -15,7 +15,7 @@
 
 /* Estilos para el Navbar */
 .navbar {
-  padding: 20px; /* Añade espaciado interior al Navbar */
+  padding: 0.5em; /* Añade espaciado interior al Navbar */
   width: auto;
 }
 

@@ -41,9 +41,9 @@ const Premios = ({ showModal }) => {
       ))}
       <Modal
         title={selectedPremio && selectedPremio.nombre}
-        visible={visible}
+        open={visible}
         onCancel={handleCancel}
-        bodyStyle={{ backgroundColor: "white" }}
+        stylesBody={{ backgroundColor: "white" }}
         footer={[
           <Button key="back" onClick={handleCancel}>
             Cerrar

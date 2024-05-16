@@ -17,11 +17,13 @@
     transition: box-shadow 0.3s ease;
   }
   
-  /* Estilos para la imagen de la tarjeta */
-  .card-image {
-    width: 100%; /* Cambiar el ancho para ocupar todo el espacio disponible */
-    height: auto; /* Ajustar la altura automáticamente */
-  }
+/* Estilos para la imagen de la tarjeta */
+.card-image {
+  width: 100%; /* Cambiar el ancho para ocupar todo el espacio disponible */
+  height: 30em; /* Establecer una altura fija para todas las imágenes */
+  object-fit: cover; /* Para mantener la relación de aspecto y recortar la imagen si es necesario */
+}
+
 
   .card:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
