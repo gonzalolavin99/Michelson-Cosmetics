@@ -40,7 +40,7 @@ export const Minicard = () => {
           <Divider />
           <CardFooter display="flex" alignItems="center" justifyContent="center">
             <Link to="/premios">
-              <Button variant="ghost" colorScheme="black">
+              <Button variant="ghost" colorScheme="black" >
                Ir a ver los premios
               </Button>
             </Link>

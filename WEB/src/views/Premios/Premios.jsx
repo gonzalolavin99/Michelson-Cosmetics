@@ -59,7 +59,7 @@ const Premios = ({ showModal }) => {
           {selectedPremio && (
             <>
               <div className="modal-content-container">
-                <Carousel autoplay autoplaySpeed={800} className="modal-carousel" style={{height:"100%"}}>
+                <Carousel autoplay autoplaySpeed={800} className="modal-carousel">
                   {selectedPremio.imagenes.map((imagen, index) => (
                     <div key={index}>
                       <img

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   FormLabel,
@@ -13,8 +13,22 @@ const FormularioDatos = ({
   handleChange,
   regionOptions,
   totalTickets,
-  totalPagar,
 }) => {
+  const [cantidadTickets, setCantidadTickets] = useState(1);
+  const precioTicket = 5000; // Precio de cada ticket, puedes cambiarlo según tu lógica
+
+  const sumarTicket = () => {
+    setCantidadTickets(cantidadTickets + 1);
+  };
+
+  const restarTicket = () => {
+    if (cantidadTickets > 1) {
+      setCantidadTickets(cantidadTickets - 1);
+    }
+  };
+
+  const totalPagar = cantidadTickets * precioTicket;
+
   return (
     <>
       <FormControl mb={4} isInvalid={formErrors.name !== ""} isRequired>
@@ -141,8 +155,23 @@ const FormularioDatos = ({
         />
       </FormControl>
 
-      <p>Total de tickets: {totalTickets}</p>
-      <p>Total a pagar: ${totalPagar}</p>
+      <div className="ticket-container">
+        <button className="btn-black" onClick={sumarTicket}>
+          +
+        </button>
+        <p>{cantidadTickets}</p>
+        <button className="btn-black" onClick={restarTicket}>
+          -
+        </button>
+      </div>
+
+      {/* Mostrar el resumen solo si la cantidad de tickets es mayor que 0 */}
+      {cantidadTickets > 0 && (
+        <>
+          <p>Total de tickets: {cantidadTickets}</p>
+          <p>Total a pagar: ${totalPagar}</p>
+        </>
+      )}
     </>
   );
 };

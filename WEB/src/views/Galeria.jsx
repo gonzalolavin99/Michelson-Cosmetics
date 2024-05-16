@@ -70,33 +70,7 @@ const Galeria = () => {
     setIndiceImagen((indiceImagen - 1 + imagenes.length) % imagenes.length);
   };
 
-  // Manejar el movimiento del cursor sobre la imagen en el carrusel
-  const handleCursorMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setCursorPosition({ x, y });
-
-    if (imageRef.current) {
-      if (e.type === "mousemove") {
-        const maxScale = 2; // Define el nivel máximo de zoom permitido
-        const currentScale =
-          imageRef.current.getBoundingClientRect().width / imageSize.width;
-
-        if (currentScale < maxScale) {
-          // Calcular los porcentajes de posición del cursor en relación al tamaño de la imagen
-
-          imageRef.current.style.transformOrigin = `${
-            x / (imageSize.width / 100)
-          }% ${y / (imageSize.height / 100)}%`;
-        }
-      } else if (e.type === "mouseenter") {
-        imageRef.current.style.transformOrigin = "center center";
-      } else if (e.type === "mouseleave") {
-        imageRef.current.style.transformOrigin = "center center";
-      }
-    }
-  };
+ 
 
   // Manejar la carga de la imagen en el carrusel
   const handleImageLoad = (e) => {
@@ -125,10 +99,8 @@ const Galeria = () => {
             <img
               src={imagenes[indiceImagen]}
               alt="Imagen seleccionada"
-              onMouseMove={handleCursorMove}
-              onMouseEnter={handleCursorMove}
-              onMouseLeave={handleCursorMove}
-              onLoad={handleImageLoad}
+              
+             
               ref={imageRef}
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />

@@ -305,6 +305,7 @@ const ComprarNumero = () => {
                 )}
               </Box>
             )}
+            
           </Flex>
         );
       };

@@ -298,6 +298,21 @@ h1 {
   margin-bottom: 15px;
 }
 
+.btn-black {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.btn-black:hover {
+  background-color: rgb(212, 88, 108);
+}
+
+
 @keyframes slideDown {
   from {
     opacity: 0;
