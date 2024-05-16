@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   FormControl,
   FormLabel,
@@ -6,6 +6,7 @@ import {
   Input,
   Select,
 } from "@chakra-ui/react";
+import { TicketContext } from "../../context/TicketContext";
 
 const FormularioDatos = ({
   formData,
@@ -14,7 +15,7 @@ const FormularioDatos = ({
   regionOptions,
   totalTickets,
 }) => {
-  const [cantidadTickets, setCantidadTickets] = useState(1);
+  const { cantidadTickets, setCantidadTickets } = useContext(TicketContext);
   const precioTicket = 5000; // Precio de cada ticket, puedes cambiarlo según tu lógica
 
   const sumarTicket = () => {
@@ -22,7 +23,7 @@ const FormularioDatos = ({
   };
 
   const restarTicket = () => {
-    if (cantidadTickets > 1) {
+    if (cantidadTickets > 0) {
       setCantidadTickets(cantidadTickets - 1);
     }
   };
