@@ -7,9 +7,10 @@ const envURLs = {
   databaseLocal: "jrmichelson",
   sslDbConfigLocal: false,
 
-  apiKhipuLocal: "http://localhost:5185/",
+  apiKhipuLocal: "http://3.145.103.55/Khipu/",
   urlPaymentSuccessLocal: "http://localhost:5173/compra-exitosa",
   urlPaymentCancelLocal: "http://localhost:5173/compra-fallida",
+  urlPaymentNotify:"http://3.145.103.55/Khipu/notifyPurchase",
   
 
   //Conexion Production
@@ -19,7 +20,7 @@ const envURLs = {
   userProd: "jrmichelsondbadmin",
   passProd: "12345678",
   databaseProd: "dbjrmichelson",
-  apiKhipuProd: "http://localhost:7031/",
+  apiKhipuProd: "http://3.145.103.55/Khipu/",
   sslDbConfigProd: {},
   urlPaymentSuccessProd: "",
   urlPaymentCanceProd: "",
@@ -44,6 +45,7 @@ const getEnv = () => {
       urlApi: envURLs.apiKhipuProd,
       urlPaymentCancel: envURLs.urlPaymentCancelLocal,
       urlPaymentSuccess: envURLs.urlPaymentSuccessLocal,
+      urlPaymentNotify: envURLs.urlPaymentNotify
     };
 
     env = { conectiondb, conectionKhipu };
@@ -61,6 +63,7 @@ const getEnv = () => {
       urlApi: envURLs.apiKhipuLocal,
       urlPaymentCancel: envURLs.urlPaymentCancelLocal,
       urlPaymentSuccess: envURLs.urlPaymentSuccessLocal,
+      urlPaymentNotify: envURLs.urlPaymentNotify
     };
     env = { conectiondb, conectionKhipu };
   }
@@ -82,4 +85,5 @@ export interface ConnectionKhipu {
   urlApi: string;
   urlPaymentSuccess: string;
   urlPaymentCancel: string;
+  urlPaymentNotify: string;
 }
