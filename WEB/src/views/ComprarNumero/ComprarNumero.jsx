@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { TicketContext } from "../../context/TicketContext";
-import { useAppDispatch } from "../../redux/hooks"
+import { TicketContext } from "../../context/TicketContext.jsx";
+import { useAppDispatch } from "../../redux/hooks";
 
 import {
   Box,
@@ -13,7 +13,7 @@ import {
   FormErrorMessage,
 } from "@chakra-ui/react";
 import "./comprarNumero.css";
-import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero";
+import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero.jsx";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 import FormularioDatos from "./FormularioDatos.jsx";
@@ -54,7 +54,8 @@ const ComprarNumero = () => {
 
   // Función para realizar la compra
   const handleCompra = async () => {
-    setCantidadTickets((p)=>{p+1});
+
+    //setCantidadTickets((p)=>{p+1});
     const persona = {persona:{
       name: formData.name,
       email: formData.email,
@@ -70,10 +71,29 @@ const ComprarNumero = () => {
     dispatch(loadPersona(persona))
 
     const newPurchasr  = {
-      date: new Date(),
-      rut: formData.name,
-      idtransaction: '',
-      id:0
+      person: {
+        rut: persona.persona.rut,
+
+        name: persona.persona.name, 
+      
+        phone: persona.persona.phone,
+      
+        email: persona.persona.email
+      },
+      purchase: {
+        id:0,
+  
+        rutPerson: persona.persona.rut,
+    
+        idtransaction: "",
+    
+        date: new Date(),
+    
+        amount: totalPagar,
+    
+        state: 'PENDING'
+      },
+      tickets: generateTicket()
 
     }
     let response  =  await ApiPurchase.CreatePurchase(newPurchasr)
@@ -307,6 +327,28 @@ const ComprarNumero = () => {
           }).showToast();
           setMostrarFormulario(true);
         };
+
+        const generateTicket = ()=>
+        {
+          let tickets = []
+          for (var i = 1; i <= cantidadTickets; i++) {
+            //hacer metodo md5
+            let pass = "sajdhgasjhdas"+new Date().getMilliseconds.toDateString+formData.name.charAt(Math.floor(Math.random()*formData.name.length))+formData.rut.charAt(Math.floor(Math.random()*formData.name.length));
+            tickets.push(
+              {
+                
+                  id: 0,
+                  pass: pass,
+                  idPurchase: 0,
+              
+              
+              }
+            )
+          }
+          return tickets
+
+
+        }
         
         return (
           <Flex align="center" justify="center" minH="calc(100vh - 160px)">

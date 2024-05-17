@@ -1,12 +1,12 @@
 import { ResponseBase } from "./../ResponseBase";
 import { Ticket } from "./../../models/ticket";
 import { Api } from "../conf";
-import { Purchase } from "../../models/purchase";
+import { Purchase, PurchaseRequest } from "../../models/purchase";
 import { NewPurchase } from "./NewPurchase";
 
 
 
-const CreatePurchase = async (purchase: Purchase): Promise<ResponseBase<NewPurchase>> => {
+const CreatePurchase = async (purchase: PurchaseRequest): Promise<ResponseBase<NewPurchase>> => {
   try {
     const endpoint = `purchase`;
 
