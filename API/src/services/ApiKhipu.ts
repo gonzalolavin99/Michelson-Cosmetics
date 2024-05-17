@@ -21,6 +21,7 @@ const NewPurchase = async (
       id: purchase.id,
       notifyUrl: env().conectionKhipu.urlPaymentNotify,
       returnUrl: env().conectionKhipu.urlPaymentSuccess,
+      amount: purchase.amount
     };
 
     let res: any = await ConectionApi().post(endpoint, request);
@@ -42,6 +43,7 @@ export interface NewPurchaseRequest {
   returnUrl: string;
   cancelUrl: string;
   notifyUrl: string;
+  amount: number;
 }
 
 export interface NewPurchaseResponse {

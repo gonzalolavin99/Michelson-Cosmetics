@@ -1,6 +1,6 @@
 import express from "express";
 import PurchaseController from "@controllers/purchase";
-import { Purchase } from "@models/Purchase";
+import { PurchaseRequest } from "src/dto/PurchaseRequest";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get("/", async (_req, res) => {
 
 router.post("/", async (req, res) => {
  console.log(req.body)
-  res.send( await PurchaseController.savePurchase(req.body as Purchase));
+  res.send( await PurchaseController.createNewPurchase(req.body as PurchaseRequest));
 });
 
 export default router;

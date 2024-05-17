@@ -3,6 +3,7 @@ import { Purchase } from "@models/Purchase";
 import { Ticket } from "@models/Ticket";
 import { DataSource } from "typeorm";
 import {env} from 'env';
+import { Adress } from "@models/Adress";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -13,7 +14,7 @@ export const AppDataSource = new DataSource({
     database: env().conectiondb.databaseName,
     synchronize: true,
     logging: true,
-    entities: [Ticket,Person,Purchase],
+    entities: [Ticket,Person,Purchase,Adress],
     subscribers: [],
     migrations: [],
     ssl: env().conectiondb.sslConfig

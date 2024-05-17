@@ -7,7 +7,7 @@ const envURLs = {
   databaseLocal: "jrmichelson",
   sslDbConfigLocal: false,
 
-  apiKhipuLocal: "http://3.145.103.55/Khipu/",
+  apiKhipuLocal: "http://localhost:5185/",
   urlPaymentSuccessLocal: "http://localhost:5173/compra-exitosa",
   urlPaymentCancelLocal: "http://localhost:5173/compra-fallida",
   urlPaymentNotify:"http://3.145.103.55/Khipu/notifyPurchase",
