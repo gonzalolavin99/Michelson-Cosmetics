@@ -40,7 +40,7 @@ namespace API_KHIPU.Service
                     transactionId: purchase.Id.ToString(),
                     expiresDate: dt,
                     body: "Descripción de la compra",
-                    pictureUrl: "http://mi-ecomerce.com/pictures/foto-producto.jpg",
+                    pictureUrl: "https://i.pinimg.com/736x/5e/d2/a9/5ed2a9b6c9fe57781e34612b80af0aee.jpg",
                     returnUrl: purchase.ReturnUrl,
                     cancelUrl: purchase.CancelUrl,
                     notifyUrl: purchase.NotifyUrl,
