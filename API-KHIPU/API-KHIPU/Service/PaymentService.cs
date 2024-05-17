@@ -36,7 +36,7 @@ namespace API_KHIPU.Service
                 PaymentsCreateResponse response = khipu.PaymentsPost(
                     "Compra de prueba de la API",
                     "CLP",
-                    100.0,
+                    purchase.Amount,
                     transactionId: purchase.Id.ToString(),
                     expiresDate: dt,
                     body: "Descripción de la compra",

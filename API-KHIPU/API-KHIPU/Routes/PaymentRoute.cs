@@ -52,7 +52,8 @@ namespace API_KHIPU.Routes
         public int Id { get; set; }
         public string ReturnUrl { get; set; }
         public string CancelUrl { get; set; }
-        public string NotifyUrl { get; set; }   
+        public string NotifyUrl { get; set; }
+        public int Amount { get; set; }
     }
 
     public class NewPurchaseResponse
