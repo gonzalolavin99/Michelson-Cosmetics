@@ -16,16 +16,11 @@ export const Footer = () => {
           <h1 className="footer-newsletter__header">
             Quieres contactarte con el equipo de soporte?
           </h1>
-          <div className="footer-newsletter__form">
-            <input type="email" name="email" placeholder="example@xyz.com" />
-            <button type="submit" className="submit-btn">
-              Subscribe
-            </button>
-          </div>
+          <h3>Escríbenos a soportejrmichelson@gmail.com</h3>
         </div>
         <div className="footer-body">
           <div className="footer-body__content">
-            <p>Ya compraste tu número? Entonces visita nuestras redes sociales!</p>
+            <h4>Ya compraste tu número? Entonces visita nuestras redes sociales!</h4>
             <div className="social-buttons">
               <IgButton />
               <IgButtonJR />
@@ -42,20 +37,12 @@ export const Footer = () => {
         </a>
       </li>
       <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
+        <a href="/terminos" className="footer-body__nav-link">
           Términos y condiciones
         </a>
       </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          App Development
-        </a>
-      </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          Web Development
-        </a>
-      </li>
+    
+      
     </ul>
   </li>
   <li className="footer-body__nav-item">
@@ -78,25 +65,7 @@ export const Footer = () => {
       </li>
     </ul>
   </li> {/* Agrega el cierre de la etiqueta li aquí */}
-  <li className="footer-body__nav-item liHead">
-    Soporte
-    <ul className="footer-body__nav-sublist">
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          Contacto
-        </a>
-      </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-        </a>
-      </li>
-      <li className="footer-body__nav-subitem">
-        <a href="" className="footer-body__nav-link">
-          Live chat
-        </a>
-      </li>
-    </ul>
-  </li>
+ 
 </ul>
           </nav>
         </div>

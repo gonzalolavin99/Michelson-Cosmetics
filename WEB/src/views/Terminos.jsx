@@ -44,7 +44,7 @@ const Terminos = () => {
         </p>
         <p>
           b. Los términos y condiciones del Concurso están disponibles para su
-          consulta en la página web oficial de Jrmichelson.com, donde los
+          consulta en la página web oficial de jrmichelson.com, donde los
           participantes pueden acceder a ellos en cualquier momento.
         </p>
 

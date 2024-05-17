@@ -179,9 +179,14 @@
 .social-buttons {
   display: flex;
   justify-content: center;
-  gap: 10em;
+  gap: 1em;
 }
 
 .social-buttons > * {
-  max-width: 200px; /* Ajusta este valor según el ancho deseado para los botones */
+  max-width: 2em; /* Ajusta este valor según el ancho deseado para los botones */
 }
+
+.social-buttons img {
+  width: 50%;
+  height: auto;
+}	

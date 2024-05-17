@@ -4,6 +4,7 @@ import { TicketContext } from "../context/TicketContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Banner } from "../components/banner/Banner";
+import { Minicard } from "../components/Minicards/Minicard";
 
 const Home = () => {
   const { handleCompra } = useContext(TicketContext);
