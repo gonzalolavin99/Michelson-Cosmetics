@@ -3,7 +3,7 @@ const envURLs = {
   hostLocal: "localhost",
   portLocal: 5432,
   userNameLocal: "postgres",
-  passLocal: "1423",
+  passLocal: "postgres",
   databaseLocal: "jrmichelson",
   sslDbConfigLocal: false,
 
