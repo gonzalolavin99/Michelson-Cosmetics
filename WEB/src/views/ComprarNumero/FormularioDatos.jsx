@@ -16,7 +16,7 @@ const FormularioDatos = ({
   totalTickets,
 }) => {
   const { cantidadTickets, setCantidadTickets } = useContext(TicketContext);
-  const precioTicket = 5000; // Precio de cada ticket, puedes cambiarlo según tu lógica
+  const precioTicket = 5000;
 
   const sumarTicket = () => {
     setCantidadTickets(cantidadTickets + 1);
@@ -29,6 +29,29 @@ const FormularioDatos = ({
   };
 
   const totalPagar = cantidadTickets * precioTicket;
+
+   // Función para formatear el RUT
+   const formatRUT = (rut) => {
+    rut = rut.replace(/^0+/, "").replace(/\./g, "").replace(/-/g, "");
+    if (rut.length > 1) {
+      const verifier = rut.slice(-1);
+      let body = rut.slice(0, -1);
+      body = body.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return `${body}-${verifier}`;
+    }
+    return rut;
+  };
+
+  // Maneja el cambio de RUT y lo formatea
+  const handleRutChange = (e) => {
+    const formattedRut = formatRUT(e.target.value);
+    handleChange({
+      target: {
+        name: e.target.name,
+        value: formattedRut,
+      },
+    });
+  };
 
   return (
     <>
@@ -52,7 +75,7 @@ const FormularioDatos = ({
           type="text"
           name="rut"
           value={formData.rut}
-          onChange={handleChange}
+          onChange={handleRutChange}
           isRequired
         />
         {formErrors.rut && (
