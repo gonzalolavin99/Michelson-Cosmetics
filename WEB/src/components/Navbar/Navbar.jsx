@@ -4,12 +4,18 @@ import { TicketContext } from "../../context/TicketContext.jsx";
 import { FaShoppingCart } from "react-icons/fa";
 import CartDrawer from "../CartDrawer/CartDrawer.jsx";
 import "./Navbar.css"
+import { TiThMenu } from "react-icons/ti";
+import { IoCloseSharp } from "react-icons/io5";
+
+
 
 const Navbar = () => {
   const { cantidadTickets, setCantidadTickets, handleCompra } = useContext(TicketContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [ticketResumen, setTicketResumen] = useState("");
   const [totalCompra, setTotalCompra] = useState(0);
+  const [isNavVisible, setIsNavVisible] = useState(false);
+
 
   useEffect(() => {
     // Generar el resumen y calcular el total de la compra
@@ -37,9 +43,18 @@ const Navbar = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  const toggleNavVisibility = () => {
+    setIsNavVisible(!isNavVisible);
+  }
+
   return (
+    
     <div className="navbar-container">
-      <nav className="navbar">
+      <button className="abrir-menu"  onClick={toggleNavVisibility}><TiThMenu />
+</button>
+      <nav className={`navbar ${isNavVisible ? "nav-visible" : ""}`} id="nav">
+        <button className="cerrar-menu" id="cerrar" onClick={toggleNavVisibility}><IoCloseSharp />
+</button>
         <ul className="nav-list">
           <li className="nav-item">
             <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/">
@@ -66,7 +81,7 @@ const Navbar = () => {
                 padding: "0.5em",
                 backgroundColor: "#ffc0cb",
                 marginTop:"0px",
-                marginBottom:"5em"
+                marginBottom:"0em"
               }}
             >
               <a className="cart-icon" onClick={toggleDrawer}>

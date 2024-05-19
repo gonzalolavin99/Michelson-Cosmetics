@@ -30,7 +30,7 @@
 .nav-item {
   display: inline-block;
   margin-right: 20px; /* Espacio entre elementos de la lista */
-  margin-top:0px ;
+  margin-top: 0px;
 }
 
 .nav-item:last-child {
@@ -52,4 +52,52 @@
   background-color: #ffc0cb;
   border-radius: 20%;
   color: black;
+}
+
+.abrir-menu,
+.cerrar-menu {
+  display: none;
+}
+
+@media screen and (max-width: 550px) {
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: #ffffff;
+    bottom: 1;
+    box-shadow: 0 0 0 100vmax rgb(0, 0, 0, 0.5);
+    gap: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    margin-right: 1em;
+  }
+
+  .nav-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .nav-item {
+    margin: 0.2rem;
+  }
+
+  .nav-item a.active {
+    background-color: #ffc0cb;
+    color: black;
+  }
 }

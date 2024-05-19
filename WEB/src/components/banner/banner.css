@@ -112,3 +112,14 @@
     height: auto; /* Mantiene la proporción de la imagen */
   }
 }
+
+@media screen and (max-width:768px){
+ .ig-container{
+  display: flex;
+
+ }
+
+ .ig-container img{
+  max-width: 5em;
+ }
+}

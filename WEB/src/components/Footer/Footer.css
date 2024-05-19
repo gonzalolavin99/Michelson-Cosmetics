@@ -95,6 +95,21 @@
   animation: fadeIn 0.3s ease;
 }
 
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.social-buttons > * {
+  max-width: 2em; /* Ajusta este valor según el ancho deseado para los botones */
+}
+
+.social-buttons img {
+  width: 50%;
+  height: auto;
+}	
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -161,7 +176,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 550px) {
   .footer-newsletter__form {
     flex-direction: column;
   }
@@ -174,19 +189,9 @@
   .footer-newsletter__form button.submit-btn {
     border-radius: 4px;
   }
+
+  .social-buttons img{
+    width: 4em;
+  }
 }
 
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-}
-
-.social-buttons > * {
-  max-width: 2em; /* Ajusta este valor según el ancho deseado para los botones */
-}
-
-.social-buttons img {
-  width: 50%;
-  height: auto;
-}	
