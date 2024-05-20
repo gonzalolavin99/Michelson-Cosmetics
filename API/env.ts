@@ -1,9 +1,10 @@
+const nodemailer = require('nodemailer');
 const envURLs = {
   //Conexion Local
   hostLocal: "localhost",
   portLocal: 5432,
   userNameLocal: "postgres",
-  passLocal: "postgres",
+  passLocal: "1423",
   databaseLocal: "jrmichelson",
   sslDbConfigLocal: false,
 
@@ -87,3 +88,15 @@ export interface ConnectionKhipu {
   urlPaymentCancel: string;
   urlPaymentNotify: string;
 }
+
+
+
+export const transporter = nodemailer.createTransport({
+  host: "email-smtp.us-east-1.amazonaws.com",
+  port: 587,
+  secure: false, // upgrade later with STARTTLS
+  auth: {
+    user: "AKIAU6GD2ARQHORZ3YOX",
+    pass: "BLjsRq1PxFrnbT8ThuPZHIf0l/7GehOkqj/b5T95D2LZ",
+  },
+});

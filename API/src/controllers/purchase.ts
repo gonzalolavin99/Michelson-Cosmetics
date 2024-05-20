@@ -5,6 +5,8 @@ import ApiKhipu, { NewPurchaseResponse } from "src/services/ApiKhipu";
 import { Purchase } from "@models/Purchase";
 import { PurchaseRequest } from "@dto/PurchaseRequest";
 import { Ticket } from "@models/Ticket";
+import { NotifyRequest } from "@dto/NotifyRequest";
+import { transporter } from "env";
 
 const purchaseRepository = AppDataSource.getRepository(Purchase);
 const personRepository = AppDataSource.getRepository(Person);
@@ -42,7 +44,7 @@ async function createNewPurchase(
         a.idPurchase = purchase.id;
         await ticketRepository.save(a);
       });
-      
+
       purchase.idtransaction = responseKhipu.paymentId;
       await purchaseRepository.save(purchase);
       const resp: ResponseBase<NewPurchaseResponse> = {
@@ -68,5 +70,81 @@ async function createNewPurchase(
     return resp;
   }
 }
-const PurchaseController = { getPurchase, createNewPurchase };
+
+async function notifyPurchase(
+  notifyRequest: NotifyRequest
+): Promise<ResponseBase<boolean>> {
+  try {
+    if (notifyRequest.statusPurchase == "done") {
+      var purchase: Purchase | null = await purchaseRepository.findOne({
+        where: { idtransaction: notifyRequest.paymentId },
+      });
+      if (purchase != null) {
+        purchase.state = "DONE";
+        purchaseRepository.save(purchase);
+        var persona: Person | null = await personRepository.findOne({
+          where: { rut: purchase.rutPerson },
+        });
+        if (persona != null) {
+        
+
+          const mailOptions = {
+              from: 'notificaciones@jrmichelson.cl',
+              to: 'cliente@jrmichelson.cl',
+              subject: "Pago realizado",
+              text: "La compra de tus tickets fue exitosa"
+          };
+      
+        await transporter.sendMail(mailOptions, (error: any, info: any) => {
+              if (error) {
+                const resp: ResponseBase<boolean> = {
+                  Data: false,
+                  DataList: null,
+                  Message: "Error al enviar correo",
+                  Success: false,
+                };
+                return resp;
+              }
+              const resp: ResponseBase<boolean> = {
+                Data: true,
+                DataList: null,
+                Message: "Se notifico al usuario "+info.toString(),
+                Success: true,
+              };
+              return resp;
+              
+          });
+   
+    
+        }
+
+        const resp: ResponseBase<boolean> = {
+          Data: false,
+          DataList: null,
+          Message: "No se encontro a la persona",
+          Success: false,
+        };
+        return resp;
+      
+      }
+    }    
+    const resp: ResponseBase<boolean> = {
+      Data: false,
+      DataList: null,
+      Message: "No se encontro la orden de compra",
+      Success: true,
+    };
+    return resp;
+  } catch (error) {
+    console.log(error);
+    const resp: ResponseBase<any> = {
+      Data: false,
+      DataList: null,
+      Message: "Error al notificar purchase: " + error,
+      Success: false,
+    };
+    return resp;
+  }
+}
+const PurchaseController = { getPurchase, createNewPurchase, notifyPurchase };
 export default PurchaseController;
