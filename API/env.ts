@@ -22,7 +22,7 @@ const envURLs = {
   passProd: "12345678",
   databaseProd: "dbjrmichelson",
   apiKhipuProd: "http://3.145.103.55/Khipu/",
-  sslDbConfigProd: {},
+  sslDbConfigProd: {rejectUnauthorized:false, requestCert:true},
   urlPaymentSuccessProd: "",
   urlPaymentCanceProd: "",
 };
