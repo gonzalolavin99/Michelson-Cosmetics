@@ -78,10 +78,11 @@ const Navbar = () => {
                 alignItems: "center",
                 border: "1px solid #ccc",
                 borderRadius: "36%",
-                padding: "0.5em",
+                padding: "0.2em",
                 backgroundColor: "#ffc0cb",
-                marginTop:"0px",
-                marginBottom:"0em"
+                margin:"0",
+                top:"0"
+                
               }}
             >
               <a className="cart-icon" onClick={toggleDrawer}>

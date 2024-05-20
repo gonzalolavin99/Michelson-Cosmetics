@@ -27,6 +27,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
 }
 
 h1 {
@@ -334,4 +335,8 @@ h1 {
   .a-cosmectic :hover {
     color: #ffc0cb;
   }
+}
+
+@media screen and (max-width : 550px){
+  body {right: 0;}
 }
