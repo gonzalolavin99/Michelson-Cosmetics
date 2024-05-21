@@ -86,58 +86,165 @@ async function notifyPurchase(
           where: { rut: purchase.rutPerson },
         });
         if (persona != null) {
-        
-
           const mailOptions = {
-              from: 'notificaciones@jrmichelson.cl',
-              to: 'cliente@jrmichelson.cl',
-              subject: "Pago realizado",
-              text: "La compra de tus tickets fue exitosa"
+            from: "notificaciones@jrmichelson.cl",
+            to: "cliente@jrmichelson.cl",
+            subject: "Pago realizado",
+            html: `<!DOCTYPE html>
+              <html>
+                <head>
+                  <title>Compra de Tickets</title>
+                  <style>
+                    body {
+                      color: #000000;
+                      display: block;
+                      font-family: "Roboto", sans-serif;
+                      margin: 30px;
+                      max-width: 90%;
+                    }
+                    h1 {
+                      text-align: center;
+                      color: #ffc0c7;
+                    }
+                    p,
+                    li {
+                      font-size: 18px;
+                    }
+                    .logo {
+                      display: block;
+                      margin: auto;
+                      width: 200px;
+                    }
+                    .header{
+                      display: flex;
+                      justify-content: center;
+                      gap: 2em;
+                    }
+                    .ticket-info,
+                    .user-info {
+                      
+                      background-color: #ffc0c7;
+                      color: #000000;
+                      padding: 20px;
+                      border-radius: 5px;
+                      margin-bottom: 20px;
+                    }
+                    .logoJr {
+                      width: 5vw;
+                    }
+                  </style>
+                </head>
+                <body>
+                  <div class="header">
+                  <img
+                  class="logoJr"
+                  src="https://i.pinimg.com/736x/5e/d2/a9/5ed2a9b6c9fe57781e34612b80af0aee.jpg"
+                  alt="Logo JrMichelson"
+                />
+                  
+                    <h1>JrMichelson SPA</h1>
+                    
+                  </div>
+                  <p>Estimado/a ${persona.name},</p>
+                  <p>
+                    Gracias por tu compra. A continuación, encontrarás los detalles de tu
+                    ticket:
+                  </p>
+              
+                  <div class="user-info">
+                    <p>Nombre: ${persona.name}</p>
+                    <p>RUT: ${persona.rut}</p>
+                    <p>Correo electrónico: ${persona.email}</p>
+                    <p>Número de teléfono: ${persona.phone}</p>
+                    <p>Región: {{region}}</p>
+                    <p>Comuna: {{commune}}</p>
+                    <p>Calle: {{street}}</p>
+                    <p>Número de casa: {{houseNumber}}</p>
+                    <p>Departamento: {{apartment}}</p>
+                  </div>
+              
+                  <div class="ticket-info">
+                    <p>Cantidad de tickets: {{ticketCount}}</p>
+                    <ul>
+                      {{#each ticketIds}}
+                      <li>Ticket ID: {{this}}</li>
+                      {{/each}}
+                    </ul>
+                    <p>Monto total: ${purchase.amount}</p>
+                  </div>
+              
+                  <h3>Ya estás participando en el sorteo, recuerda estar atento a nuestras redes sociales!</h3>
+              
+                  <p>Atentamente,</p>
+                  <p>JrMichelson SPA</p>
+                 
+                  <img
+                    class="banner"
+                    src="https://files.s3.amazonaws.com/assets/email-template-footer-.png"
+                    alt="Banner My company"
+                  />
+                </body>
+              </html>
+              `,
           };
-      
-        await transporter.sendMail(mailOptions, (error: any, info: any) => {
-              if (error) {
-                const resp: ResponseBase<boolean> = {
-                  Data: false,
-                  DataList: null,
-                  Message: "Error al enviar correo",
-                  Success: false,
-                };
-                return resp;
-              }
+
+          await transporter.sendMail(mailOptions, (error: any, info: any) => {
+            if (error) {
               const resp: ResponseBase<boolean> = {
                 Data: true,
                 DataList: null,
-                Message: "Se notifico al usuario "+info.toString(),
+                Message: "Se notifico al usuario ",
                 Success: true,
               };
               return resp;
-              
+            } else {
+              console.log(info);
+              const resp: ResponseBase<boolean> = {
+                Data: false,
+                DataList: null,
+                Message: "Error al enviar correo",
+                Success: false,
+              };
+              return resp;
+            }
           });
-   
-    
+          const resp: ResponseBase<boolean> = {
+            Data: true,
+            DataList: null,
+            Message: "Se notifico al usuario ",
+            Success: true,
+          };
+          return resp;
+        } else {
+          const resp: ResponseBase<boolean> = {
+            Data: false,
+            DataList: null,
+            Message: "No se encontro a la persona",
+            Success: false,
+          };
+          return resp;
         }
-
+      } else {
         const resp: ResponseBase<boolean> = {
           Data: false,
           DataList: null,
-          Message: "No se encontro a la persona",
+          Message: "No se encontro la orden de compra",
           Success: false,
         };
         return resp;
-      
       }
-    }    
-    const resp: ResponseBase<boolean> = {
-      Data: false,
-      DataList: null,
-      Message: "No se encontro la orden de compra",
-      Success: true,
-    };
-    return resp;
+    } else {
+      const resp: ResponseBase<boolean> = {
+        Data: false,
+        DataList: null,
+        Message: "Estado orden cancelado",
+        Success: false,
+      };
+      return resp;
+    }
   } catch (error) {
     console.log(error);
-    const resp: ResponseBase<any> = {
+    const resp: ResponseBase<boolean> = {
       Data: false,
       DataList: null,
       Message: "Error al notificar purchase: " + error,
