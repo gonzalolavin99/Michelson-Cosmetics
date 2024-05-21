@@ -1,7 +1,7 @@
 const envURLs = {
     
     backendLocal: 'http://localhost:3000/',
-    backendProd: 'http://35.183.244.41/',
+    backendProd: 'https://api.jrmichelson.cl/',
     invalidEnvironment: "revisar.url.environment",
 
 }

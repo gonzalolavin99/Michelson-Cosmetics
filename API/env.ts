@@ -23,8 +23,8 @@ const envURLs = {
   databaseProd: "dbjrmichelson",
   apiKhipuProd: "http://3.145.103.55/Khipu/",
   sslDbConfigProd: {rejectUnauthorized:false, requestCert:true},
-  urlPaymentSuccessProd: "",
-  urlPaymentCanceProd: "",
+  urlPaymentSuccessProd: "https://jrmichelson.cl/compra-exitosa",
+  urlPaymentCanceProd: "https://jrmichelson.cl/compra-fallida",
 };
 
 const getEnv = () => {
@@ -44,8 +44,8 @@ const getEnv = () => {
     };
     conectionKhipu = {
       urlApi: envURLs.apiKhipuProd,
-      urlPaymentCancel: envURLs.urlPaymentCancelLocal,
-      urlPaymentSuccess: envURLs.urlPaymentSuccessLocal,
+      urlPaymentCancel: envURLs.urlPaymentCanceProd,
+      urlPaymentSuccess: envURLs.urlPaymentSuccessProd,
       urlPaymentNotify: envURLs.urlPaymentNotify
     };
 
