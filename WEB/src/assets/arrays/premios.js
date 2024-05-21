@@ -1,8 +1,8 @@
 export const premios = [
     {
       id: 1,
-      nombre: "Primer Premio",
-      descripcion: "Suzuki Swift GL 1.2 Plateado 2022",
+      nombre: "Suzuki Swift GL 1.2 Plateado 2022",
+      descripcion: "Primer Premio",
       imagenes: [
         "https://i.pinimg.com/736x/45/a2/bd/45a2bd8ff5413360222defb7c69a7a93.jpg",
         "https://i.pinimg.com/736x/9f/0d/99/9f0d99956cfe2dc486b9434f3587f8c9.jpg",
@@ -24,8 +24,8 @@ export const premios = [
     },
     {
       id: 3,
-      nombre: "Tercer Premio",
-      descripcion: "Brazalete Pandora",
+      nombre:"Brazalete Pandora", 
+      descripcion: "Tercer Premio",
       imagenes: [
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
