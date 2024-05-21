@@ -30,11 +30,11 @@ const FormularioDatos = ({
 
   const totalPagar = cantidadTickets * precioTicket;
 
-   // Función para formatear el RUT
-   const formatRUT = (rut) => {
+  // Función para formatear el RUT
+  const formatRUT = (rut) => {
     rut = rut.replace(/^0+/, "").replace(/\./g, "").replace(/-/g, "");
     if (rut.length > 1) {
-      const verifier = rut.slice(-1);
+      const verifier = rut.slice(-1).toUpperCase();
       let body = rut.slice(0, -1);
       body = body.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       return `${body}-${verifier}`;
@@ -180,8 +180,8 @@ const FormularioDatos = ({
       </FormControl>
 
       <div className="ticket-container">
-<h3>¿Cuántos tickets quieres comprar?</h3>
-       
+        <h3>¿Cuántos tickets quieres comprar?</h3>
+
         <button className="btn-black" onClick={sumarTicket}>
           +
         </button>

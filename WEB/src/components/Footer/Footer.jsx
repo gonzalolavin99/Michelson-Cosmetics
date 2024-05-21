@@ -14,9 +14,9 @@ export const Footer = () => {
       <div className="footer-container">
         <div className="footer-newsletter">
           <h1 className="footer-newsletter__header">
-            Quieres contactarte con el equipo de soporte?
+            ¿Quieres contactarte con el equipo de soporte?
           </h1>
-          <h3>Escríbenos a soportejrmichelson@gmail.com</h3>
+          <h3>Escríbenos a soportejrmichelson@gmail.com!</h3>
         </div>
         <div className="footer-body">
           <div className="footer-body__content">
