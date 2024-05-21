@@ -180,6 +180,8 @@ const FormularioDatos = ({
       </FormControl>
 
       <div className="ticket-container">
+<h3>¿Cuántos tickets quieres comprar?</h3>
+       
         <button className="btn-black" onClick={sumarTicket}>
           +
         </button>

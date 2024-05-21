@@ -42,7 +42,7 @@ const CartDrawer = ({
           </div>
         </Carousel>
         <div style={{}}>
-          <h3>Cuántos tickets quieres comprar?</h3>
+          <h3>¿Cuántos tickets quieres comprar?</h3>
         </div>
         <div className="ticket-container" style={{ display: "flex" }}>
           <button className="btn-pink" onClick={sumarTicket}>

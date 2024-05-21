@@ -1,7 +1,6 @@
 .minicard-image {
     width: 100%; /* Esto hará que todas las imágenes ocupen el ancho completo de sus contenedores */
-    height: auto; /* Esto mantendrá la proporción de la imagen */
-    max-height: 200px; /* Puedes ajustar este valor según tus necesidades */
+    height: 20em; /* Puedes ajustar este valor según tus necesidades */
     margin-right: 5dvh;
   }
   
