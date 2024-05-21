@@ -69,14 +69,14 @@ namespace API_KHIPU.Service
                 Configuration.ReceiverId = Convert.ToInt64(_configuration["ApiKhipu:recieved_id"]);
                 Configuration.Secret = _configuration["ApiKhipu:secret_key"];
                 Khipu.Model.PaymentsResponse purchase =  khipu.PaymentsGet(notiToken.notification_token);
-                var newp = new { pass = purchase.PaymentId, idPurchase = purchase.ReceiverId };
+                var newp = new NotifyRequest { paymentId = purchase.PaymentId, receiverId = (int)purchase.ReceiverId, statusPurchase = purchase.Status };
                 string jsonData = JsonSerializer.Serialize(newp);
 
                 // Crear el contenido de la solicitud
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                 // Enviar la solicitud POST
-                HttpResponseMessage response = await _httpClient.PostAsync("http://35.183.244.41/ticket", content);
+                HttpResponseMessage response = await _httpClient.PostAsync("https://api.jrmichelson.cl/purchase/notifyPurchase", content);
 
                 // Asegurarse de que la solicitud fue exitosa
                 response.EnsureSuccessStatusCode();
@@ -84,9 +84,6 @@ namespace API_KHIPU.Service
                 // Leer la respuesta
                 string responseBody = await response.Content.ReadAsStringAsync();
                
-
-
-
 
 
             }
