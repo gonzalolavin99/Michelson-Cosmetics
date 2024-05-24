@@ -350,11 +350,11 @@ const ComprarNumero = () => {
         }
         
         return (
-          <Flex align="center" justify="center" minH="calc(100vh - 160px)">
+          <Flex align="center" justify="center" minH="calc(100vh - 160px)" >
             {!mostrarFormulario ? (
               <JuegoComprarNumero onRespuestaCorrecta={handleRespuestaCorrecta} />
             ) : (
-              <Box className="comprar-container">
+              <Box className="comprar-container" >
                 <Box className="comprar-form" maxW="1000px">
                   <Heading className="comprar-heading">
                     Como respondiste correctamente, puede comprar tu número. Ingresa
@@ -368,7 +368,7 @@ const ComprarNumero = () => {
                     totalTickets={cantidadTickets}
                     totalPagar={totalPagar}
                   />
-                  <Flex justify="space-between">
+                  <Flex justify="space-between" marginTop={5}>
                     <Button colorScheme="pink" onClick={handleShowDataReview}>
                       Revisar datos
                     </Button>

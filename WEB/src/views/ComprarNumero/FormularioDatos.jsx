@@ -181,8 +181,9 @@ const FormularioDatos = ({
         />
       </FormControl>
 
-      <div className="ticket-container">
+      <div className="ticket-container" style={{display:"flex", flexDirection:"column"}}>
         <h3>¿Cuántos tickets quieres comprar?</h3>
+<div style={{display:"flex"}}>
 
         <button className="btn-black" onClick={sumarTicket}>
           +
@@ -191,6 +192,7 @@ const FormularioDatos = ({
         <button className="btn-black" onClick={restarTicket}>
           -
         </button>
+</div>
       </div>
 
       {/* Mostrar el resumen solo si la cantidad de tickets es mayor que 0 */}
