@@ -4,7 +4,7 @@ export const premios = [
       nombre: "Suzuki Swift GL 1.2 Plateado 2022",
       descripcion: "Primer Premio",
       imagenes: [
-        "https://i.pinimg.com/736x/45/a2/bd/45a2bd8ff5413360222defb7c69a7a93.jpg",
+        "https://i.pinimg.com/736x/96/1d/f4/961df4c9fa9e1cd9d3d8200221c0ac4e.jpg",
         "https://i.pinimg.com/736x/9f/0d/99/9f0d99956cfe2dc486b9434f3587f8c9.jpg",
         "https://i.pinimg.com/736x/33/cb/82/33cb820dae66900f1def6f8223033ba9.jpg",
       ],

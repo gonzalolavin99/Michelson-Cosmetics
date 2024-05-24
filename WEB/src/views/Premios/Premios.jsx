@@ -49,7 +49,7 @@ const Premios = ({ showModal }) => {
             Cerrar
           </Button>,
           <Button key="buy">
-            <NavLink to="/compra" className="btn-pink">
+            <NavLink to="/compra" className="btn-pink-compra">
               Ir a Comprar
             </NavLink>
           </Button>,
@@ -66,6 +66,8 @@ const Premios = ({ showModal }) => {
                         src={imagen}
                         alt={`Imagen ${index + 1}`}
                         className="modal-image"
+                        style={{ width: "80%",
+                          height: "18em", }}
                       />
                     </div>
                   ))}

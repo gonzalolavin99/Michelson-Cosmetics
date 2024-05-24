@@ -51,6 +51,8 @@ const FormularioDatos = ({
         value: formattedRut,
       },
     });
+    const isValid = validateRut(formattedRut);
+    setFormErrors({ ...formErrors, rut: isValid ? '' : 'El RUT no es válido' });
   };
 
   return (

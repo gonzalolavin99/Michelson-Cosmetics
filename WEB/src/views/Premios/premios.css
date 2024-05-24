@@ -49,7 +49,7 @@
   /* Estilos para las imágenes del modal */
   .modal-image {
     width: 100%;
-    height: 50em;
+    
     /* Establece la altura máxima de las imágenes */
     margin-top: 0.1em;
   }
@@ -57,11 +57,17 @@
     flex: 1; /* Permitir que la descripción ocupe todo el espacio disponible */
     max-height: 50vh; /* Establecer una altura máxima */
     overflow-y: auto; /* Agregar scroll vertical si el contenido es demasiado largo */
+    padding: 0;
     padding-left: 20px; /* Agregar un espacio entre el carrusel y la descripción */
   }
 
   .modal-content-container{
-    height: 18em;
+    height: 15em;
+    margin: 0;
+  }
+
+  .btn-pink-compra{
+    background-color: #ffc0cb;
   }
   
   
