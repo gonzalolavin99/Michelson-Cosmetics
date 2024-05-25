@@ -3,6 +3,7 @@ import cors from "cors";
 //Importacion de Routes
 import ticketRouter from "@routes/ticket"
 import purchaseRouter from "@routes/purchase"
+import loginRouter from "@routes/login"
 
 const app = express();
 // Then pass these options to cors:
@@ -10,5 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use("/ticket", ticketRouter);
 app.use("/purchase", purchaseRouter);
+app.use("/login", loginRouter);
 
 export default app;
