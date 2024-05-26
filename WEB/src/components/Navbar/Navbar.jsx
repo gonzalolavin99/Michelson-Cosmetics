@@ -29,18 +29,18 @@ const Navbar = () => {
   useEffect(() => {
     // Cerrar el Navbar cuando se cambia de ruta o se hace clic fuera de él
     const handleRouteChange = () => {
-      setIsNavVisible(true);
+      setIsNavVisible(false);
     };
 
     const handleOutsideClick = (event) => {
       const navbar = document.getElementById("nav");
       if (navbar && !navbar.contains(event.target)) {
-        setIsNavVisible(true);
+        setIsNavVisible(false);
       }
     };
 
-    window.addEventListener("popstate", handleRouteChange);
-    document.addEventListener("click", handleOutsideClick);
+    // window.addEventListener("popstate", handleRouteChange);
+    // document.addEventListener("click", handleOutsideClick);
 
     // Limpiar los eventos cuando se desmonte el componente
     return () => {

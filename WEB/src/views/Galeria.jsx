@@ -36,13 +36,13 @@ const Galeria = () => {
     "https://i.pinimg.com/originals/33/cb/82/33cb820dae66900f1def6f8223033ba9.jpg",
     "https://i.pinimg.com/originals/9f/0d/99/9f0d99956cfe2dc486b9434f3587f8c9.jpg",
     "https://i.pinimg.com/originals/e1/57/5c/e1575cb6c48b36548f41609a601a3fc0.jpg",
-    "https://i.pinimg.com/originals/a1/94/aa/a194aa98a9fef26ac8ee6143c3de3b0a.jpg",
-    "https://i.pinimg.com/originals/50/ac/55/50ac55bea0d0be5ad28a1e161a2e4a32.jpg",
-    "https://i.pinimg.com/originals/09/15/e4/0915e4a73f09e4f9fe259c2d587553fc.jpg",
-    "https://i.pinimg.com/originals/25/19/3f/25193fb54bfad03fe14edd31d49b5543.jpg",
-    "https://i.pinimg.com/originals/bf/57/65/bf57651f8d6355a5c814e6442a95f2c5.jpg",
-    "https://i.pinimg.com/originals/86/2d/81/862d81560a8a4b184cfd8cca75f8f37f.jpg",
-    "https://i.pinimg.com/originals/c0/45/d9/c045d923c66155a54383f5e2938f620c.jpg",
+    "https://i.pinimg.com/736x/e2/2c/0f/e22c0f19cc96ffec99b4449f8b0b525a.jpg",
+    "https://i.pinimg.com/736x/9a/d0/13/9ad013e9b645899dba9c0dba518ea10a.jpg",
+
+    "https://i.pinimg.com/736x/5c/04/79/5c0479879338eb89ca7d099fe2c85b75.jpg",
+    "https://i.pinimg.com/736x/e4/54/d3/e454d32bb89c176f4041d18974d28433.jpg",
+    "https://i.pinimg.com/736x/43/13/6a/43136a62dc4961c3525ed384315b1d0d.jpg",
+    "https://i.pinimg.com/736x/96/1d/f4/961df4c9fa9e1cd9d3d8200221c0ac4e.jpg",
     "https://i.pinimg.com/originals/eb/70/8d/eb708df657317958227fd532224bf02e.jpg",
     "https://i.pinimg.com/originals/76/01/0e/76010e9095791df99b7c688fadf22b00.jpg",
   ];
@@ -69,8 +69,6 @@ const Galeria = () => {
     e.stopPropagation(); // Evitar propagación del evento
     setIndiceImagen((indiceImagen - 1 + imagenes.length) % imagenes.length);
   };
-
- 
 
   // Manejar la carga de la imagen en el carrusel
   const handleImageLoad = (e) => {
@@ -99,8 +97,6 @@ const Galeria = () => {
             <img
               src={imagenes[indiceImagen]}
               alt="Imagen seleccionada"
-              
-             
               ref={imageRef}
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />

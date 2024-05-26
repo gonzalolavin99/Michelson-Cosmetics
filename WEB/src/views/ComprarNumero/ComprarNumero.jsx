@@ -186,14 +186,13 @@ const ComprarNumero = () => {
 
   const validateRut = (rut) => {
     rut = rut.replace(/\./g, '').replace(/-/g, '');
-    const dv = rut.slice(-1);
+    const dv = rut.slice(-1).toUpperCase();
     const body = rut.slice(0, -1);
-
+  
     if (isNaN(parseInt(body))) {
-      setFormErrors({ ...formErrors, rut: 'El RUT debe contener solo números en el cuerpo.' });
       return false;
     }
-
+  
     let suma = 0;
     let multiplo = 2;
     for (let i = 1; i <= body.length; i++) {
@@ -201,8 +200,8 @@ const ComprarNumero = () => {
       multiplo = multiplo < 7 ? multiplo + 1 : 2;
     }
     const expectedDv = 11 - (suma % 11);
-    const dvInt = parseInt(dv);
-    if (expectedDv === 10 && dvInt === 11) return true;
+    const dvInt = dv === 'K' ? 10 : parseInt(dv);
+    if (expectedDv === 10 && dvInt === 10) return true;
     if (expectedDv === 11 && dvInt === 0) return true;
     if (expectedDv === dvInt) return true;
     return false;
@@ -351,11 +350,11 @@ const ComprarNumero = () => {
         }
         
         return (
-          <Flex align="center" justify="center" minH="calc(100vh - 160px)">
+          <Flex align="center" justify="center" minH="calc(100vh - 160px)" >
             {!mostrarFormulario ? (
               <JuegoComprarNumero onRespuestaCorrecta={handleRespuestaCorrecta} />
             ) : (
-              <Box className="comprar-container">
+              <Box className="comprar-container" >
                 <Box className="comprar-form" maxW="1000px">
                   <Heading className="comprar-heading">
                     Como respondiste correctamente, puede comprar tu número. Ingresa
@@ -369,7 +368,7 @@ const ComprarNumero = () => {
                     totalTickets={cantidadTickets}
                     totalPagar={totalPagar}
                   />
-                  <Flex justify="space-between">
+                  <Flex justify="space-between" marginTop={5}>
                     <Button colorScheme="pink" onClick={handleShowDataReview}>
                       Revisar datos
                     </Button>

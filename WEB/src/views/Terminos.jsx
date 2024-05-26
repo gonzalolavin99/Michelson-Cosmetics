@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Terminos = () => {
   return (
@@ -18,10 +18,11 @@ const Terminos = () => {
           de edad y residentes en el país donde se lleva a cabo el Concurso.
         </p>
         <p>
-          b. Los participantes pueden adquirir uno o más boletos de participación
-          para el Concurso. La compra de boletos se realiza exclusivamente a
-          través de medios electrónicos, utilizando el correo electrónico y
-          número de teléfono móvil proporcionados por el participante.
+          b. Los participantes pueden adquirir uno o más boletos de
+          participación para el Concurso. La compra de boletos se realiza
+          exclusivamente a través de medios electrónicos, utilizando el correo
+          electrónico y número de teléfono móvil proporcionados por el
+          participante.
         </p>
 
         <h2>3. Comunicación</h2>
@@ -60,10 +61,10 @@ const Terminos = () => {
 
         <h2>6. Nominatividad de los Boletos</h2>
         <p>
-          a. Los boletos de participación son nominativos y no son transferibles.
-          En caso de fallecimiento del adquiriente antes del sorteo, sus
-          derechos en el Concurso serán transmitidos a sus herederos de acuerdo
-          con las leyes de sucesión por causa de muerte aplicables.
+          a. Los boletos de participación son nominativos y no son
+          transferibles. En caso de fallecimiento del adquiriente antes del
+          sorteo, sus derechos en el Concurso serán transmitidos a sus herederos
+          de acuerdo con las leyes de sucesión por causa de muerte aplicables.
         </p>
 
         <h2>7. Notificación de Ganadores</h2>
@@ -84,6 +85,65 @@ const Terminos = () => {
           Jrmichelson.com un listado con el número total de boletos adquiridos,
           resguardando la privacidad de los datos personales de los
           participantes.
+        </p>
+
+        <h2>9. Restricción de Edad</h2>
+        <p>
+          a. El Concurso está abierto únicamente a participantes mayores de 18
+          años de edad. Los menores de edad no están autorizados a adquirir
+          boletos de participación ni a participar en el sorteo.
+        </p>
+        <p>
+          b. El Organizador se reserva el derecho de solicitar la verificación
+          de la edad mediante la presentación de documentos de identificación
+          válidos antes de adjudicar cualquier premio.
+        </p>
+        <p>
+          c. En caso de que un participante resulte ser menor de 18 años de
+          edad, el Organizador se reserva el derecho de descalificarlo
+          automáticamente del Concurso y retener cualquier pago realizado por la
+          compra de boletos, sin responsabilidad alguna.
+        </p>
+
+        <h2>10. Fecha del Sorteo</h2>
+        <p>
+          a. El sorteo para determinar el ganador del Concurso se llevará a cabo
+          una vez que se cumpla una de las siguientes condiciones:
+        </p>
+        <p>
+          i. Se haya alcanzado el número máximo de boletos disponibles para la
+          venta.
+        </p>
+        <p>
+          ii. Haya transcurrido un período de 45 días naturales desde el inicio
+          de la venta de boletos.
+        </p>
+        <p>
+          b. La fecha precisa del sorteo se anunciará con anticipación a través
+          de la página web oficial del Organizador y mediante las redes sociales
+          correspondientes.
+        </p>
+        <p>
+          c. El Organizador se reserva el derecho de extender el período de
+          venta de boletos o de realizar ajustes razonables a la fecha del
+          sorteo según lo considere necesario, informando oportunamente a los
+          participantes sobre cualquier cambio.
+        </p>
+
+        <h2>11. Requisitos de Participación y Entrega de Premios</h2>
+        <p>
+          a. Para participar en el Concurso, los participantes deben contar con
+          un Rol Único Tributario (RUT) válido y vigente.
+        </p>
+        <p>
+          b. La entrega del premio al ganador se realizará únicamente en la
+          ciudad de Santiago de Chile, en una fecha y lugar que serán
+          comunicados oportunamente por el Organizador.
+        </p>
+        <p>
+          c. El Organizador no asumirá costos de transporte, alojamiento u otros
+          gastos relacionados con el desplazamiento del ganador para recibir el
+          premio.
         </p>
 
         <p>

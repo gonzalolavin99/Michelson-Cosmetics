@@ -80,8 +80,10 @@
     gap: 1.5rem;
     opacity: 0;
     visibility: hidden;
-    margin-right: 1em;
+    margin-right: 0.5em;
   }
+
+
 
   .nav-visible {
     opacity: 1;
