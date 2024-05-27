@@ -3,8 +3,9 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 import { PurchaseReducer } from "./reducer/PurchaseReducer"
 import { loadFromSessionStorage, saveToSessionStorage } from "./localStorage"
+import { TokenReducer } from "./reducer/TokenReducer"
 
-const rootReducer = combineSlices(PurchaseReducer)
+const rootReducer = combineSlices(PurchaseReducer,TokenReducer)
 
 export type RootState = ReturnType<typeof rootReducer>
 

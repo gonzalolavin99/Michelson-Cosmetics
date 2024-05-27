@@ -1,25 +1,39 @@
 const envURLs = {
-    
-    backendLocal: 'http://localhost:3000/',
-    backendProd: 'https://api.jrmichelson.cl/',
-    invalidEnvironment: "revisar.url.environment",
+  //Ambiente Prod
+  backendProd: "https://api.jrmichelson.cl/",
+  userApiProd: "admin",
+  passApiProd: "jrApiMichelsonEnAmbienteProdPanConMermelada",
 
-}
+  //Ambiente Local
+  backendLocal: "http://localhost:3000/",
+  userApiLocal: "admin",
+  passApiLocal: "jrMichelsonApi123AmbienteLocal",
+
+
+
+  invalidEnvironment: "revisar.url.environment",
+};
 
 const env = () => {
-  
-    let url;
-    console.log(process.env.NODE_ENV)
-    if (process.env.NODE_ENV === "production") {
-      console.log('hola prod')
-      url = envURLs.backendProd;
-    
-    } else {
-      console.log('hola local')
-      url = envURLs.backendLocal;
+  let apiConexion;
+  console.log(process.env.NODE_ENV);
+  if (process.env.NODE_ENV === "production") {
+    console.log("hola prod");
+    apiConexion =  {
+      url : envURLs.backendProd,
+      user: envURLs.userApiProd,
+      pass: envURLs.passApiProd
     }
-    return  url
-  };
+    
+  } else {
+    console.log("hola local");
+    apiConexion =  {
+      url : envURLs.backendLocal,
+      user: envURLs.userApiLocal,
+      pass: envURLs.passApiLocal
+    }
+  }
+  return apiConexion;
+};
 
-
-export const apiUrl = () => env();
+export const apiConexion = () => env();
