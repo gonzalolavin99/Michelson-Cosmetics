@@ -8,7 +8,9 @@ import loginRouter from "@routes/login"
 const app = express();
 // Then pass these options to cors:
 // If you have more origins you would like to add, you can add them to the array below.
-const allowedOrigins = ['http://localhost:5173','https://jrmichelson.cl'];
+const allowedOrigins = ['https://jrmichelson.cl',
+//'http://localhost:5173'
+];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins
