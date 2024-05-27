@@ -73,4 +73,19 @@ namespace API_KHIPU.Routes
         public string paymentId { get; set; }
         public string statusPurchase { get; set; } 
     }
+
+    public class LoginRequest 
+    {
+        public string user { get; set; }
+        public string pass { get; set; }
+    }
+    public class ResponseBase<T>
+    {
+        public string Message { get; set; }
+        public T Data { get; set; }
+        public List<T> DataList { get; set; }
+        public bool Success { get; set; }
+
+ 
+    }
 }
