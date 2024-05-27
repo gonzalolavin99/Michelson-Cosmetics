@@ -7,7 +7,15 @@ import loginRouter from "@routes/login"
 
 const app = express();
 // Then pass these options to cors:
-app.use(cors());
+// If you have more origins you would like to add, you can add them to the array below.
+const allowedOrigins = ['http://localhost:3000','https://jrmichelson.cl/'];
+
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
+
+// Then pass these options to cors:
+app.use(cors(options));
 app.use(express.json());
 app.use("/ticket", ticketRouter);
 app.use("/purchase", purchaseRouter);
