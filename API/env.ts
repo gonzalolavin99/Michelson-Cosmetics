@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 const envURLs = {
   //Conexion Local
   hostLocal: "localhost",
@@ -7,24 +7,25 @@ const envURLs = {
   passLocal: "1423",
   databaseLocal: "jrmichelson",
   sslDbConfigLocal: false,
-
   apiKhipuLocal: "http://localhost:5185/",
   urlPaymentSuccessLocal: "http://localhost:5173/compra-exitosa",
   urlPaymentCancelLocal: "http://localhost:5173/compra-fallida",
-  urlPaymentNotify:"http://3.145.103.55/Khipu/notifyPurchase",
-  
+  secretKeyLocal: "debJrMichelson",
 
   //Conexion Production
-  hostProd:
-    "ls-fd0fede4d688ea8a58b43a62ca31bd363bbd9918.cve2q220mboh.ca-central-1.rds.amazonaws.com",
+  hostProd:"ls-fd0fede4d688ea8a58b43a62ca31bd363bbd9918.cve2q220mboh.ca-central-1.rds.amazonaws.com",
   portProd: 5432,
   userProd: "jrmichelsondbadmin",
   passProd: "12345678",
   databaseProd: "dbjrmichelson",
+  sslDbConfigProd: { rejectUnauthorized: false, requestCert: true },
   apiKhipuProd: "http://3.145.103.55/Khipu/",
-  sslDbConfigProd: {rejectUnauthorized:false, requestCert:true},
-  urlPaymentSuccessProd: "",
-  urlPaymentCanceProd: "",
+  urlPaymentSuccessProd: "https://jrmichelson.cl/compra-exitosa",
+  urlPaymentCanceProd: "https://jrmichelson.cl/compra-fallida",
+  secretKeyProd: "pr0dS3rver4WSJrm1chelson",
+
+  //Compartido
+  urlPaymentNotify: "http://3.145.103.55/Khipu/notifyPurchase"
 };
 
 const getEnv = () => {
@@ -40,16 +41,16 @@ const getEnv = () => {
       user: envURLs.userProd,
       pass: envURLs.passProd,
       databaseName: envURLs.databaseProd,
-      sslConfig: envURLs.sslDbConfigProd
+      sslConfig: envURLs.sslDbConfigProd,
     };
     conectionKhipu = {
       urlApi: envURLs.apiKhipuProd,
-      urlPaymentCancel: envURLs.urlPaymentCancelLocal,
-      urlPaymentSuccess: envURLs.urlPaymentSuccessLocal,
-      urlPaymentNotify: envURLs.urlPaymentNotify
+      urlPaymentCancel: envURLs.urlPaymentCanceProd,
+      urlPaymentSuccess: envURLs.urlPaymentSuccessProd,
+      urlPaymentNotify: envURLs.urlPaymentNotify,
     };
 
-    env = { conectiondb, conectionKhipu };
+    env = { conectiondb, conectionKhipu, secretKey:envURLs.secretKeyProd, isLocal: false };
   } else {
     console.log("hola local");
     conectiondb = {
@@ -58,15 +59,15 @@ const getEnv = () => {
       user: envURLs.userNameLocal,
       pass: envURLs.passLocal,
       databaseName: envURLs.databaseLocal,
-      sslConfig: envURLs.sslDbConfigLocal
+      sslConfig: envURLs.sslDbConfigLocal,
     };
     conectionKhipu = {
       urlApi: envURLs.apiKhipuLocal,
       urlPaymentCancel: envURLs.urlPaymentCancelLocal,
       urlPaymentSuccess: envURLs.urlPaymentSuccessLocal,
-      urlPaymentNotify: envURLs.urlPaymentNotify
+      urlPaymentNotify: envURLs.urlPaymentNotify,
     };
-    env = { conectiondb, conectionKhipu };
+    env = { conectiondb, conectionKhipu, secretKey:envURLs.secretKeyLocal, isLocal: true };
   }
   return env;
 };
@@ -88,8 +89,6 @@ export interface ConnectionKhipu {
   urlPaymentCancel: string;
   urlPaymentNotify: string;
 }
-
-
 
 export const transporter = nodemailer.createTransport({
   host: "email-smtp.us-east-1.amazonaws.com",

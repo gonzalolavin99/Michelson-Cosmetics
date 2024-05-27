@@ -1,16 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TicketContext } from "../../context/TicketContext.jsx";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 import {
   Box,
   Flex,
   Heading,
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
+  Button
 } from "@chakra-ui/react";
 import "./comprarNumero.css";
 import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero.jsx";
@@ -20,12 +17,14 @@ import FormularioDatos from "./FormularioDatos.jsx";
 import VerificarDatos from "./VerificarDatos.jsx";
 import ApiPurchase from "../../api/purchase/Purchase";
 import { loadPersona } from "../../redux/reducer/PurchaseReducer";
+import { selectToken } from "../../redux/reducer/TokenReducer";
 
 
 const ComprarNumero = () => {
   const [compraExitosa, setCompraExitosa] = useState(false);
 
   const dispatch = useAppDispatch()
+  const token = useAppSelector(selectToken)
   // Estado para almacenar los datos del formulario
   const [formData, setFormData] = useState({
     name: "",
@@ -96,7 +95,8 @@ const ComprarNumero = () => {
       tickets: generateTicket()
 
     }
-    let response  =  await ApiPurchase.CreatePurchase(newPurchasr)
+
+    let response  =  await ApiPurchase.CreatePurchase(newPurchasr, token)
     if(response.Data.success)
     {
       const form = document.createElement("form");

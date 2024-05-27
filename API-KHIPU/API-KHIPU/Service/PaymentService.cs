@@ -9,6 +9,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net.Http;
 using System.Text;
 using System;
+using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace API_KHIPU.Service
 {
@@ -69,14 +72,21 @@ namespace API_KHIPU.Service
                 Configuration.ReceiverId = Convert.ToInt64(_configuration["ApiKhipu:recieved_id"]);
                 Configuration.Secret = _configuration["ApiKhipu:secret_key"];
                 Khipu.Model.PaymentsResponse purchase =  khipu.PaymentsGet(notiToken.notification_token);
-                var newp = new { pass = purchase.PaymentId, idPurchase = purchase.ReceiverId };
-                string jsonData = JsonSerializer.Serialize(newp);
+                string jsonData = System.Text.Json.JsonSerializer.Serialize(newp);
 
                 // Crear el contenido de la solicitud
-                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var login = new LoginRequest { user = _configuration["ApiJrMichelson:user"], pass = _configuration["ApiJrMichelson:pass"] };
+                string jsonDataLogin = System.Text.Json.JsonSerializer.Serialize(login);
+                var contentLogin = new StringContent(jsonDataLogin, Encoding.UTF8, "application/json");
 
-                // Enviar la solicitud POST
-                HttpResponseMessage response = await _httpClient.PostAsync("http://35.183.244.41/ticket", content);
+                HttpResponseMessage responseLogin = await _httpClient.PostAsync(_configuration["ApiJrMichelson:url"]+"login", contentLogin);
+                string responseContent = await responseLogin.Content.ReadAsStringAsync();
+
+                // Deserializar la respuesta JSON a un objeto
+                ResponseBase<string> responseData = JsonConvert.DeserializeObject<ResponseBase<string>>(responseContent);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", responseData.Data);
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await _httpClient.PostAsync(_configuration["ApiJrMichelson:url"] + "purchase/notifyPurchase", content);
 
                 // Asegurarse de que la solicitud fue exitosa
                 response.EnsureSuccessStatusCode();
@@ -84,9 +94,6 @@ namespace API_KHIPU.Service
                 // Leer la respuesta
                 string responseBody = await response.Content.ReadAsStringAsync();
                
-
-
-
 
 
             }
