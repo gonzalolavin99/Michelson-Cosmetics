@@ -1,19 +1,25 @@
 import express from "express";
 import cors from "cors";
 //Importacion de Routes
-import ticketRouter from "@routes/ticket"
-import purchaseRouter from "@routes/purchase"
-import loginRouter from "@routes/login"
+import ticketRouter from "@routes/ticket";
+import purchaseRouter from "@routes/purchase";
+import loginRouter from "@routes/login";
+import { env } from "env";
 
 const app = express();
-// Then pass these options to cors:
-// If you have more origins you would like to add, you can add them to the array below.
-const allowedOrigins = ['https://jrmichelson.cl',
-//'http://localhost:5173'
-];
+
+const allowedOrigins = ["https://jrmichelson.cl"];
 
 const options: cors.CorsOptions = {
-  origin: allowedOrigins
+  origin: (origin, callback) => {
+    if (allowedOrigins.find((o) => o == origin) || env().isLocal) {
+    
+      callback(null, true);
+    } else {
+      
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
 };
 
 // Then pass these options to cors:

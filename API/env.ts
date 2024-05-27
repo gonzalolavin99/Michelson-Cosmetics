@@ -50,7 +50,7 @@ const getEnv = () => {
       urlPaymentNotify: envURLs.urlPaymentNotify,
     };
 
-    env = { conectiondb, conectionKhipu, secretKey:envURLs.secretKeyProd };
+    env = { conectiondb, conectionKhipu, secretKey:envURLs.secretKeyProd, isLocal: false };
   } else {
     console.log("hola local");
     conectiondb = {
@@ -67,7 +67,7 @@ const getEnv = () => {
       urlPaymentSuccess: envURLs.urlPaymentSuccessLocal,
       urlPaymentNotify: envURLs.urlPaymentNotify,
     };
-    env = { conectiondb, conectionKhipu, secretKey:envURLs.secretKeyLocal };
+    env = { conectiondb, conectionKhipu, secretKey:envURLs.secretKeyLocal, isLocal: true };
   }
   return env;
 };
