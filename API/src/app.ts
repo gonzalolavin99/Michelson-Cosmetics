@@ -8,7 +8,7 @@ import { env } from "env";
 
 const app = express();
 
-const allowedOrigins = ["https://jrmichelson.cl","http://3.145.103.55/Khipu"];
+const allowedOrigins = ["https://jrmichelson.cl","http://3.145.103.55"];
 
 const options: cors.CorsOptions = {
   origin: (origin, callback) => {
