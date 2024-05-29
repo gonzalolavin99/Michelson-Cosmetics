@@ -12,6 +12,7 @@ const VerificarDatos = ({
   totalPagar,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [redirecting, setRedirecting] = useState(false);
 
   const getRegionLabel = (regionValue) => {
     const region = regionOptions.find(option => option.value === regionValue);
@@ -20,7 +21,10 @@ const VerificarDatos = ({
 
   const handlePurchaseClick = () => {
     if (totalTickets > 0) {
-      handleConfirmPurchase();
+      setRedirecting(true);
+      setTimeout(() => {
+        handleConfirmPurchase();
+      }, 4000); // Simula un retraso de 2 segundos antes de la redirección
     } else {
       Toastify({
         text: "Debe al menos comprar un ticket.",
@@ -37,6 +41,24 @@ const VerificarDatos = ({
       }).showToast();
     }
   };
+
+  if (redirecting) {
+    return (
+      <Box
+        h="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        padding="1em"
+        textAlign="center"
+      >
+        <Box>
+          <Heading mb={6}>Te estamos redireccionando a KHIPU para que puedas pagar :) </Heading>
+          <Spinner />
+        </Box>
+      </Box>
+    );
+  }
 
   return (
     <Box
