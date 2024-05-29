@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Heading, Text, Flex, Button } from "@chakra-ui/react";
+import Toastify from "toastify-js";
 
 const VerificarDatos = ({
   formData,
@@ -12,6 +13,26 @@ const VerificarDatos = ({
   const getRegionLabel = (regionValue) => {
     const region = regionOptions.find(option => option.value === regionValue);
     return region ? region.label : '';
+  };
+
+  const handlePurchaseClick = () => {
+    if (totalTickets > 0) {
+      handleConfirmPurchase();
+    } else {
+      Toastify({
+        text: "Debe al menos comprar un ticket.",
+        duration: 5000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#ff4c4c",
+          color: "#ffffff",
+        },
+      }).showToast();
+    }
   };
 
   return (
@@ -39,18 +60,16 @@ const VerificarDatos = ({
         <Text mb={2}>Total de tickets: {totalTickets}</Text>
         <Text mb={2}>Total a pagar: ${totalPagar}</Text>
         <div style={{display:"flex", justifyContent:"center", width: '100px', height: '100px' }}>
-  <img src="https://www.khipu.com/wp-content/uploads/2022/03/16-Isotipo-blanco-borde.svg" style={{ width: '100%', height: '100%' }} />
-</div>
+          <img src="https://www.khipu.com/wp-content/uploads/2022/03/16-Isotipo-blanco-borde.svg" style={{ width: '100%', height: '100%' }} />
+        </div>
         <Flex justify="space-between" mt={4}>
-        
           <Button
             colorScheme="pink"
             marginRight="0.5em"
-            onClick={handleConfirmPurchase}
+            onClick={handlePurchaseClick}
           >
             Ir a pagar con Khipu
           </Button>
-          
         </Flex>
       </Box>
     </Box>
