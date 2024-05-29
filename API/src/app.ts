@@ -12,6 +12,7 @@ const allowedOrigins = ["https://jrmichelson.cl","http://3.145.103.55"];
 
 const options: cors.CorsOptions = {
   origin: (origin, callback) => {
+    console.log("Se esta validando el siguiente origin: "+origin)
     if (allowedOrigins.find((o) => o == origin) || env().isLocal) {
     
       callback(null, true);
