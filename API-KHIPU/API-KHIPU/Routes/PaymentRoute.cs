@@ -21,11 +21,11 @@ namespace API_KHIPU.Routes
 
             });
 
-            app.MapPost("/newPurchase", (NewPurchaseRequest purchase, PaymentService _paymentService) =>
+            app.MapPost("/newPurchase", async (NewPurchaseRequest purchase, PaymentService _paymentService) =>
             {
 
                 
-                return _paymentService.CreateNewPurchase(purchase);
+                return await _paymentService.CreateNewPurchase(purchase);
 
             });
 
@@ -42,6 +42,22 @@ namespace API_KHIPU.Routes
                 _paymentService.NotifyPurcharse(paymentsResponse);
 
                 return Results.Ok();            });
+
+            app.MapPost("/notifyPurchaseTest", async (HttpRequest request, PaymentService _paymentService) =>
+            {
+
+
+
+                var form = await request.ReadFormAsync();
+                PaymentsResponse paymentsResponse = new PaymentsResponse()
+                {
+                    notification_token = form["notification_token"].ToString(),
+                    api_version = form["api_version"].ToString()
+                };
+
+                return await _paymentService.NotifyPurcharseTest(paymentsResponse);
+
+            });
         }
 
 

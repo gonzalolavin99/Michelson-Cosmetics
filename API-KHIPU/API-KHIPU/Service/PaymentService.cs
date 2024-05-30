@@ -20,11 +20,13 @@ namespace API_KHIPU.Service
         private readonly IConfiguration _configuration;
         PaymentsApi khipu = new PaymentsApi();
         private readonly HttpClient _httpClient;
+        private readonly ILogger<PaymentService> _logger;
 
-        public PaymentService(IConfiguration configuration) 
+        public PaymentService(IConfiguration configuration, ILogger<PaymentService> logger) 
         { 
             _configuration = configuration;
             _httpClient = new HttpClient();
+            _logger = logger;
         }
 
         public async Task<NewPurchaseResponse> CreateNewPurchase(NewPurchaseRequest purchase)
@@ -72,17 +74,18 @@ namespace API_KHIPU.Service
                 Configuration.ReceiverId = Convert.ToInt64(_configuration["ApiKhipu:recieved_id"]);
                 Configuration.Secret = _configuration["ApiKhipu:secret_key"];
                 Khipu.Model.PaymentsResponse purchase =  khipu.PaymentsGet(notiToken.notification_token);
+                var newp = new NotifyRequest { paymentId = purchase.PaymentId, receiverId = (int)purchase.ReceiverId, statusPurchase = purchase.Status };
                 string jsonData = System.Text.Json.JsonSerializer.Serialize(newp);
 
-                // Crear el contenido de la solicitud
+        
                 var login = new LoginRequest { user = _configuration["ApiJrMichelson:user"], pass = _configuration["ApiJrMichelson:pass"] };
                 string jsonDataLogin = System.Text.Json.JsonSerializer.Serialize(login);
                 var contentLogin = new StringContent(jsonDataLogin, Encoding.UTF8, "application/json");
-
+                _httpClient.DefaultRequestHeaders.Add("Origin", _configuration["ApiJrMichelson:origin"]);
                 HttpResponseMessage responseLogin = await _httpClient.PostAsync(_configuration["ApiJrMichelson:url"]+"login", contentLogin);
                 string responseContent = await responseLogin.Content.ReadAsStringAsync();
+                _logger.LogInformation("Respuesta Login ApiJrMichelson: "+responseContent);
 
-                // Deserializar la respuesta JSON a un objeto
                 ResponseBase<string> responseData = JsonConvert.DeserializeObject<ResponseBase<string>>(responseContent);
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", responseData.Data);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -99,8 +102,51 @@ namespace API_KHIPU.Service
             }
             catch (Exception ex)
             {
-
+                _logger.LogInformation("Error notify: " + ex.Message+" "+ex.InnerException.Message);
                 Console.WriteLine(ex);
+            }
+
+        }
+        public async Task<string> NotifyPurcharseTest(Routes.PaymentsResponse notiToken)
+        {
+            try
+            {
+                Configuration.ReceiverId = Convert.ToInt64(_configuration["ApiKhipu:recieved_id"]);
+                Configuration.Secret = _configuration["ApiKhipu:secret_key"];
+              
+                var newp = new NotifyRequest { paymentId = "prueba", receiverId = 1, statusPurchase = "done" };
+                string jsonData = System.Text.Json.JsonSerializer.Serialize(newp);
+                _httpClient.DefaultRequestHeaders.Add("Origin", _configuration["ApiJrMichelson:origin"]);
+                // Crear el contenido de la solicitud
+                var login = new LoginRequest { user = _configuration["ApiJrMichelson:user"], pass = _configuration["ApiJrMichelson:pass"] };
+                string jsonDataLogin = System.Text.Json.JsonSerializer.Serialize(login);
+                var contentLogin = new StringContent(jsonDataLogin, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage responseLogin = await _httpClient.PostAsync(_configuration["ApiJrMichelson:url"] + "login", contentLogin);
+                string responseContent = await responseLogin.Content.ReadAsStringAsync();
+                _logger.LogInformation("Se consume ApiJrMichelson con el siguiente Origin: " + _configuration["ApiJrMichelson:origin"]);
+                _logger.LogInformation("Respuesta Login ApiJrMichelson: " + responseContent);
+                // Deserializar la respuesta JSON a un objeto
+                ResponseBase<string> responseData = JsonConvert.DeserializeObject<ResponseBase<string>>(responseContent);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", responseData.Data);
+                
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await _httpClient.PostAsync(_configuration["ApiJrMichelson:url"] + "purchase/notifyPurchase", content);
+
+                // Asegurarse de que la solicitud fue exitosa
+                response.EnsureSuccessStatusCode();
+
+                // Leer la respuesta
+                string responseBody = await response.Content.ReadAsStringAsync();
+                _logger.LogInformation("Respuesta Notify ApiJrMichelson: " + responseBody);
+                return responseBody;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("Error notify test: " + ex.Message + " " + ex.InnerException.Message);
+                Console.WriteLine(ex);
+                return ex.Message;
             }
 
         }
