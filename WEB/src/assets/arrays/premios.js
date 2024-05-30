@@ -29,7 +29,7 @@ export const premios = [
       imagenes: [
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
         "https://i.pinimg.com/736x/cb/ba/2d/cbba2d80077dc92c9b0d6e522acd31d2.jpg",
-        "imagen9.jpg",
+        "https://i.pinimg.com/564x/a8/8e/ad/a88ead7601dcdec0c6784a323e041c8c.jpg",
       ],
       descripcionLarga: "Versión romántica del brazalete de Pandora. El brazalete está hecho a mano con una cadena de serpiente de plata esterlina y tiene un cierre en forma de corazón. Se destaca por sí solo, pero se ve aún mejor cuando se le agregan charms y clips de Pandora. Puede usarse solo o combinado con otras pulseras de cadena Pandora para crear un look elegante.",
     },

@@ -65,6 +65,9 @@
     display: block;
    
   }
+#nav{
+  bottom: 1 ;
+}
 
   .navbar {
     display: flex;
@@ -75,7 +78,7 @@
     right: 0;
     padding: 2rem;
     background-color: #ffffff;
-    bottom: 1;
+    bottom: 5;
     box-shadow: 0 0 0 100vmax rgb(0, 0, 0, 0.5);
     gap: 1.5rem;
     opacity: 0;
@@ -88,6 +91,7 @@
   .nav-visible {
     opacity: 1;
     visibility: visible;
+    bottom: 5;
   }
 
   .nav-list {
