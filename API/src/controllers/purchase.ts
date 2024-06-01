@@ -7,10 +7,12 @@ import { PurchaseRequest } from "@dto/PurchaseRequest";
 import { Ticket } from "@models/Ticket";
 import { NotifyRequest } from "@dto/NotifyRequest";
 import { transporter } from "env";
+import { Adress } from "@models/Adress";
 
 const purchaseRepository = AppDataSource.getRepository(Purchase);
 const personRepository = AppDataSource.getRepository(Person);
 const ticketRepository = AppDataSource.getRepository(Ticket);
+const adressRepository = AppDataSource.getRepository(Adress);
 
 async function getPurchase(): Promise<ResponseBase<Purchase>> {
   console.log("Hola desde tickets");
@@ -31,10 +33,21 @@ async function createNewPurchase(
   try {
     let purchase = purchaseRequest.purchase;
     let person = purchaseRequest.person;
+    let adress = purchaseRequest.adress;
+    //Validar existencia de la persona
     if (
       (await personRepository.findOne({ where: { rut: person.rut } })) == null
     ) {
       await personRepository.save(person);
+    }
+    let adressOld = await adressRepository.findOne({
+      where: { rutPerson: adress.rutPerson },
+    });
+    //Validar direccion persona
+    if (adressOld !== null) {
+      await adressRepository.update(adressOld.id, adress);
+    } else {
+      await adressRepository.save(adress);
     }
     await purchaseRepository.save(purchase);
     const responseKhipu = await ApiKhipu.NewPurchase(purchase);
@@ -85,10 +98,16 @@ async function notifyPurchase(
         var persona: Person | null = await personRepository.findOne({
           where: { rut: purchase.rutPerson },
         });
-        if (persona != null) {
+        var direccion: Adress | null = await adressRepository.findOne({
+          where: { rutPerson: purchase.rutPerson },
+        });
+        if (persona != null && direccion !== null) {
+          const ticket = await ticketRepository.find({
+            where: { idPurchase: purchase.id },
+          });
           const mailOptions = {
             from: "notificaciones@jrmichelson.cl",
-            to: "cliente@jrmichelson.cl",
+            to: persona.email,
             subject: "Pago realizado",
             html: `<!DOCTYPE html>
               <html>
@@ -156,19 +175,20 @@ async function notifyPurchase(
                     <p>RUT: ${persona.rut}</p>
                     <p>Correo electrónico: ${persona.email}</p>
                     <p>Número de teléfono: ${persona.phone}</p>
-                    <p>Región: {{region}}</p>
-                    <p>Comuna: {{commune}}</p>
-                    <p>Calle: {{street}}</p>
-                    <p>Número de casa: {{houseNumber}}</p>
-                    <p>Departamento: {{apartment}}</p>
+                    <p>Región: ${direccion.region}</p>
+                    <p>Comuna: ${direccion.commune}</p>
+                    <p>Calle: ${direccion.street}</p>
+                    <p>Número de casa: ${direccion.houseNumber}</p>
+                    <p>Departamento: ${direccion.detail}</p>
                   </div>
               
                   <div class="ticket-info">
-                    <p>Cantidad de tickets: {{ticketCount}}</p>
+                    <p>Cantidad de tickets: ${ticket.length}</p>
                     <ul>
-                      {{#each ticketIds}}
-                      <li>Ticket ID: {{this}}</li>
-                      {{/each}}
+                      ${ticket.map(a=>{
+                        return "<li>Ticket HASH: "+a.pass+" </li>"
+                      })}
+                      
                     </ul>
                     <p>Monto total: ${purchase.amount}</p>
                   </div>
