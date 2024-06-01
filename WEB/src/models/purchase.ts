@@ -1,3 +1,4 @@
+import { Adress } from "./adress";
 import { Person } from "./person";
 import { Ticket } from "./ticket";
 
@@ -22,5 +23,6 @@ export interface PurchaseRequest
 {
     purchase: Purchase,
     person: Person,
-    tickets: Ticket[]
+    tickets: Ticket[],
+    adress: Adress
 }

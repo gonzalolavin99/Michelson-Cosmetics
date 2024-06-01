@@ -3,12 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TicketContext } from "../../context/TicketContext.jsx";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
-import {
-  Box,
-  Flex,
-  Heading,
-  Button
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Button } from "@chakra-ui/react";
 import "./comprarNumero.css";
 import JuegoComprarNumero from "../../components/Juego/JuegoComprarNumero.jsx";
 import Toastify from "toastify-js";
@@ -19,12 +14,11 @@ import ApiPurchase from "../../api/purchase/Purchase";
 import { loadPersona } from "../../redux/reducer/PurchaseReducer";
 import { selectToken } from "../../redux/reducer/TokenReducer";
 
-
 const ComprarNumero = () => {
   const [compraExitosa, setCompraExitosa] = useState(false);
 
-  const dispatch = useAppDispatch()
-  const token = useAppSelector(selectToken)
+  const dispatch = useAppDispatch();
+  const token = useAppSelector(selectToken);
   // Estado para almacenar los datos del formulario
   const [formData, setFormData] = useState({
     name: "",
@@ -53,59 +47,71 @@ const ComprarNumero = () => {
 
   // Función para realizar la compra
   const handleCompra = async () => {
-
     //setCantidadTickets((p)=>{p+1});
-    const persona = {persona:{
-      name: formData.name,
-      email: formData.email,
-      comune: formData.commune,
-      apartment: formData.apartment,
-      phone: formData.phone,
-      houseNumber: formData.houseNumber,
-      region: formData.region,
-      street: formData.street,
-      rut: formData.rut
-    }}
+    const persona = {
+      persona: {
+        name: formData.name,
+        email: formData.email,
+        commune: formData.commune,
+        apartment: formData.apartment,
+        phone: formData.phone,
+        houseNumber: formData.houseNumber,
+        region: formData.region,
+        street: formData.street,
+        rut: formData.rut,
+      },
+    };
 
-    dispatch(loadPersona(persona))
+    dispatch(loadPersona(persona));
 
-    const newPurchasr  = {
+    const newPurchasr = {
       person: {
         rut: persona.persona.rut,
 
-        name: persona.persona.name, 
-      
+        name: persona.persona.name,
+
         phone: persona.persona.phone,
-      
-        email: persona.persona.email
+
+        email: persona.persona.email,
       },
       purchase: {
-        id:0,
-  
+        id: 0,
+
         rutPerson: persona.persona.rut,
-    
+
         idtransaction: "",
-    
+
         date: new Date(),
-    
+
         amount: totalPagar,
-    
-        state: 'PENDING'
+
+        state: "PENDING",
       },
-      tickets: generateTicket()
+      tickets: generateTicket(),
+      adress: {
+        region: persona.persona.region,
 
-    }
+        street: persona.persona.street,
 
-    let response  =  await ApiPurchase.CreatePurchase(newPurchasr, token)
-    if(response.Data.success)
-    {
+        commune: persona.persona.commune,
+
+        houseNumber: persona.persona.houseNumber,
+
+        detail: persona.persona.detail,
+
+        rutPerson: persona.persona.rut
+      },
+    };
+
+    let response = await ApiPurchase.CreatePurchase(newPurchasr, token);
+    if (response.Data.success) {
       const form = document.createElement("form");
       form.method = "post";
       form.action = response.Data.urlPaymentKhipu;
       document.body.appendChild(form);
       form.submit();
     }
-     // Pasa regionOptions como prop
+    // Pasa regionOptions como prop
     setCompraExitosa(true);
   };
 
@@ -130,7 +136,8 @@ const ComprarNumero = () => {
     if (formData.email.trim() === "") {
       errors.email = "El correo electrónico es requerido";
     } else if (!validateEmail(formData.email)) {
-      errors.email = "El formato del correo electrónico no es válido. Ejemplo: prueba@ejemplo.com";
+      errors.email =
+        "El formato del correo electrónico no es válido. Ejemplo: prueba@ejemplo.com";
     }
 
     if (formData.phone.trim() === "") {
@@ -156,10 +163,14 @@ const ComprarNumero = () => {
     } else {
       setFormErrors(errors);
 
-      const errorMessages = Object.entries(errors).map(([key, value]) => `${key}: ${value}`);
+      const errorMessages = Object.entries(errors).map(
+        ([key, value]) => `${key}: ${value}`
+      );
 
       Toastify({
-        text: "Por favor, corrige los siguientes errores:\n\n" + errorMessages.join("\n"),
+        text:
+          "Por favor, corrige los siguientes errores:\n\n" +
+          errorMessages.join("\n"),
         duration: 10000,
         newWindow: true,
         close: true,
@@ -185,14 +196,14 @@ const ComprarNumero = () => {
   };
 
   const validateRut = (rut) => {
-    rut = rut.replace(/\./g, '').replace(/-/g, '');
+    rut = rut.replace(/\./g, "").replace(/-/g, "");
     const dv = rut.slice(-1).toUpperCase();
     const body = rut.slice(0, -1);
-  
+
     if (isNaN(parseInt(body))) {
       return false;
     }
-  
+
     let suma = 0;
     let multiplo = 2;
     for (let i = 1; i <= body.length; i++) {
@@ -200,7 +211,7 @@ const ComprarNumero = () => {
       multiplo = multiplo < 7 ? multiplo + 1 : 2;
     }
     const expectedDv = 11 - (suma % 11);
-    const dvInt = dv === 'K' ? 10 : parseInt(dv);
+    const dvInt = dv === "K" ? 10 : parseInt(dv);
     if (expectedDv === 10 && dvInt === 10) return true;
     if (expectedDv === 11 && dvInt === 0) return true;
     if (expectedDv === dvInt) return true;
@@ -240,7 +251,8 @@ const ComprarNumero = () => {
         if (!validateEmail(value)) {
           setFormErrors({
             ...formErrors,
-            email: "El formato del correo electrónico no es válido. Ejemplo: prueba@ejemplo.com",
+            email:
+              "El formato del correo electrónico no es válido. Ejemplo: prueba@ejemplo.com",
           });
         } else {
           setFormErrors({ ...formErrors, email: "" });
@@ -264,131 +276,126 @@ const ComprarNumero = () => {
         }
         break;
 
-        case "street":
-          if (value.trim() === "") {
-            setFormErrors({ ...formErrors, street: "La calle es requerida" });
-          } else {
-            setFormErrors({ ...formErrors, street: "" });
-          }
-          break;
-        case "houseNumber":
-          if (value.trim() === "") {
-            setFormErrors({
-              ...formErrors,
-              houseNumber: "El número de casa es requerido",
-            });
-          } else {
-            setFormErrors({ ...formErrors, houseNumber: "" });
-          }
-          break;
-        case "apartment":
-          setFormErrors({ ...formErrors, apartment: "" });
-          break;
-        default:
-          break;
+      case "street":
+        if (value.trim() === "") {
+          setFormErrors({ ...formErrors, street: "La calle es requerida" });
+        } else {
+          setFormErrors({ ...formErrors, street: "" });
         }
-        };
-        
-        const regionOptions = [
-          { value: "", label: "Seleccione una región" },
-          { value: "arica-parinacota", label: "Región de Arica y Parinacota" },
-          { value: "tarapaca", label: "Región de Tarapacá" },
-          { value: "antofagasta", label: "Región de Antofagasta" },
-          { value: "atacama", label: "Región de Atacama" },
-          { value: "coquimbo", label: "Región de Coquimbo" },
-          { value: "valparaiso", label: "Región de Valparaíso" },
-          { value: "metropolitana", label: "Región Metropolitana" },
-          { value: "ohiggins", label: "Región de O'Higgins" },
-          { value: "maule", label: "Región del Maule" },
-          { value: "ñuble", label: "Región del Ñuble" },
-          { value: "biobio", label: "Región del Biobío" },
-          { value: "araucania", label: "Región de La Araucanía" },
-          { value: "los-rios", label: "Región de Los Ríos" },
-          { value: "los-lagos", label: "Región de Los Lagos" },
-          { value: "aysen", label: "Región de Aysén" },
-          { value: "magallanes", label: "Región de Magallanes" },
-        ];
-        
-        // Función para manejar la respuesta correcta del juego
-        const handleRespuestaCorrecta = () => {
-          Toastify({
-            text: "¡Respuesta correcta! Ahora puedes comprar tu número.",
-            duration: 8000,
-            newWindow: true,
-            close: true,
-            gravity: "top",
-            position: "right",
-            stopOnFocus: true,
-            style: {
-              background: "#ffc0cb",
-              color: "#000000",
-            },
-          }).showToast();
-          setMostrarFormulario(true);
-        };
-
-        const generateTicket = ()=>
-        {
-          let tickets = []
-          for (var i = 1; i <= cantidadTickets; i++) {
-            //hacer metodo md5
-            let pass = "sajdhgasjhdas"+new Date().getMilliseconds.toDateString+formData.name.charAt(Math.floor(Math.random()*formData.name.length))+formData.rut.charAt(Math.floor(Math.random()*formData.name.length));
-            tickets.push(
-              {
-                
-                  id: 0,
-                  pass: pass,
-                  idPurchase: 0,
-              
-              
-              }
-            )
-          }
-          return tickets
-
-
+        break;
+      case "houseNumber":
+        if (value.trim() === "") {
+          setFormErrors({
+            ...formErrors,
+            houseNumber: "El número de casa es requerido",
+          });
+        } else {
+          setFormErrors({ ...formErrors, houseNumber: "" });
         }
-        
-        return (
-          <Flex align="center" justify="center" minH="calc(100vh - 160px)" >
-            {!mostrarFormulario ? (
-              <JuegoComprarNumero onRespuestaCorrecta={handleRespuestaCorrecta} />
-            ) : (
-              <Box className="comprar-container" >
-                <Box className="comprar-form" maxW="1000px">
-                  <Heading className="comprar-heading">
-                    Como respondiste correctamente, puede comprar tu número. Ingresa
-                    tus datos para hacer la compra!
-                  </Heading>
-                  <FormularioDatos
-                    formData={formData}
-                    formErrors={formErrors}
-                    handleChange={handleChange}
-                    regionOptions={regionOptions}
-                    totalTickets={cantidadTickets}
-                    totalPagar={totalPagar}
-                  />
-                  <Flex justify="space-between" marginTop={5}>
-                    <Button colorScheme="pink" onClick={handleShowDataReview}>
-                      Revisar datos
-                    </Button>
-                  </Flex>
-                </Box>
-      
-                {showDataReview && (
-                  <VerificarDatos
-                    formData={formData}
-                    regionOptions={regionOptions}
-                    handleConfirmPurchase={handleConfirmPurchase}
-                    totalTickets={cantidadTickets}
-                    totalPagar={totalPagar}
-                  />
-                )}
-              </Box>
-            )}
-            
-          </Flex>
-        );
-      };
-      
-      export default ComprarNumero;
+        break;
+      case "apartment":
+        setFormErrors({ ...formErrors, apartment: "" });
+        break;
+      default:
+        break;
+    }
+  };
+
+  const regionOptions = [
+    { value: "", label: "Seleccione una región" },
+    { value: "arica-parinacota", label: "Región de Arica y Parinacota" },
+    { value: "tarapaca", label: "Región de Tarapacá" },
+    { value: "antofagasta", label: "Región de Antofagasta" },
+    { value: "atacama", label: "Región de Atacama" },
+    { value: "coquimbo", label: "Región de Coquimbo" },
+    { value: "valparaiso", label: "Región de Valparaíso" },
+    { value: "metropolitana", label: "Región Metropolitana" },
+    { value: "ohiggins", label: "Región de O'Higgins" },
+    { value: "maule", label: "Región del Maule" },
+    { value: "ñuble", label: "Región del Ñuble" },
+    { value: "biobio", label: "Región del Biobío" },
+    { value: "araucania", label: "Región de La Araucanía" },
+    { value: "los-rios", label: "Región de Los Ríos" },
+    { value: "los-lagos", label: "Región de Los Lagos" },
+    { value: "aysen", label: "Región de Aysén" },
+    { value: "magallanes", label: "Región de Magallanes" },
+  ];
+
+  // Función para manejar la respuesta correcta del juego
+  const handleRespuestaCorrecta = () => {
+    Toastify({
+      text: "¡Respuesta correcta! Ahora puedes comprar tu número.",
+      duration: 8000,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      style: {
+        background: "#ffc0cb",
+        color: "#000000",
+      },
+    }).showToast();
+    setMostrarFormulario(true);
+  };
+
+  const generateTicket = () => {
+    let tickets = [];
+    for (var i = 1; i <= cantidadTickets; i++) {
+      //hacer metodo md5
+      let pass =
+        "sajdhgasjhdas" +
+        new Date().getMilliseconds.toDateString +
+        formData.name.charAt(Math.floor(Math.random() * formData.name.length)) +
+        formData.rut.charAt(Math.floor(Math.random() * formData.name.length));
+      tickets.push({
+        id: 0,
+        pass: pass,
+        idPurchase: 0,
+      });
+    }
+    return tickets;
+  };
+
+  return (
+    <Flex align="center" justify="center" minH="calc(100vh - 160px)">
+      {!mostrarFormulario ? (
+        <JuegoComprarNumero onRespuestaCorrecta={handleRespuestaCorrecta} />
+      ) : (
+        <Box className="comprar-container">
+          <Box className="comprar-form" maxW="1000px">
+            <Heading className="comprar-heading">
+              Como respondiste correctamente, puede comprar tu número. Ingresa
+              tus datos para hacer la compra!
+            </Heading>
+            <FormularioDatos
+              formData={formData}
+              formErrors={formErrors}
+              handleChange={handleChange}
+              regionOptions={regionOptions}
+              totalTickets={cantidadTickets}
+              totalPagar={totalPagar}
+            />
+            <Flex justify="space-between" marginTop={5}>
+              <Button colorScheme="pink" onClick={handleShowDataReview}>
+                Revisar datos
+              </Button>
+            </Flex>
+          </Box>
+
+          {showDataReview && (
+            <VerificarDatos
+              formData={formData}
+              regionOptions={regionOptions}
+              handleConfirmPurchase={handleConfirmPurchase}
+              totalTickets={cantidadTickets}
+              totalPagar={totalPagar}
+            />
+          )}
+        </Box>
+      )}
+    </Flex>
+  );
+};
+
+export default ComprarNumero;
