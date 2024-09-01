@@ -27,7 +27,7 @@ export const IgButton = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={ig} alt="" />
+         <img src={ig} alt="" className="img-insta" />
           <div className="text">Instagram</div>
         </a>
       </div>

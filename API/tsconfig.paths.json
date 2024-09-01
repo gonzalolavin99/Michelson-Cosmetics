@@ -5,8 +5,9 @@
       "@models/*": ["src/database/models/*"],
       "@database/*": ["src/database/*"],
       "@typeorm/*": ["node_modules/typeorm/"],
-	  "@controllers/*": ["src/controllers/*"],
-	  "@routes/*": ["src/routes/*"]
+      "@controllers/*": ["src/controllers/*"],
+      "@routes/*": ["src/routes/*"],
+      "@dto/*": ["src/dto/*"]
     }
   }
 }

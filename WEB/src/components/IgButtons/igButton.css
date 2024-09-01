@@ -130,9 +130,9 @@
   display: flex;
   gap: 10px;
 }
-.img {
-  width: 100px;
-  height: 100px;
+.img-insta {
+  width: 80px; /* Cambiar el ancho a 80px */
+  height: 80px; /* Cambiar la altura a 80px */
   font-size: 25px;
   font-weight: 700;
   border: 1px solid #e6683c;

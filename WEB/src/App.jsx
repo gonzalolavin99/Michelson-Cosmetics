@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer} from "./components/listadoExportaciones.js";
+import { Footer} from "./components/Footer/Footer.jsx";
 import Home from "./views/Home";
 import Galeria from "./views/Galeria";
 import Terminos from "./views/Terminos";
@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Premios from "./views/Premios/Premios.jsx";
 import "./index.css";
 import PruebaApi from "./components/PruebaApi";
-import CompraExitosa from "./views/CompraExitosa";
+import CompraExitosa from "./views/CompraExitosa/CompraExitosa.jsx";
 import CompraFallida from "./views/CompraFallida";
 import TicketProvider from "./context/TicketContext";
 import NotFound from "./views/NotFound.jsx";
@@ -19,6 +19,8 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 
 
 const App = () => {
+  
+
   return (
     <ChakraProvider>
       <TicketProvider>

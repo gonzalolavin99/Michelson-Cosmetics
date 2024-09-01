@@ -1,17 +1,19 @@
 import axios from "axios";
-import { apiUrl } from "../enviroment";
+import { apiConexion } from "../enviroment";
 
-const baseURL = `${apiUrl()}/`;
+const baseURL = `${apiConexion().url}/`;
 const baseAxiosJsonHeaders = () => ({
-    headers: {
-     
-    },
-  });
-
+  headers: {},
+});
+export const InjectTokenHeader = (token) => ({
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
 export const Api = () => {
-    const axiosCreated = axios.create({
-      baseURL: baseURL,
-      headers: () => baseAxiosJsonHeaders()
-    });
-    return axiosCreated;
-  };
+  const axiosCreated = axios.create({
+    baseURL: baseURL,
+    headers: () => baseAxiosJsonHeaders(),
+  });
+  return axiosCreated;
+};
