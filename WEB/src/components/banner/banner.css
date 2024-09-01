@@ -43,6 +43,16 @@
   animation: slideInRight 7s ease forwards infinite;
 }
 
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10em;
+}
+
+.social-buttons > * {
+  max-width: 200px; /* Ajusta este valor según el ancho deseado para los botones */
+}
+
 @keyframes slideInLeft {
   from {
     transform: translateX(-100%);
@@ -101,4 +111,15 @@
     max-width: 5em; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
     height: auto; /* Mantiene la proporción de la imagen */
   }
+}
+
+@media screen and (max-width:768px){
+ .ig-container{
+  display: flex;
+
+ }
+
+ .ig-container img{
+  max-width: 5em;
+ }
 }

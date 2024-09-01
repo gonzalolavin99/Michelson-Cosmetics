@@ -5,7 +5,6 @@ import { ResponseBase } from "@controllers/utils/Response";
 
 const ticketRepository = AppDataSource.getRepository(Ticket)
 async function getTicket(): Promise<ResponseBase<Ticket>>{
-    console.log("Hola desde tickets")
     const ticket = await ticketRepository.find();
     console.log(ticket);
     const resp: ResponseBase<Ticket> = {

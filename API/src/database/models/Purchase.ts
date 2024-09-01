@@ -5,9 +5,13 @@ export class Purchase extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  rut: string;
+  rutPerson: string;
   @Column()
-  idtransaction: number;
+  idtransaction: string;
+  @Column()
+  amount: number;
   @Column()
   date: Date;
+  @Column()
+  state: 'PENDING' | 'CANCEL' | 'DONE' ;
 }

@@ -1,16 +1,18 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { TicketContext } from "../context/TicketContext";
+import { TicketContext } from "../../context/TicketContext.jsx";
 import { FaShoppingCart } from "react-icons/fa";
-import CartDrawer from "./CartDrawer/CartDrawer.jsx";
-import { FaTimes } from 'react-icons/fa';
+import CartDrawer from "../CartDrawer/CartDrawer.jsx";
+import "./Navbar.css";
+import { TiThMenu } from "react-icons/ti";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Navbar = () => {
   const { cantidadTickets, setCantidadTickets, handleCompra } = useContext(TicketContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [ticketResumen, setTicketResumen] = useState("");
   const [totalCompra, setTotalCompra] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(false);
 
   useEffect(() => {
     // Generar el resumen y calcular el total de la compra
@@ -23,6 +25,29 @@ const Navbar = () => {
       setTicketResumen(""); // Limpiar el resumen si no hay tickets
     }
   }, [cantidadTickets]);
+
+  useEffect(() => {
+    // Cerrar el Navbar cuando se cambia de ruta o se hace clic fuera de él
+    const handleRouteChange = () => {
+      setIsNavVisible(false);
+    };
+
+    const handleOutsideClick = (event) => {
+      const navbar = document.getElementById("nav");
+      if (navbar && !navbar.contains(event.target)) {
+        setIsNavVisible(false);
+      }
+    };
+
+    // window.addEventListener("popstate", handleRouteChange);
+    // document.addEventListener("click", handleOutsideClick);
+
+    // Limpiar los eventos cuando se desmonte el componente
+    return () => {
+      window.removeEventListener("popstate", handleRouteChange);
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   const sumarTicket = () => {
     handleCompra(1);
@@ -38,30 +63,44 @@ const Navbar = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleNavVisibility = () => {
+    setIsNavVisible(!isNavVisible);
   };
 
   return (
     <div className="navbar-container">
-      <nav className="navbar">
-        <div className="hamburger-menu-container">
-          {isMenuOpen ? (
-            <div className="menu-open">
-              <FaTimes className="close-menu-btn" onClick={toggleMenu} />
-              <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
+      <button className="abrir-menu" onClick={toggleNavVisibility}>
+        <TiThMenu />
+      </button>
+      <nav className={`navbar ${isNavVisible ? "nav-visible" : ""}`} id="nav">
+        <button className="cerrar-menu" id="cerrar" onClick={toggleNavVisibility}>
+          <IoCloseSharp />
+        </button>
+        <ul className="nav-list">
           <li className="nav-item">
-            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+              to="/"
+              onClick={() => setIsNavVisible(false)}
+            >
               Home
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/compra">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+              to="/compra"
+              onClick={() => setIsNavVisible(false)}
+            >
               Compra tu número
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/premios">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+              to="/premios"
+              onClick={() => setIsNavVisible(false)}
+            >
               Premios
             </NavLink>
           </li>
@@ -72,12 +111,14 @@ const Navbar = () => {
                 alignItems: "center",
                 border: "1px solid #ccc",
                 borderRadius: "36%",
-                padding: "0.5em",
+                padding: "0.2em",
                 backgroundColor: "#ffc0cb",
+                margin: "0",
+                top: "0",
               }}
             >
               <a className="cart-icon" onClick={toggleDrawer}>
-                <FaShoppingCart style={{ fontSize: "0.9em" }} />
+                <FaShoppingCart style={{ fontSize: "1em", paddingTop: "1px" }} />
               </a>
               {cantidadTickets > 0 && <span style={{ marginLeft: "0.5em" }}>{cantidadTickets}</span>}
             </div>
@@ -93,7 +134,11 @@ const Navbar = () => {
             />
           </li>
           <li className="nav-item">
-            <NavLink className={({ isActive }) => (isActive ? "active" : undefined)} to="/galeria">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+              to="/galeria"
+              onClick={() => setIsNavVisible(false)}
+            >
               Galería
             </NavLink>
           </li>
@@ -101,20 +146,12 @@ const Navbar = () => {
             <NavLink
               className={({ isActive }) => (isActive ? "active" : undefined)}
               to="/terminos"
+              onClick={() => setIsNavVisible(false)}
             >
               Términos y condiciones
             </NavLink>
-            </li>
-            </ul>
-            </div>
-          ) : (
-            <button className="hamburger-btn" onClick={toggleMenu}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          )}
-        </div>
+          </li>
+        </ul>
       </nav>
     </div>
   );

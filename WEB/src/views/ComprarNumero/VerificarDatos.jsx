@@ -24,7 +24,7 @@ const VerificarDatos = ({
       setRedirecting(true);
       setTimeout(() => {
         handleConfirmPurchase();
-      }, 4000);
+      }, 4000); // Simula un retraso de 2 segundos antes de la redirección
     } else {
       Toastify({
         text: "Debe al menos comprar un ticket.",

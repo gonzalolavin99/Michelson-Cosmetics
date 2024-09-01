@@ -17,11 +17,13 @@
     transition: box-shadow 0.3s ease;
   }
   
-  /* Estilos para la imagen de la tarjeta */
-  .card-image {
-    width: 100%; /* Cambiar el ancho para ocupar todo el espacio disponible */
-    height: auto; /* Ajustar la altura automáticamente */
-  }
+/* Estilos para la imagen de la tarjeta */
+.card-image {
+  width: 100%; /* Cambiar el ancho para ocupar todo el espacio disponible */
+  height: 30em; /* Establecer una altura fija para todas las imágenes */
+  object-fit: cover; /* Para mantener la relación de aspecto y recortar la imagen si es necesario */
+}
+
 
   .card:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
@@ -47,9 +49,27 @@
   /* Estilos para las imágenes del modal */
   .modal-image {
     width: 100%;
-    height: auto;
-    max-height: 50vh; /* Establece la altura máxima de las imágenes */
+    
+    /* Establece la altura máxima de las imágenes */
+    margin-top: 0.1em;
   }
+  .modal-description {
+    flex: 1; /* Permitir que la descripción ocupe todo el espacio disponible */
+    max-height: 50vh; /* Establecer una altura máxima */
+    overflow-y: auto; /* Agregar scroll vertical si el contenido es demasiado largo */
+    padding: 0;
+    padding-left: 20px; /* Agregar un espacio entre el carrusel y la descripción */
+  }
+
+  .modal-content-container{
+    height: 15em;
+    margin: 0;
+  }
+
+  .btn-pink-compra{
+    background-color: #ffc0cb;
+  }
+  
   
   /* Reglas de medios para hacer que las tarjetas sean responsivas */
   @media (max-width: 768px) {
